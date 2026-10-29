@@ -1,0 +1,54 @@
+*xsql.txt*  XSQL language support for Neovim
+
+==============================================================================
+CONTENTS                                                       *xsql-contents*
+
+  1. Intro ............................................ |xsql-intro|
+  2. Schema ........................................... |xsql-schema|
+  3. Server ........................................... |xsql-server|
+  4. Health ........................................... |xsql-health|
+
+==============================================================================
+1. INTRO                                                          *xsql-intro*
+
+Filetype detection, indentation, highlighting and the XSQL language server
+(diagnostics, completion, hover, document symbols) for `.xsql` files, the
+query language of Synthigy.
+
+Requires Neovim 0.11+ and Node 18+. The server is registered as `xsql_ls`
+with |vim.lsp.config()| and enabled automatically.
+
+==============================================================================
+2. SCHEMA                                                        *xsql-schema*
+
+The server checks queries against `synthigy.schema.json` or `schema.json`,
+found in the file's directory or any parent. Write it with the Synthigy CLI:
+>
+    synthigy schema pull
+<
+Without a schema you get syntax checks only. Changes to the file are picked
+up without restarting.
+
+==============================================================================
+3. SERVER                                                        *xsql-server*
+
+                                                            *g:xsql_ls_server*
+The server is found in this order:
+
+  1. `g:xsql_ls_server`, a path to a `server.js`, set before the plugin loads
+  2. `dist/server.js` bundled with this plugin
+  3. `synthigy-lsp` on PATH
+
+Override any setting the usual way:
+>lua
+    vim.lsp.config('xsql_ls', { root_markers = { 'schema.json' } })
+<
+==============================================================================
+4. HEALTH                                                        *xsql-health*
+
+    :checkhealth xsql
+
+reports the Neovim version, Node, the server in use and the schema found for
+the current buffer.
+
+ vim:tw=78:ts=8:ft=help:norl:
