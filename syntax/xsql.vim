@@ -22,7 +22,8 @@ syn match   xsqlJoin        "->" contained
 syn match   xsqlField       "\.[a-z_][a-z0-9_]*" contained
 
 syn match   xsqlMeta        "\<_[a-z_]\+\>"
-syn match   xsqlOperator    "->\|!=\|>=\|<=\|[=<>]"
+syn match   xsqlFunction    "\<\(count\|sum\|avg\|min\|max\)\ze\s*("
+syn match   xsqlOperator    "->\|!=\|!\ze[A-Za-z_]\|>=\|<=\|[=<>]"
 syn match   xsqlNumber      "\<\d\+\(\.\d\+\)\=\>"
 syn keyword xsqlKeyword     select from where group having order by limit offset
 syn keyword xsqlKeyword     asc desc distinct filter over as on and or not null true false
@@ -37,6 +38,7 @@ hi def link xsqlPlaceholder Special
 hi def link xsqlJoin        Operator
 hi def link xsqlField       Type
 hi def link xsqlMeta        Keyword
+hi def link xsqlFunction    Function
 hi def link xsqlOperator    Operator
 hi def link xsqlKeyword     Keyword
 hi def link xsqlNumber      Number

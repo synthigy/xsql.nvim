@@ -16339,6 +16339,10 @@ var init_main = __esm({
       }, null, null);
     })(a, Ch);
   }
+  function Ii(a) {
+    for (var b = ld; ; ) if (G(a)) b = M.h(b, D(a)), a = G(a);
+    else return C(b);
+  }
   function ue(a) {
     if (null != a && (a.F & 4096 || n === a.Ac)) return a.Db(null);
     if ("string" === typeof a) return a;
@@ -16764,6 +16768,12 @@ var init_main = __esm({
     if ("string" === typeof b) return Th(a, b);
     throw new TypeError("re-seq must match against a string.");
   }
+  function Ni(a) {
+    if (a instanceof RegExp) return a;
+    var b = Sh(/^\(\?([idmsux]*)\)/, a), c = N(b, 0, null);
+    b = N(b, 1, null);
+    return new RegExp(a.substring(null == c ? 0 : c.length), u(b) ? b : "");
+  }
   function Vh(a, b, c, d, e, f, g) {
     var h = qa;
     qa = null == qa ? null : qa - 1;
@@ -17074,6 +17084,36 @@ var init_main = __esm({
       return Nc(b) ? new Mc(b) : b;
     };
   }
+  function Oi(a) {
+    var b = ki(a);
+    return (function() {
+      function c(g, h) {
+        return Ka(b, g, h);
+      }
+      function d(g) {
+        return a.g ? a.g(g) : a.call(null, g);
+      }
+      function e() {
+        return a.v ? a.v() : a.call(null);
+      }
+      var f = null;
+      f = function(g, h) {
+        switch (arguments.length) {
+          case 0:
+            return e.call(this);
+          case 1:
+            return d.call(this, g);
+          case 2:
+            return c.call(this, g, h);
+        }
+        throw Error("Invalid arity: " + arguments.length);
+      };
+      f.v = e;
+      f.g = d;
+      f.h = c;
+      return f;
+    })();
+  }
   function li(a, b) {
     Ka(function(c, d) {
       return a.g ? a.g(d) : a.call(null, d);
@@ -17254,7 +17294,7 @@ var init_main = __esm({
     throw Error(["No method in multimethod '", w.g(a), "' for dispatch value: ", w.g(b)].join(""));
   }
   function Hi(a, b, c, d, e, f, g) {
-    var h = Ii;
+    var h = Pi;
     this.name = a;
     this.D = b;
     this.Nc = h;
@@ -17601,87 +17641,88 @@ var init_main = __esm({
   Mi.prototype.toString = function() {
     return hc(this);
   };
-  var Ni = new z(null, "nil", "nil", 99600501), Oi = new z(null, "entity-def", "entity-def", 1479583824), Pi = new z(null, "ge", "ge", 2089513250), Qi = new z(null, "line", "line", 212345235), Ri = new z(null, "string", "string", -1989541586), Si = new z(null, "list-literal", "list-literal", 408989698), Ti = new z(null, "binary-op", "binary-op", -1718429858), Ui = new z(null, "gt", "gt", -1797443692), Vi = new z(null, "reader-exception", "reader-exception", -1938323098), Wi = new z(null, "root-entity", "root-entity", -205257190), Xi = new z(
+  var Qi = new z(null, "nil", "nil", 99600501), Ri = new z(null, "entity-def", "entity-def", 1479583824), Si = new z(null, "ge", "ge", 2089513250), Ti = new z(null, "line", "line", 212345235), Ui = new z(null, "string", "string", -1989541586), Vi = new z(null, "list-literal", "list-literal", 408989698), Wi = new z(null, "binary-op", "binary-op", -1718429858), Xi = new z(null, "gt", "gt", -1797443692), Yi = new z(null, "reader-exception", "reader-exception", -1938323098), Zi = new z(null, "root-entity", "root-entity", -205257190), $i = new z(
     null,
     "after-not",
     "after-not",
     989078972
-  ), Yi = new vc(null, "js", "js", -886355190, null), Zi = new z(null, "relations", "relations", -427124442), $i = new z(null, "type-conflict?", "type-conflict?", 444149602), aj = new z(null, "scalar-and-expr", "scalar-and-expr", -1622862084), bj = new z(null, "namespace", "namespace", -377510372), cj = new vc(null, "uuid", "uuid", -504564192, null), dj = new z(null, "used-fns", "used-fns", -104591145), ej = new z(null, "description", "description", -1428560544), xa = new z(null, "dup", "dup", 556298533), fj = new z(
+  ), aj = new vc(null, "js", "js", -886355190, null), bj = new z(null, "relations", "relations", -427124442), dj = new z(null, "type-conflict?", "type-conflict?", 444149602), ej = new z(null, "scalar-and-expr", "scalar-and-expr", -1622862084), fj = new z(null, "namespace", "namespace", -377510372), cj = new vc(null, "uuid", "uuid", -504564192, null), gj = new z(null, "description", "description", -1428560544), xa = new z(null, "dup", "dup", 556298533), hj = new z(null, "call-field", "call-field", 641069844), ij = new z(
     null,
     "end-offset",
     "end-offset",
     -1290057545
-  ), gj = new z(null, "count", "count", 2139924085), hj = new z(null, "path-continuation", "path-continuation", 1949828098), ij = new z(null, "offsets", "offsets", 727555611), jj = new z(null, "number", "number", 1570378438), kj = new z(null, "message", "message", -406056002), lj = new z(null, "uuid", "uuid", -2145095719), mj = new z(null, "eq-parens", "eq-parens", 1103192736), va = new z(null, "readably", "readably", 1129599760), nj = new z(null, "eq", "eq", -618539067), T = new z(null, "from", "from", 1815293044), oj = new z(
+  ), jj = new z(null, "path-continuation", "path-continuation", 1949828098), lj = new z(null, "offsets", "offsets", 727555611), mj = new z(null, "number", "number", 1570378438), kj = new z(null, "message", "message", -406056002), nj = new z(null, "uuid", "uuid", -2145095719), oj = new z(null, "eq-parens", "eq-parens", 1103192736), va = new z(null, "readably", "readably", 1129599760), pj = new z(null, "eq", "eq", -618539067), tj = new z(null, "call-none", "call-none", -853648712), T = new z(null, "from", "from", 1815293044), uj = new z(
     null,
     "arg-stmt",
     "arg-stmt",
     1931784665
-  ), pj = new z(null, "cardinality", "cardinality", -104971109), qj = new z(null, "dash", "dash", 23821356), tj = new z(null, "block-start", "block-start", -333036359), uj = new z(null, "param-name", "param-name", 1477186051), vj = new z(null, "kind", "kind", -717265803), wj = new z(null, "entity", "entity", -450970276), xj = new z(null, "after-like", "after-like", -1325061198), yj = new z(null, "in-parens", "in-parens", 2114595281), zj = new z(null, "in-agg-body?", "in-agg-body?", 2079349618), Aj = new z(null, "selections", "selections", -1277610233), Bj = new z(null, "after-in", "after-in", 155255131), Cj = new z(null, "dedent", "dedent", -1577188063), Dj = new z(null, "after-is", "after-is", 375979581), Ej = new z(null, "neq", "neq", 1883246164), Fj = new vc(null, "Inf", "Inf", 647172781, null), Gj = new z(null, "severity", "severity", 175684886), Hj = new z(null, "agg-attr", "agg-attr", 1640427710), Ij = new z(null, "scalar-prim", "scalar-prim", 1979598231), Jj = new z(null, "data-var", "data-var", -172190977), Kj = new z(null, "scope", "scope", -439358418), Ii = new z(null, "default", "default", -1987822328), Jf = new z(null, "children", "children", -940561982), Lj = new z(null, "numeric-only?", "numeric-only?", -714521568), Mj = new z(null, "strable", "strable", 1877668047), Nj = new z(null, "ex-kind", "ex-kind", 1581199296), Oj = new z(null, "col", "col", -1959363084), Pj = new z(null, "relation", "relation", -693437925), Qj = new z(null, "relations-only?", "relations-only?", -973036265), Rj = new z(null, "errors", "errors", -908790718), Sj = new z(null, "primary-expr", "primary-expr", 1746685142), Tj = new z(null, "offset", "offset", 296498311), Uj = new z(
+  ), vj = new z(null, "cardinality", "cardinality", -104971109), wj = new z(null, "fn", "fn", -1175266204), qj = new z(null, "dash", "dash", 23821356), xj = new z(null, "block-start", "block-start", -333036359), yj = new z(null, "param-name", "param-name", 1477186051), zj = new z(null, "kind", "kind", -717265803), Aj = new z(null, "entity", "entity", -450970276), Bj = new z(null, "after-like", "after-like", -1325061198), Cj = new z(null, "in-parens", "in-parens", 2114595281), Dj = new z(null, "selections", "selections", -1277610233), Ej = new z(null, "after-in", "after-in", 155255131), Fj = new z(null, "dedent", "dedent", -1577188063), Gj = new z(null, "after-is", "after-is", 375979581), Hj = new z(null, "neq", "neq", 1883246164), Ij = new vc(null, "Inf", "Inf", 647172781, null), Jj = new z(null, "severity", "severity", 175684886), Kj = new z(null, "scalar-prim", "scalar-prim", 1979598231), Lj = new z(null, "data-var", "data-var", -172190977), Mj = new z(null, "scope", "scope", -439358418), Pi = new z(null, "default", "default", -1987822328), Jf = new z(null, "children", "children", -940561982), Nj = new z(null, "strable", "strable", 1877668047), Oj = new z(null, "ex-kind", "ex-kind", 1581199296), Pj = new z(null, "col", "col", -1959363084), Qj = new z(null, "relation", "relation", -693437925), Rj = new z(null, "errors", "errors", -908790718), Sj = new z(null, "primary-expr", "primary-expr", 1746685142), Tj = new z(null, "offset", "offset", 296498311), Uj = new z(null, "tokens", "tokens", -818939304), Vj = new z(null, "decl-offset", "decl-offset", 2058293567), Wj = new z(null, "map", "map", 1371690461), Xj = new z(null, "params", "params", 710516235), Yj = new z(null, "scalar-or-expr", "scalar-or-expr", 345993837), Zj = new z(null, "any-parens", "any-parens", -1041584282), ak = new z(null, "insert", "insert", 1286475395), bk = new z(null, "or-expr", "or-expr", 1848298779), ck = new z(null, "arg-predicate", "arg-predicate", 6664335), dk = new z(null, "typed?", "typed?", -1077227317), ek = new z(null, "in-string?", "in-string?", 890620978), fk = new z(null, "sql?", "sql?", -773838128), gk = new z(null, "optional", "optional", 2053951509), hk = new z(null, "readers", "readers", -2118263030), ik = new z(
     null,
-    "tokens",
-    "tokens",
-    -818939304
-  ), Vj = new z(null, "decl-offset", "decl-offset", 2058293567), Wj = new z(null, "map", "map", 1371690461), Xj = new z(null, "params", "params", 710516235), Yj = new z(null, "scalar-or-expr", "scalar-or-expr", 345993837), Zj = new z(null, "any-parens", "any-parens", -1041584282), ak = new z(null, "insert", "insert", 1286475395), bk = new z(null, "or-expr", "or-expr", 1848298779), ck = new z(null, "arg-predicate", "arg-predicate", 6664335), dk = new z(null, "typed?", "typed?", -1077227317), ek = new z(
+    "type-args",
+    "type-args",
+    1580007623
+  ), jk = new z(null, "param-ref", "param-ref", -579458975), kk = new z(null, "path", "path", -188191168), lk = new z(null, "and-expr", "and-expr", -544150156), mk = new z(null, "dot", "dot", 1442709401), nk = new z(null, "_eq", "_eq", 1127703966), ok = new z(null, "arg-list", "arg-list", 332788853), pk = new z(null, "column", "column", 2078222095), qk = new z(null, "root-entity-line", "root-entity-line", 146588817), rk = new z(null, "op", "op", -1882987955), sk = new z(null, "enum", "enum", 1679018432), tk = new z(
     null,
-    "in-string?",
-    "in-string?",
-    890620978
-  ), fk = new z(null, "sql?", "sql?", -773838128), gk = new z(null, "optional", "optional", 2053951509), hk = new z(null, "readers", "readers", -2118263030), ik = new z(null, "type-args", "type-args", 1580007623), jk = new z(null, "param-ref", "param-ref", -579458975), kk = new z(null, "path", "path", -188191168), lk = new z(null, "and-expr", "and-expr", -544150156), mk = new z(null, "dot", "dot", 1442709401), nk = new z(null, "_eq", "_eq", 1127703966), ok = new z(null, "arg-list", "arg-list", 332788853), pk = new z(null, "column", "column", 2078222095), qk = new z(null, "root-entity-line", "root-entity-line", 146588817), rk = new z(null, "op", "op", -1882987955), sk = new z(null, "count-child", "count-child", 482936112), tk = new z(null, "enum", "enum", 1679018432), uk = new z(null, "error", "error", -978969032), vk = new z(null, "float", "float", -1732389368), wk = new z(null, "eof", "eof", -489063237), xk = new z(null, "snippet", "snippet", 953581994), yk = new z(null, "root", "root", -448657453), zk = new z(null, "order-attr", "order-attr", 251507290), Ak = new z(null, "agg", "agg", -2001869296), Bk = new z(
+    "error",
+    "error",
+    -978969032
+  ), uk = new z(null, "float", "float", -1732389368), vk = new z(null, "eof", "eof", -489063237), wk = new z(null, "snippet", "snippet", 953581994), xk = new z(null, "root", "root", -448657453), yk = new z(null, "order-attr", "order-attr", 251507290), zk = new z(null, "args", "args", 1315556576), Ak = new z(null, "query", "query", -1288509510), Bk = new z(null, "eq-in", "eq-in", 1015687057), Ck = new z(null, "after-attr-in-pred", "after-attr-in-pred", 368221365), Dk = new z(null, "distinct?", "distinct?", 970077810), Ek = new z(
     null,
-    "args",
-    "args",
-    1315556576
-  ), Ck = new z(null, "query", "query", -1288509510), Dk = new z(null, "eq-in", "eq-in", 1015687057), Ek = new z(null, "after-attr-in-pred", "after-attr-in-pred", 368221365), Fk = new z(null, "watch", "watch", 380988277), Gk = new vc(null, "-Inf", "-Inf", -2123243689, null), Hk = new z(null, "missing", "missing", 362507769), Ik = new z(null, "taken", "taken", 1185385376), Jk = new z(null, "schema", "schema", -1582001791), Kk = new z(null, "info", "info", -317069002), Lk = new z(null, "used-attrs", "used-attrs", 2072245993), Mk = new z(
+    "watch",
+    "watch",
+    380988277
+  ), Fk = new vc(null, "-Inf", "-Inf", -2123243689, null), Gk = new z(null, "missing", "missing", 362507769), Hk = new z(null, "taken", "taken", 1185385376), Ik = new z(null, "schema", "schema", -1582001791), Jk = new z(null, "info", "info", -317069002), Kk = new z(null, "list", "list", 765357683), Lk = new z(null, "pred-op", "pred-op", 492610915), Mk = new z(null, "call-relation", "call-relation", 101808833), xi = new z(null, "parents", "parents", -2027538891), Nk = new z(null, "siblings", "siblings", 382285157), Ok = new z(null, "source", "source", -433931539), Pk = new z(null, "alias", "alias", -2039751630), Qk = new z(null, "file", "file", -1269645878), Rk = new z(null, "vals", "vals", 768058733), Sk = new z(null, "value", "value", 305978217), Tk = new z(null, "le", "le", -219152293), Uk = new z(null, "keyword", "keyword", 811389747), Vk = new z(null, "on-relation", "on-relation", -989228375), Wk = new vc(null, "NaN", "NaN", 666918153, null), Xk = new z(null, "lt", "lt", 421989243), Yk = new z(null, "blank-line", "blank-line", -383794769), Zk = new z(null, "lparen", "lparen", -1339862485), $k = new z(null, "dir", "dir", 1734754661), al = new z(null, "normal", "normal", -1519123858), bl = new z(null, "block-comment", "block-comment", -1841772213), cl = new z(null, "offer-distinct?", "offer-distinct?", -1743897920), U = new z(null, "diags", "diags", -2061915968), dl = new z(null, "optional?", "optional?", 1184638129), el = new z(null, "brace", "brace", -1705077624), fl = new z(null, "body-end", "body-end", 67906429), gl = new z(null, "scalar-filter", "scalar-filter", -158240055), hl = new z(null, "set", "set", 304602554), il = new z(null, "members", "members", 159001018), jl = new vc(
     null,
-    "list",
-    "list",
-    765357683
-  ), Nk = new z(null, "pred-op", "pred-op", 492610915), xi = new z(null, "parents", "parents", -2027538891), Ok = new z(null, "siblings", "siblings", 382285157), Pk = new z(null, "count-block", "count-block", 970622465), Qk = new z(null, "source", "source", -433931539), Rk = new z(null, "alias", "alias", -2039751630), Sk = new z(null, "file", "file", -1269645878), Tk = new z(null, "vals", "vals", 768058733), Uk = new z(null, "value", "value", 305978217), Vk = new z(null, "le", "le", -219152293), Wk = new z(null, "keyword", "keyword", 811389747), Xk = new z(null, "on-relation", "on-relation", -989228375), Yk = new vc(null, "NaN", "NaN", 666918153, null), Zk = new z(null, "agg-block-body", "agg-block-body", 796683127), $k = new z(null, "lt", "lt", 421989243), al = new z(null, "blank-line", "blank-line", -383794769), bl = new z(null, "lparen", "lparen", -1339862485), cl = new z(null, "dir", "dir", 1734754661), dl = new z(null, "normal", "normal", -1519123858), el = new z(null, "block-comment", "block-comment", -1841772213), U = new z(null, "diags", "diags", -2061915968), fl = new z(
+    "queue",
+    "queue",
+    -1198599890,
+    null
+  ), W = new z(null, "text", "text", -1790561697), kl = new z(null, "line-start-root", "line-start-root", 974733310), ll = new z(null, "meta-key", "meta-key", 280559106), ml = new z(null, "join-marker", "join-marker", -708964227), wa = new z(null, "meta", "meta", 1499536964), X = new z(null, "node", "node", 581201198), ya = new z(null, "print-length", "print-length", 1931866356), nl = new vc(null, "/", "/", -1371932971, null), ol = new z(null, "path-prefix", "path-prefix", -1210521238), pl = new z(
     null,
-    "agg-attr-name",
-    "agg-attr-name",
-    -1776347620
-  ), gl = new z(null, "optional?", "optional?", 1184638129), hl = new z(null, "brace", "brace", -1705077624), il = new z(null, "body-end", "body-end", 67906429), jl = new z(null, "scalar-filter", "scalar-filter", -158240055), kl = new z(null, "set", "set", 304602554), ll = new z(null, "members", "members", 159001018), ml = new vc(null, "queue", "queue", -1198599890, null), W = new z(null, "text", "text", -1790561697), nl = new z(null, "line-start-root", "line-start-root", 974733310), ol = new z(null, "meta-key", "meta-key", 280559106), pl = new z(null, "join-marker", "join-marker", -708964227), wa = new z(null, "meta", "meta", 1499536964), X = new z(null, "node", "node", 581201198), ql = new z(null, "agg-kind", "agg-kind", 1117910606), ya = new z(null, "print-length", "print-length", 1931866356), rl = new vc(null, "/", "/", -1371932971, null), sl = new z(null, "param-default", "param-default", -1625922832), tl = new z(null, "int", "int", -1741416922), ul = new z(null, "rparen", "rparen", 302222095), vl = new z(null, "attr", "attr", -604132353), zi = new z(null, "ancestors", "ancestors", -776045424), wl = new z(null, "agg-relation", "agg-relation", -1781592216), xl = new z(null, "code", "code", 1586293142), yl = new z(null, "dstring", "dstring", -419154112), zl = new z(null, "after-predicate-value", "after-predicate-value", 1222709003), Al = new z(null, "attr-def", "attr-def", -944743582), Bl = new z(null, "integer", "integer", -604721710), Cl = new z(null, "currency", "currency", -898327568), Dl = new z(null, "options", "options", 99638489), El = new z(null, "body", "body", -2049205669), Fl = new z(null, "mode", "mode", 654403691), Gl = new z(
+    "param-default",
+    "param-default",
+    -1625922832
+  ), ql = new z(null, "int", "int", -1741416922), rl = new z(null, "rparen", "rparen", 302222095), sl = new z(null, "attr", "attr", -604132353), zi = new z(null, "ancestors", "ancestors", -776045424), tl = new z(null, "code", "code", 1586293142), ul = new z(null, "dstring", "dstring", -419154112), vl = new z(null, "after-predicate-value", "after-predicate-value", 1222709003), wl = new z(null, "attr-def", "attr-def", -944743582), xl = new z(null, "integer", "integer", -604721710), yl = new z(null, "currency", "currency", -898327568), zl = new z(
     null,
-    "hierarchy",
-    "hierarchy",
-    -1053470341
-  ), Hl = new z(null, "comma", "comma", 1699024745), Il = new z(null, "named", "named", -422393479), Jl = new z(null, "agg-block", "agg-block", -948650240), Kl = new z(null, "mutate", "mutate", 1422419038), Ll = new z(null, "apply", "apply", 1320385493), ei = new z(null, "fallback-impl", "fallback-impl", -1501286995), Ml = new z(null, "name", "name", 1843675177), Nl = new z(null, "tag", "tag", -1290361223), Ol = new z(null, "label", "label", 1718410804), Pl = new z(null, "illegal-argument", "illegal-argument", -1845493170), Ql = new z(
+    "options",
+    "options",
+    99638489
+  ), Al = new z(null, "body", "body", -2049205669), Bl = new z(null, "mode", "mode", 654403691), Cl = new z(null, "filter", "filter", -948537934), Dl = new z(null, "hierarchy", "hierarchy", -1053470341), El = new z(null, "comma", "comma", 1699024745), Fl = new z(null, "named", "named", -422393479), Gl = new z(null, "mutate", "mutate", 1422419038), ei = new z(null, "fallback-impl", "fallback-impl", -1501286995), Ml = new z(null, "name", "name", 1843675177), Nl = new z(null, "tag", "tag", -1290361223), Hl = new z(
     null,
-    "order-dir",
-    "order-dir",
-    919591676
-  ), qi = new z(null, "keyword-fn", "keyword-fn", -64566675), Rl = new z(null, "section", "section", -300141526), ui = new z(null, "keywordize-keys", "keywordize-keys", 1310784252), Y = new z(null, "to", "to", 192099007), Sl = new vc(null, "inst", "inst", -2008473268, null), Tl = new z(null, "line-comment", "line-comment", 1188932211), Ul = new z(null, "unknown-types", "unknown-types", -990897338), Vl = new z(null, "entities", "entities", 1940967403), Wl = new z(null, "ambiguous", "ambiguous", -1979837908), Xl = new z(
+    "label",
+    "label",
+    1718410804
+  ), Il = new z(null, "illegal-argument", "illegal-argument", -1845493170), Jl = new z(null, "order-dir", "order-dir", 919591676), qi = new z(null, "keyword-fn", "keyword-fn", -64566675), Kl = new z(null, "section", "section", -300141526), ui = new z(null, "keywordize-keys", "keywordize-keys", 1310784252), Y = new z(null, "to", "to", 192099007), Ll = new vc(null, "inst", "inst", -2008473268, null), Ol = new z(null, "line-comment", "line-comment", 1188932211), Pl = new z(null, "unknown-types", "unknown-types", -990897338), Ql = new z(
     null,
-    "block-opener",
-    "block-opener",
-    630825111
-  ), Yl = new z(null, "batch", "batch", -662921200), Zl = new z(null, "warning", "warning", -1685650671), $l = new z(null, "dropped?", "dropped?", 360675010), am = new z(null, "positional", "positional", -203580463), cm = new z(null, "param", "param", 2013631823), dm = new z(null, "value-suggestion", "value-suggestion", -147786129), em = new z(null, "values", "values", 372645556), fm = new z(null, "attributes", "attributes", -74013604), gm = new z(null, "relation-prefix", "relation-prefix", -902132077), hm = new z(
+    "call",
+    "call",
+    -519999866
+  ), Rl = new z(null, "entities", "entities", 1940967403), Sl = new z(null, "ambiguous", "ambiguous", -1979837908), Tl = new z(null, "open", "open", -1763596448), Ul = new z(null, "batch", "batch", -662921200), Vl = new z(null, "warning", "warning", -1685650671), Wl = new z(null, "none-scope", "none-scope", 1669637298), Xl = new z(null, "dropped?", "dropped?", 360675010), Yl = new z(null, "positional", "positional", -203580463), Zl = new z(null, "param", "param", 2013631823), $l = new z(null, "bang", "bang", 717730846), am = new z(
     null,
-    "colon",
-    "colon",
-    -965200945
-  ), im = new z(null, "indent", "indent", -148200125), yi = new z(null, "descendants", "descendants", 1824886031), jm = new z(null, "root-parens", "root-parens", -414331741), km = new z(null, "start", "start", -355208981), lm = new z(null, "word", "word", -420123725), mm = new z(null, "returns", "returns", -615452578), nm = new z(null, "raw-type", "raw-type", -1688280240), ji = new z(null, "val", "val", 128701612), om = new z(null, "rels", "rels", 1770187185), pm = new z(null, "vector", "vector", 1902966158), qm = new z(
+    "call-filter",
+    "call-filter",
+    259903666
+  ), cm = new z(null, "value-suggestion", "value-suggestion", -147786129), dm = new z(null, "values", "values", 372645556), em = new z(null, "attributes", "attributes", -74013604), fm = new z(null, "relation-prefix", "relation-prefix", -902132077), gm = new z(null, "colon", "colon", -965200945), hm = new z(null, "indent", "indent", -148200125), yi = new z(null, "descendants", "descendants", 1824886031), im = new z(null, "aliases", "aliases", 1346874714), jm = new z(null, "root-parens", "root-parens", -414331741), km = new z(
     null,
-    "arrow",
-    "arrow",
-    1071351425
-  ), rm = new z(null, "body-offset", "body-offset", 1740708285), sm = new z(null, "root-entity-def", "root-entity-def", -271500806), tm = new z(null, "order-spec", "order-spec", -1855125096), um = new z(null, "end-decl", "end-decl", 764756192), vm = new z(null, "used-rels", "used-rels", 1452160701), wm = new z(null, "entity-stack", "entity-stack", 1163353080), xm = new z(null, "parens", "parens", 1028661830), ym = new z(null, "scalar", "scalar", 1611359571), ta = new z(null, "flush-on-newline", "flush-on-newline", -151457939), zm = new z(
+    "start",
+    "start",
+    -355208981
+  ), lm = new z(null, "word", "word", -420123725), mm = new z(null, "returns", "returns", -615452578), nm = new z(null, "raw-type", "raw-type", -1688280240), ji = new z(null, "val", "val", 128701612), om = new z(null, "rels", "rels", 1770187185), pm = new z(null, "vector", "vector", 1902966158), qm = new z(null, "arrow", "arrow", 1071351425), rm = new z(null, "body-offset", "body-offset", 1740708285), sm = new z(null, "root-entity-def", "root-entity-def", -271500806), tm = new z(null, "order-spec", "order-spec", -1855125096), um = new z(
     null,
-    "count-block-body",
-    "count-block-body",
-    -68975556
-  ), Am = new z("synthigy.xsql.compile", "absent", "synthigy.xsql.compile/absent", -982408818), Bm = new z(null, "timestamp", "timestamp", 579478971), Cm = new z(null, "detail", "detail", -1545345025), Dm = new z(null, "desc-error", "desc-error", -1990825691), Em = new z(null, "warnings", "warnings", -735437651), Fm = new z(null, "unique", "unique", 329397282), Gm = new z(null, "marker-before", "marker-before", -1838704997), Hm = new z(null, "statement", "statement", -32780863), Im = new z(
+    "end-decl",
+    "end-decl",
+    764756192
+  ), vm = new z(null, "order-aliases", "order-aliases", 36351285), wm = new z(null, "entity-stack", "entity-stack", 1163353080), xm = new z(null, "parens", "parens", 1028661830), ym = new z(null, "scalar", "scalar", 1611359571), ta = new z(null, "flush-on-newline", "flush-on-newline", -151457939), zm = new z("synthigy.xsql.compile", "absent", "synthigy.xsql.compile/absent", -982408818), Am = new z(null, "timestamp", "timestamp", 579478971), Bm = new z(null, "aggregate", "aggregate", 1511468442), Cm = new z(
     null,
-    "header-offsets",
-    "header-offsets",
-    1711008954
-  ), Jm = new z(null, "path-target-entity", "path-target-entity", 1516169653), Km = new z(null, "character", "character", 380652989), Lm = new z(null, "agg-fn", "agg-fn", -616417360), Mm = new z(null, "positional-count", "positional-count", -836677815), Nm = new z(null, "arg-list-start", "arg-list-start", -250816387), Om = new z(null, "reader-error", "reader-error", 1610253121), Pm = new z(null, "boolean", "boolean", -1919418404), Qm = new z(null, "relation-detail", "relation-detail", 171604810), Rm = new z(
+    "detail",
+    "detail",
+    -1545345025
+  ), Dm = new z(null, "desc-error", "desc-error", -1990825691), Em = new z(null, "warnings", "warnings", -735437651), Fm = new z(null, "unique", "unique", 329397282), Gm = new z(null, "marker-before", "marker-before", -1838704997), Hm = new z(null, "statement", "statement", -32780863), Im = new z(null, "header-offsets", "header-offsets", 1711008954), Jm = new z(null, "path-target-entity", "path-target-entity", 1516169653), Km = new z(null, "character", "character", 380652989), Lm = new z(
     null,
-    "namespaced-map",
-    "namespaced-map",
-    1235665380
-  ), Sm = new z(null, "block", "block", 664686210), Tm = new z(null, "identifier", "identifier", -805503498), Um = new z(null, "symbol", "symbol", -1038572696), Vm = new z(null, "grouped-expr", "grouped-expr", -2034097955), Wm = new z(null, "order", "order", -1254677256), Xm = new z(null, "attrs", "attrs", -2090668713), Wh = new z(null, "more-marker", "more-marker", -14717935), Ym = new z(null, "pos", "pos", -864607220), Zm = new z(null, "span", "span", 1394872991), $m = new z(null, "newline", "newline", 1790071323), Z = new z(null, "type", "type", 1174270348), di = new z(null, "alt-impl", "alt-impl", 670969595), an = new z(null, "none", "none", 1333468478), bn = new z(null, "after-is-not", "after-is-not", -11763153), cn = new z(null, "target", "target", 253001721), dn = new z(null, "array?", "array?", 1405427572), en = new z(null, "param-type-raw", "param-type-raw", 332931050), fn = new z(null, "param-type-args", "param-type-args", -1667822829);
+    "call-filter-head",
+    "call-filter-head",
+    -695510946
+  ), Mm = new z(null, "positional-count", "positional-count", -836677815), Nm = new z(null, "arg-list-start", "arg-list-start", -250816387), Om = new z(null, "reader-error", "reader-error", 1610253121), Pm = new z(null, "boolean", "boolean", -1919418404), Qm = new z(null, "relation-detail", "relation-detail", 171604810), Rm = new z(null, "namespaced-map", "namespaced-map", 1235665380), Sm = new z(null, "block", "block", 664686210), Tm = new z(null, "identifier", "identifier", -805503498), Um = new z(null, "symbol", "symbol", -1038572696), Vm = new z(null, "grouped-expr", "grouped-expr", -2034097955), Wm = new z(null, "order", "order", -1254677256), Xm = new z(null, "aggregate-fn", "aggregate-fn", 1269690665), Ym = new z(null, "attrs", "attrs", -2090668713), Wh = new z(null, "more-marker", "more-marker", -14717935), $m = new z(null, "pos", "pos", -864607220), Zm = new z(null, "span", "span", 1394872991), an = new z(null, "newline", "newline", 1790071323), Z = new z(null, "type", "type", 1174270348), di = new z(null, "alt-impl", "alt-impl", 670969595), bn = new z(null, "none", "none", 1333468478), cn = new z(null, "after-is-not", "after-is-not", -11763153), dn = new z(null, "target", "target", 253001721), en = new z(null, "array?", "array?", 1405427572), fn = new z(null, "param-type-raw", "param-type-raw", 332931050), po = new z(null, "param-type-args", "param-type-args", -1667822829);
   var gn = require_node3();
   var hn = (init_main(), __toCommonJS(main_exports));
   var jn = require("fs");
@@ -17842,11 +17883,11 @@ var init_main = __esm({
     var c = J.h("-", Hn(a, b)) ? b + 1 : b;
     c = Mn(a, c, Kn);
     c = J.h(".", Hn(a, c)) ? Mn(a, c + 1, Kn) : c;
-    return new r(null, 4, [Z, jj, T, b, Y, c, W, a.substring(b, c)], null);
+    return new r(null, 4, [Z, mj, T, b, Y, c, W, a.substring(b, c)], null);
   }
   function Pn(a, b) {
     var c = K(a), d = b + 1, e = Hn(a, d);
-    if (null == e || Ba(In(e))) return new r(null, 5, [Z, uk, T, b, Y, d, W, "?", kj, "XSQL parameters must be named (?name[:type][])"], null);
+    if (null == e || Ba(In(e))) return new r(null, 5, [Z, tk, T, b, Y, d, W, "?", kj, "XSQL parameters must be named (?name[:type][])"], null);
     var f = Mn(a, d, Jn);
     e = a.substring(d, f);
     var g = (d = J.h("?", Hn(a, f))) ? f + 1 : f, h = (f = J.h(":", Hn(a, g)) && Xe(":", Hn(a, g + 1))) ? g + 1 : null, k = u(h) ? Mn(a, h, Jn) : null, m = u(h) ? a.substring(h, k) : null, p = u(u(k) ? 0 < k - h && J.h("(", Hn(a, k)) : k) ? k : !f && J.h("(", Hn(a, g)) ? g : null, q = u(p) ? (function() {
@@ -17861,8 +17902,8 @@ var init_main = __esm({
       }
     })() : null, t = u(q) ? ng(Gf(yd, vf.h(sn, qn(a.substring(p + 1, q), /,/)))) : null, v = u(q) ? q + 1 : null, A = u(v) ? v : u(k) ? k : g, E = J.h("[", Hn(a, A)) && J.h("]", Hn(a, A + 1));
     g = E ? A + 2 : u(v) ? v : u(k) ? k : g;
-    if (f && J.h(h, k)) return new r(null, 5, [Z, uk, T, b, Y, g, W, a.substring(b, g), kj, "expected type token after `:`"], null);
-    if (u(u(p) ? null == q : p)) return new r(null, 5, [Z, uk, T, b, Y, u(k) ? k : b, W, a.substring(b, u(k) ? k : b), kj, "unterminated `(\u2026)` restriction set on parameter type"], null);
+    if (f && J.h(h, k)) return new r(null, 5, [Z, tk, T, b, Y, g, W, a.substring(b, g), kj, "expected type token after `:`"], null);
+    if (u(u(p) ? null == q : p)) return new r(null, 5, [Z, tk, T, b, Y, u(k) ? k : b, W, a.substring(b, u(k) ? k : b), kj, "unterminated `(\u2026)` restriction set on parameter type"], null);
     if (u((function() {
       if (u(q)) {
         var H = yd(t);
@@ -17874,7 +17915,7 @@ var init_main = __esm({
         }, t);
       }
       return q;
-    })())) return new r(null, 5, [Z, uk, T, b, Y, g, W, a.substring(b, g), kj, "restriction set must be comma-separated snake_case identifiers"], null);
+    })())) return new r(null, 5, [Z, tk, T, b, Y, g, W, a.substring(b, g), kj, "restriction set must be comma-separated snake_case identifiers"], null);
     var B = J.h("=", Hn(a, g)), I = g + 1;
     f = B ? J.h("[", Hn(a, I)) ? (function() {
       for (var H = I + 1; ; ) {
@@ -17913,7 +17954,7 @@ var init_main = __esm({
     }) : null;
     h = B ? f : g;
     var Q = B ? a.substring(I, f) : null;
-    if (d && B) return new r(null, 5, [Z, uk, T, b, Y, h, W, a.substring(b, h), kj, ["?", e, "? is optional, so it can't have a default \u2014 drop `?` to always filter, or drop `=", Q, "` to skip the predicate when absent"].join("")], null);
+    if (d && B) return new r(null, 5, [Z, tk, T, b, Y, h, W, a.substring(b, h), kj, ["?", e, "? is optional, so it can't have a default \u2014 drop `?` to always filter, or drop `=", Q, "` to skip the predicate when absent"].join("")], null);
     if (u((function() {
       if (B) {
         var H = new Ah(null, new r(null, 2, ["string", null, "text", null], null), null);
@@ -17924,24 +17965,24 @@ var init_main = __esm({
     })())) return new r(
       null,
       5,
-      [Z, uk, T, b, Y, h, W, a.substring(b, h), kj, ["?", e, ":", m, ' default must be double-quoted \u2014 write ="', nn(Q, /^'|'$/, ""), '"'].join("")],
+      [Z, tk, T, b, Y, h, W, a.substring(b, h), kj, ["?", e, ":", m, ' default must be double-quoted \u2014 write ="', nn(Q, /^'|'$/, ""), '"'].join("")],
       null
     );
-    b = new r(null, 7, [Z, jk, T, b, Y, h, W, a.substring(b, h), uj, e, en, m, dn, E], null);
-    b = d ? qd.i(b, gl, true) : b;
-    b = u(t) ? qd.i(b, fn, t) : b;
-    return B ? qd.i(b, sl, Q) : b;
+    b = new r(null, 7, [Z, jk, T, b, Y, h, W, a.substring(b, h), yj, e, fn, m, en, E], null);
+    b = d ? qd.i(b, dl, true) : b;
+    b = u(t) ? qd.i(b, po, t) : b;
+    return B ? qd.i(b, pl, Q) : b;
   }
   function Qn(a, b) {
     var c = Hn(a, b), d = Hn(a, b + 1);
     if (J.h("-", c) && J.h(">", d)) b = new r(null, 4, [Z, qm, T, b, Y, b + 2, W, "->"], null);
-    else if (J.h("!", c) && J.h("=", d)) b = new r(null, 4, [Z, Ej, T, b, Y, b + 2, W, "!="], null);
-    else if (J.h("<", c) && J.h("=", d)) b = new r(null, 4, [Z, Vk, T, b, Y, b + 2, W, "<="], null);
-    else if (J.h(">", c) && J.h("=", d)) b = new r(null, 4, [Z, Pi, T, b, Y, b + 2, W, ">="], null);
-    else if (J.h("=", c)) b = new r(null, 4, [Z, nj, T, b, Y, b + 1, W, "="], null);
+    else if (J.h("!", c) && J.h("=", d)) b = new r(null, 4, [Z, Hj, T, b, Y, b + 2, W, "!="], null);
+    else if (J.h("<", c) && J.h("=", d)) b = new r(null, 4, [Z, Tk, T, b, Y, b + 2, W, "<="], null);
+    else if (J.h(">", c) && J.h("=", d)) b = new r(null, 4, [Z, Si, T, b, Y, b + 2, W, ">="], null);
+    else if (J.h("=", c)) b = new r(null, 4, [Z, pj, T, b, Y, b + 1, W, "="], null);
     else if (J.h("<", c)) b = new r(null, 4, [
       Z,
-      $k,
+      Xk,
       T,
       b,
       Y,
@@ -17949,35 +17990,47 @@ var init_main = __esm({
       W,
       "<"
     ], null);
-    else if (J.h(">", c)) b = new r(null, 4, [Z, Ui, T, b, Y, b + 1, W, ">"], null);
-    else if (J.h(":", c)) b = new r(null, 4, [Z, hm, T, b, Y, b + 1, W, ":"], null);
-    else if (J.h(",", c)) b = new r(null, 4, [Z, Hl, T, b, Y, b + 1, W, ","], null);
+    else if (J.h(">", c)) b = new r(null, 4, [Z, Xi, T, b, Y, b + 1, W, ">"], null);
+    else if (J.h(":", c)) b = new r(null, 4, [Z, gm, T, b, Y, b + 1, W, ":"], null);
+    else if (J.h(",", c)) b = new r(null, 4, [Z, El, T, b, Y, b + 1, W, ","], null);
     else if (J.h(".", c)) b = new r(null, 4, [Z, mk, T, b, Y, b + 1, W, "."], null);
-    else if (J.h("(", c)) b = new r(null, 4, [Z, bl, T, b, Y, b + 1, W, "("], null);
-    else if (J.h(")", c)) b = new r(null, 4, [Z, ul, T, b, Y, b + 1, W, ")"], null);
-    else if (J.h("-", c)) u(Kn(d)) ? b = On(a, b) : (a = Jn(Hn(a, b - 1)), a = u(a) ? In(d) : a, b = u(a) ? new r(null, 5, [Z, uk, T, b, Y, b + 1, W, "-", kj, "identifiers must be snake_case (use '_' not '-')"], null) : new r(null, 4, [Z, qj, T, b, Y, b + 1, W, "-"], null));
+    else if (J.h("(", c)) b = new r(null, 4, [Z, Zk, T, b, Y, b + 1, W, "("], null);
+    else if (J.h(")", c)) b = new r(null, 4, [Z, rl, T, b, Y, b + 1, W, ")"], null);
+    else if (J.h("!", c)) b = new r(null, 4, [Z, $l, T, b, Y, b + 1, W, "!"], null);
+    else if (J.h("-", c)) u(Kn(d)) ? b = On(a, b) : (a = Jn(Hn(a, b - 1)), a = u(a) ? In(d) : a, b = u(a) ? new r(null, 5, [Z, tk, T, b, Y, b + 1, W, "-", kj, "identifiers must be snake_case (use '_' not '-')"], null) : new r(null, 4, [Z, qj, T, b, Y, b + 1, W, "-"], null));
     else if (J.h('"', c)) a: for (d = K(a), c = b + 1; ; ) {
       if (c >= d) {
-        b = new r(null, 5, [Z, uk, T, b, Y, d, W, a.substring(b, d), kj, "unterminated string"], null);
+        b = new r(null, 5, [Z, tk, T, b, Y, d, W, a.substring(b, d), kj, "unterminated string"], null);
         break a;
       }
       if (J.h("\n", Hn(a, c))) {
-        b = new r(null, 5, [Z, uk, T, b, Y, c, W, a.substring(b, c), kj, "unterminated string (newline)"], null);
+        b = new r(null, 5, [Z, tk, T, b, Y, c, W, a.substring(b, c), kj, "unterminated string (newline)"], null);
         break a;
       }
       if (J.h("\\", Hn(a, c))) c += 2;
       else {
         if (J.h('"', Hn(a, c))) {
-          b = new r(null, 4, [Z, Ri, T, b, Y, c + 1, W, a.substring(b, c + 1)], null);
+          b = new r(null, 4, [
+            Z,
+            Ui,
+            T,
+            b,
+            Y,
+            c + 1,
+            W,
+            a.substring(b, c + 1)
+          ], null);
           break a;
         }
         c += 1;
       }
     }
-    else J.h(
-      "?",
-      c
-    ) ? b = Pn(a, b) : u(Kn(c)) ? b = On(a, b) : u(In(c)) ? (d = Mn(a, b + 1, Jn), a = a.substring(b, d), b = u(Sh(/[A-Z]/, a)) ? new r(null, 5, [Z, uk, T, b, Y, d, W, a, kj, ['identifiers must be snake_case \u2014 "', a, '" contains uppercase'].join("")], null) : new r(null, 4, [Z, Tm, T, b, Y, d, W, a], null)) : b = J.h("#", c) ? new r(null, 5, [Z, uk, T, b, Y, b + 1, W, "#", kj, "comments must start at the beginning of a line"], null) : new r(null, 5, [Z, uk, T, b, Y, b + 1, W, c, kj, ["unexpected character: ", fi(fd([c]))].join("")], null);
+    else J.h("?", c) ? b = Pn(a, b) : u(Kn(c)) ? b = On(a, b) : u(In(c)) ? (d = Mn(a, b + 1, Jn), a = a.substring(b, d), b = u(Sh(/[A-Z]/, a)) ? new r(null, 5, [Z, tk, T, b, Y, d, W, a, kj, ['identifiers must be snake_case \u2014 "', a, '" contains uppercase'].join("")], null) : new r(null, 4, [Z, Tm, T, b, Y, d, W, a], null)) : b = J.h("#", c) ? new r(null, 5, [Z, tk, T, b, Y, b + 1, W, "#", kj, "comments must start at the beginning of a line"], null) : new r(
+      null,
+      5,
+      [Z, tk, T, b, Y, b + 1, W, c, kj, ["unexpected character: ", fi(fd([c]))].join("")],
+      null
+    );
     return b;
   }
   function Rn(a) {
@@ -17986,19 +18039,19 @@ var init_main = __esm({
         var h = 0 < b ? Hn(a, b - 1) : null;
         a = (function() {
           var t = g;
-          return 0 < b && Xe("\n", h) && !e ? M.h(t, new r(null, 4, [Z, $m, T, b, Y, b, W, ""], null)) : t;
+          return 0 < b && Xe("\n", h) && !e ? M.h(t, new r(null, 4, [Z, an, T, b, Y, b, W, ""], null)) : t;
         })();
-        c = ng(Bf(K(d) - 1, new r(null, 4, [Z, Cj, T, b, Y, b, W, ""], null)));
+        c = ng(Bf(K(d) - 1, new r(null, 4, [Z, Fj, T, b, Y, b, W, ""], null)));
         a = Kf.h(a, c);
-        return M.h(a, new r(null, 4, [Z, wk, T, b, Y, b, W, ""], null));
+        return M.h(a, new r(null, 4, [Z, vk, T, b, Y, b, W, ""], null));
       }
       if (e) {
         var k = Mn(a, c, Ln), m = k - c, p = Hn(a, k);
-        null == p || J.h("\n", p) || J.h("#", p) ? (k = Nn(a, c), k = m = k < b && J.h("\n", Hn(a, k)) ? k + 1 : k, p = f, m = M.h(g, new r(null, 4, [Z, al, T, c, Y, m, W, a.substring(
+        null == p || J.h("\n", p) || J.h("#", p) ? (k = Nn(a, c), k = m = k < b && J.h("\n", Hn(a, k)) ? k + 1 : k, p = f, m = M.h(g, new r(null, 4, [Z, Yk, T, c, Y, m, W, a.substring(
           c,
           m
-        )], null)), c = k, e = true, f = p, g = m) : m > wd(d) ? (p = k, d = M.h(d, m), m = f, k = M.h(g, new r(null, 4, [Z, im, T, c, Y, k, W, a.substring(c, k)], null)), c = p, e = false, f = m, g = k) : m < wd(d) ? (k = c, d = xd(d), p = f, m = M.h(g, new r(null, 4, [Z, Cj, T, c, Y, c, W, ""], null)), c = k, e = true, f = p, g = m) : (p = f, m = g, c = k, e = false, f = p, g = m);
-      } else if (k = Hn(a, c), J.h("\n", k)) 0 < f ? (k = f, p = g, c += 1, e = false, f = k, g = p) : (k = c + 1, p = f, m = M.h(g, new r(null, 4, [Z, $m, T, c, Y, c + 1, W, "\n"], null)), c = k, e = true, f = p, g = m);
+        )], null)), c = k, e = true, f = p, g = m) : m > wd(d) ? (p = k, d = M.h(d, m), m = f, k = M.h(g, new r(null, 4, [Z, hm, T, c, Y, k, W, a.substring(c, k)], null)), c = p, e = false, f = m, g = k) : m < wd(d) ? (k = c, d = xd(d), p = f, m = M.h(g, new r(null, 4, [Z, Fj, T, c, Y, c, W, ""], null)), c = k, e = true, f = p, g = m) : (p = f, m = g, c = k, e = false, f = p, g = m);
+      } else if (k = Hn(a, c), J.h("\n", k)) 0 < f ? (k = f, p = g, c += 1, e = false, f = k, g = p) : (k = c + 1, p = f, m = M.h(g, new r(null, 4, [Z, an, T, c, Y, c + 1, W, "\n"], null)), c = k, e = true, f = p, g = m);
       else if (Ln(k)) k = f, p = g, c += 1, e = false, f = k, g = p;
       else {
         var q = Qn(a, c);
@@ -18023,23 +18076,23 @@ var init_main = __esm({
   }
   ;
   function Sn(a) {
-    return y(Uj.g(a), Ym.g(a));
+    return y(Uj.g(a), $m.g(a));
   }
-  function Tn(a) {
-    return y(Uj.g(a), Ym.g(a) + 1);
+  function Tn(a, b) {
+    return y(Uj.g(a), $m.g(a) + b);
   }
   function Un(a) {
     return Z.g(Sn(a));
   }
   function Vn(a) {
-    return Rf.i(a, Ym, Kc);
+    return Rf.i(a, $m, Kc);
   }
   function Wn(a, b) {
     return J.h(Tm, Un(a)) && J.h(b, W.g(Sn(a)));
   }
   function Xn(a, b) {
     var c = u(a) ? a : new r(null, 3, [T, 0, Y, 0, W, ""], null);
-    return new r(null, 4, [X, uk, Zm, new P(null, 2, 5, R, [T.g(c), Y.g(c)], null), W, (function() {
+    return new r(null, 4, [X, tk, Zm, new P(null, 2, 5, R, [T.g(c), Y.g(c)], null), W, (function() {
       var d = W.g(c);
       return u(d) ? d : "";
     })(), kj, (function() {
@@ -18069,6 +18122,7 @@ var init_main = __esm({
       case "number":
       case "arrow":
       case "dash":
+      case "bang":
       case "eq":
       case "neq":
       case "lt":
@@ -18079,7 +18133,11 @@ var init_main = __esm({
       case "error":
         return b = An(b, c, W.g(a)), u(kj.g(a)) ? qd.i(b, kj, kj.g(a)) : b;
       case "param-ref":
-        return b = qd.u(An(b, c, W.g(a)), uj, uj.g(a), fd([en, en.g(a), dn, dn.g(a)])), b = u(gl.g(a)) ? qd.i(b, gl, true) : b, b = u(sl.g(a)) ? qd.i(b, sl, sl.g(a)) : b, u(fn.g(a)) ? qd.i(b, fn, fn.g(a)) : b;
+        return b = qd.u(An(b, c, W.g(a)), yj, yj.g(a), fd([fn, fn.g(a), en, en.g(a)])), b = u(dl.g(a)) ? qd.i(b, dl, true) : b, b = u(pl.g(a)) ? qd.i(b, pl, pl.g(a)) : b, u(po.g(a)) ? qd.i(
+          b,
+          po,
+          po.g(a)
+        ) : b;
       case "newline":
       case "blank-line":
       case "indent":
@@ -18098,15 +18156,15 @@ var init_main = __esm({
   function bo(a, b) {
     return J.h(b, Un(a)) ? Vn(a) : a;
   }
+  function qo(a, b) {
+    return C(a) ? (a = jd(Zm.g(kd(a))), u(a) ? a : b) : b;
+  }
   function co(a, b, c) {
     b = T.g(b);
-    if (C(c)) {
-      var d = jd(Zm.g(kd(c)));
-      d = u(d) ? d : b;
-    } else d = b;
+    var d = qo(c, b);
     return zn(a, new P(null, 2, 5, R, [b, d], null), ng(c));
   }
-  var eo = new Ah(null, new r(null, 6, [Pi, null, nj, null, Ej, null, Ui, null, Vk, null, $k, null], null), null), fo = new Ah(null, new r(null, 6, ["_order_by", null, "_offset", null, "_distinct", null, "_limit", null, "_on", null, "_join", null], null), null), go = new Ah(null, new r(null, 5, ["offset", null, "distinct", null, "limit", null, "on", null, "join", null], null), null);
+  var eo = new Ah(null, new r(null, 6, [Si, null, pj, null, Hj, null, Xi, null, Tk, null, Xk, null], null), null), fo = new Ah(null, new r(null, 6, ["_order_by", null, "_offset", null, "_distinct", null, "_limit", null, "_on", null, "_join", null], null), null), go = new Ah(null, new r(null, 5, ["offset", null, "distinct", null, "limit", null, "on", null, "join", null], null), null);
   function ho(a) {
     switch (a) {
       case "limit":
@@ -18136,7 +18194,7 @@ var init_main = __esm({
       b = W.g(Sn(a));
       var c = fo.g ? fo.g(b) : fo.call(null, b);
       if (u(c)) return c;
-      if (c = J.h("order", b)) c = J.h(Tm, Z.g(Tn(a))) && J.h("by", W.g(Tn(a)));
+      if (c = J.h("order", b)) c = J.h(Tm, Z.g(Tn(a, 1))) && J.h("by", W.g(Tn(a, 1)));
       if (c) return c;
       b = go.g ? go.g(b) : go.call(null, b);
       return u(b) ? Ba(io(Vn(a))) : b;
@@ -18144,41 +18202,40 @@ var init_main = __esm({
     return b;
   }
   function ko(a) {
-    return J.h(Tm, Un(a)) && J.h(hm, Z.g(Tn(a)));
+    return J.h(Tm, Un(a)) && J.h(gm, Z.g(Tn(a, 1)));
   }
   function lo(a) {
     var b = a;
     for (a = ld; ; ) {
-      var c = Ym.g(b);
+      var c = $m.g(b);
       if (u((function() {
         var f = null == Un(b);
         if (f) return f;
         f = Un(b);
-        var g = new Ah(null, new r(null, 2, [Cj, null, wk, null], null), null);
+        var g = new Ah(null, new r(null, 2, [Fj, null, vk, null], null), null);
         return g.g ? g.g(f) : g.call(null, f);
       })())) return new P(null, 2, 5, R, [a, b], null);
-      if (J.h(al, Un(b))) {
+      if (J.h(Yk, Un(b))) {
         var d = $n(b), e = N(d, 0, null);
         d = N(d, 1, null);
         a = M.h(a, e);
         b = d;
       } else if (u((function() {
         var f = Un(b);
-        var g = new Ah(null, new r(null, 2, [qm, null, qj, null], null), null);
+        var g = new Ah(null, new r(null, 3, [qm, null, qj, null, $l, null], null), null);
         f = g.g ? g.g(f) : g.call(null, f);
         return u(f) ? f : J.h(Tm, Un(b));
-      })())) d = mo.g ? mo.g(b) : mo.call(null, b), e = N(
-        d,
-        0,
-        null
-      ), d = N(d, 1, null), a = M.h(a, e), b = d;
+      })())) d = mo.g ? mo.g(b) : mo.call(
+        null,
+        b
+      ), e = N(d, 0, null), d = N(d, 1, null), a = M.h(a, e), b = d;
       else {
         e = Xn(Sn(b), ["unexpected token: ", ue((function() {
           var f = Un(b);
-          return u(f) ? f : wk;
+          return u(f) ? f : vk;
         })())].join(""));
         d = Yn(Vn(b));
-        if (J.h(c, Ym.g(d))) return new P(null, 2, 5, R, [M.h(a, e), Vn(d)], null);
+        if (J.h(c, $m.g(d))) return new P(null, 2, 5, R, [M.h(a, e), Vn(d)], null);
         a = M.h(a, e);
         b = d;
       }
@@ -18186,7 +18243,7 @@ var init_main = __esm({
   }
   function no(a) {
     var b = Sn(a), c = T.h(b, 0), d = (function() {
-      for (var v = a, A = ld; ; ) if (J.h(al, Un(v))) {
+      for (var v = a, A = ld; ; ) if (J.h(Yk, Un(v))) {
         var E = $n(v);
         v = N(E, 0, null);
         E = N(E, 1, null);
@@ -18199,11 +18256,11 @@ var init_main = __esm({
     d = J.h(Tm, Un(d)) ? $n(d) : new P(null, 2, 5, R, [null, d], null);
     var e = N(d, 0, null);
     d = N(d, 1, null);
-    d = u(u(e) ? J.h(bl, Un(d)) : e) ? oo.g ? oo.g(d) : oo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
+    d = u(u(e) ? J.h(Zk, Un(d)) : e) ? oo.g ? oo.g(d) : oo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
     var f = N(d, 0, null);
     d = N(d, 1, null);
-    var g = bo(d, $m), h = (function() {
-      for (var v = g, A = ld; ; ) if (J.h(al, Un(v))) {
+    var g = bo(d, an), h = (function() {
+      for (var v = g, A = ld; ; ) if (J.h(Yk, Un(v))) {
         var E = $n(v);
         v = N(
           E,
@@ -18217,51 +18274,78 @@ var init_main = __esm({
     })();
     d = N(h, 0, null);
     var k = N(h, 1, null);
-    h = J.h(im, Un(k));
-    k = bo(k, im);
+    h = J.h(hm, Un(k));
+    k = bo(k, hm);
     var m = lo(k);
     k = N(m, 0, null);
     m = N(m, 1, null);
-    var p = h ? bo(m, Cj) : m, q = Kf.h(Kf.h(ng(b), d), k), t = (function() {
+    var p = h ? bo(m, Fj) : m, q = Kf.h(Kf.h(ng(b), d), k), t = (function() {
       var v = T.g(Sn(p));
       return u(v) ? v : c;
     })();
     b = (function() {
-      var v = zn(Ck, new P(null, 2, 5, R, [c, t], null), q);
-      v = u(e) ? qd.i(v, Wi, e) : v;
+      var v = zn(Ak, new P(null, 2, 5, R, [c, t], null), q);
+      v = u(e) ? qd.i(v, Zi, e) : v;
       return u(f) ? qd.i(v, jm, f) : v;
     })();
-    return new P(null, 2, 5, R, [b, bo(p, wk)], null);
+    return new P(null, 2, 5, R, [b, bo(p, vk)], null);
   }
   function mo(a) {
     var b = Sn(a);
-    if (Wn(a, "_count")) a = po.g ? po.g(a) : po.call(null, a);
-    else if (Wn(a, "_agg")) a = qo.g ? qo.g(a) : qo.call(null, a);
-    else {
-      var c = Un(a);
-      var d = new Ah(null, new r(null, 2, [qm, null, qj, null], null), null);
-      c = d.g ? d.g(c) : d.call(null, c);
-      a = u(c) ? ro.g ? ro.g(a) : ro.call(null, a) : J.h(Tm, Un(a)) ? so.g ? so.g(a) : so.call(null, a) : new P(null, 2, 5, R, [Xn(b, "expected statement"), Vn(a)], null);
+    if (Wn(a, "_count") || Wn(a, "_agg")) a: {
+      var c = Sn(a);
+      c = Xn(c, ["`", w.g(W.g(c)), "` was removed \u2014 write each operation as its own line: `votes: count(ratings)`, `rating: avg(ratings.value)`"].join(""));
+      a = Vn(a);
+      for (var d = 0; ; ) {
+        var e = Un(a);
+        if (J.h(vk, e) || J.h(null, e)) {
+          c = new P(null, 2, 5, R, [c, a], null);
+          break a;
+        }
+        if (J.h(hm, e)) a = Vn(a), d += 1;
+        else if (J.h(Fj, e)) {
+          if (1 >= d) {
+            c = new P(null, 2, 5, R, [c, Vn(a)], null);
+            break a;
+          }
+          a = Vn(a);
+          --d;
+        } else if (J.h(an, e)) {
+          if (0 === d && Xe(hm, Un(Vn(a)))) {
+            c = new P(
+              null,
+              2,
+              5,
+              R,
+              [c, Vn(a)],
+              null
+            );
+            break a;
+          }
+          a = Vn(a);
+        } else a = Vn(a);
+      }
     }
-    c = a;
-    a = N(c, 0, null);
-    c = N(c, 1, null);
-    return new P(null, 2, 5, R, [co(Hm, b, new P(null, 1, 5, R, [a], null)), c], null);
+    else c = Un(a), d = new Ah(null, new r(null, 3, [qm, null, qj, null, $l, null], null), null), c = d.g ? d.g(c) : d.call(null, c), c = u(c) ? ro.g ? ro.g(a) : ro.call(null, a) : ko(a) ? yo.g ? yo.g(a) : yo.call(null, a) : J.h(Tm, Un(a)) ? so.g ? so.g(a) : so.call(null, a) : new P(null, 2, 5, R, [Xn(b, "expected statement"), Vn(a)], null);
+    a = c;
+    c = N(a, 0, null);
+    a = N(a, 1, null);
+    return new P(null, 2, 5, R, [co(Hm, b, new P(null, 1, 5, R, [c], null)), a], null);
   }
   function so(a) {
     var b = Sn(a), c = ao(a, Tm, "expected field name");
     a = N(c, 0, null);
     var d = N(c, 1, null);
     a = M.h(ld, a);
-    if (J.h(bl, Un(d))) c = to.g ? to.g(d) : to.call(null, d);
+    if (J.h(Zk, Un(d))) c = to.g ? to.g(d) : to.call(null, d);
     else if (u(io(d))) {
       c = Sn(d);
       var e = uo.g ? uo.g(d) : uo.call(null, d);
       d = N(e, 0, null);
       e = N(e, 1, null);
       var f = Jf.g(d);
-      J.h(1, K(f)) ? (f = Jf.g(D(f)), f = J.h(1, K(f)) ? Dn(D(f), Nk) : null) : f = null;
-      c = u(f) ? new P(null, 2, 5, R, [f, e], null) : new P(null, 2, 5, R, [co(jl, c, new P(null, 1, 5, R, [d], null)), e], null);
+      J.h(1, K(f)) ? (f = Jf.g(D(f)), f = J.h(1, K(f)) ? Dn(D(f), Lk) : null) : f = null;
+      c = u(f) ? new P(null, 2, 5, R, [f, e], null) : new P(null, 2, 5, R, [co(gl, c, new P(null, 1, 5, R, [d], null)), e], null);
     } else c = new P(null, 2, 5, R, [null, d], null);
     d = c;
     c = N(d, 0, null);
@@ -18270,7 +18354,7 @@ var init_main = __esm({
       a,
       c
     ) : a;
-    d = ao(d, $m, "expected newline at end of scalar");
+    d = ao(d, an, "expected newline at end of scalar");
     c = N(d, 0, null);
     d = N(d, 1, null);
     a = M.h(a, c);
@@ -18289,222 +18373,143 @@ var init_main = __esm({
     c = N(d, 0, null);
     d = N(d, 1, null);
     a = M.h(a, c);
-    d = J.h(bl, Un(d)) ? oo.g ? oo.g(d) : oo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
+    d = J.h(Zk, Un(d)) ? oo.g ? oo.g(d) : oo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
     c = N(d, 0, null);
     d = N(d, 1, null);
     a = u(c) ? M.h(a, c) : a;
-    d = ao(d, $m, "expected newline after relation header");
+    d = ao(d, an, "expected newline after relation header");
     c = N(d, 0, null);
     d = N(d, 1, null);
     a = M.h(
       a,
       c
     );
-    d = J.h(im, Un(d)) ? xo.g ? xo.g(d) : xo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
+    d = J.h(hm, Un(d)) ? xo.g ? xo.g(d) : xo.call(null, d) : new P(null, 2, 5, R, [null, d], null);
     c = N(d, 0, null);
     d = N(d, 1, null);
     a = u(c) ? M.h(a, c) : a;
-    return new P(null, 2, 5, R, [co(Pj, b, a), d], null);
+    return new P(null, 2, 5, R, [co(Qj, b, a), d], null);
   }
   function xo(a) {
-    var b = Sn(a), c = ao(a, im, "expected indent to open block");
+    var b = Sn(a), c = ao(a, hm, "expected indent to open block");
     a = N(c, 0, null);
     c = N(c, 1, null);
     for (a = new P(null, 1, 5, R, [a], null); ; ) {
-      if (J.h(Cj, Un(c))) {
+      if (J.h(Fj, Un(c))) {
         var d = $n(c);
         c = N(d, 0, null);
         d = N(d, 1, null);
         return new P(null, 2, 5, R, [co(Sm, b, M.h(a, c)), d], null);
       }
-      if (J.h(wk, Un(c))) return new P(null, 2, 5, R, [co(Sm, b, a), c], null);
-      J.h(al, Un(c)) ? (d = $n(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d) : (d = mo(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d);
-    }
-  }
-  function po(a) {
-    var b = Sn(a), c = $n(a);
-    a = N(c, 0, null);
-    c = N(c, 1, null);
-    c = ao(c, $m, "expected newline after _count");
-    var d = N(c, 0, null);
-    c = N(c, 1, null);
-    c = ao(c, im, "expected indented children for _count");
-    var e = N(c, 0, null);
-    c = N(c, 1, null);
-    for (a = new P(null, 3, 5, R, [a, d, e], null); ; ) {
-      if (J.h(Cj, Un(c))) return d = $n(c), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(Pk, b, M.h(a, c)), d], null);
-      if (J.h(wk, Un(c))) return new P(null, 2, 5, R, [co(Pk, b, a), c], null);
-      if (J.h(al, Un(c))) d = $n(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d;
-      else {
-        d = Ym.g(c);
-        e = yo.g ? yo.g(c) : yo.call(null, c);
-        c = N(e, 0, null);
-        e = N(e, 1, null);
-        if (J.h(d, Ym.g(e))) return new P(null, 2, 5, R, [co(Pk, b, M.h(a, c)), Vn(e)], null);
-        d = e;
-        a = M.h(a, c);
-        c = d;
-      }
+      if (J.h(vk, Un(c))) return new P(null, 2, 5, R, [co(Sm, b, a), c], null);
+      J.h(Yk, Un(c)) ? (d = $n(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d) : (d = mo(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d);
     }
   }
   function yo(a) {
-    var b = Sn(a), c = (function() {
-      var f = Un(a);
-      switch (f instanceof z ? f.M : null) {
-        case "dash":
-          return f = $n(a), N(f, 0, null), f = N(f, 1, null), new P(null, 2, 5, R, [Xn(b, "join markers are not allowed inside `_count` \u2014 counts are always inner; drop the `-`"), f], null);
-        case "arrow":
-          return f = $n(a), N(f, 0, null), f = N(f, 1, null), new P(null, 2, 5, R, [Xn(b, "join markers are not allowed inside `_count` \u2014 counts are always inner; drop the `->`"), f], null);
-        default:
-          return new P(null, 2, 5, R, [null, a], null);
-      }
-    })(), d = N(c, 0, null);
-    c = N(c, 1, null);
-    d = u(d) ? M.h(ld, d) : ld;
-    var e = ko(c) ? wo.g ? wo.g(c) : wo.call(null, c) : new P(null, 2, 5, R, [null, c], null);
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = u(c) ? M.h(d, c) : d;
-    e = ao(e, Tm, "expected relation name");
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = M.h(d, c);
-    e = J.h(bl, Un(e)) ? oo.g ? oo.g(e) : oo.call(null, e) : new P(null, 2, 5, R, [null, e], null);
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = u(c) ? M.h(d, c) : d;
-    e = ao(e, $m, "expected newline after count child");
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = M.h(d, c);
-    return new P(null, 2, 5, R, [co(sk, b, d), e], null);
-  }
-  function qo(a) {
-    var b = Sn(a), c = $n(a);
+    var b = Sn(a), c = wo.g ? wo.g(a) : wo.call(null, a);
     a = N(c, 0, null);
-    c = N(c, 1, null);
-    c = ao(c, $m, "expected newline after _agg");
-    var d = N(c, 0, null);
-    c = N(c, 1, null);
-    c = ao(c, im, "expected indented children for _agg");
-    var e = N(c, 0, null);
-    c = N(c, 1, null);
-    for (a = new P(null, 3, 5, R, [a, d, e], null); ; ) {
-      if (J.h(Cj, Un(c))) return d = $n(c), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(Jl, b, M.h(a, c)), d], null);
-      if (J.h(wk, Un(c))) return new P(null, 2, 5, R, [co(Jl, b, a), c], null);
-      if (J.h(al, Un(c))) d = $n(c), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d;
-      else {
-        d = Ym.g(c);
-        e = zo.g ? zo.g(c) : zo.call(null, c);
-        c = N(e, 0, null);
-        e = N(e, 1, null);
-        if (J.h(d, Ym.g(e))) return new P(null, 2, 5, R, [co(Jl, b, M.h(a, c)), Vn(e)], null);
-        d = e;
-        a = M.h(a, c);
-        c = d;
-      }
-    }
+    var d = N(c, 1, null);
+    c = W.g(D(Jf.g(a)));
+    var e = Sn(d), f = J.h(Tm, Un(d)) ? $n(d) : u((function() {
+      var g = Un(d), h = new Ah(null, new r(null, 3, [qm, null, qj, null, $l, null], null), null);
+      return h.g ? h.g(g) : h.call(null, g);
+    })()) ? new P(null, 2, 5, R, [Xn(Sn(d), ["A relation alias follows the join marker \u2014 write `", w.g(W.g(Sn(d))), w.g(c), ":<relation>`"].join("")), d], null) : new P(null, 2, 5, R, [
+      Xn(Sn(d), "expected an operation after the alias \u2014 count, sum, avg, min or max"),
+      d
+    ], null);
+    c = N(f, 0, null);
+    f = N(f, 1, null);
+    f = J.h(tk, X.g(c)) ? new P(null, 2, 5, R, [null, f], null) : J.h(Zk, Un(f)) ? zo.g ? zo.g(f) : zo.call(null, f) : new P(null, 2, 5, R, [Xn(e, ["expected `(` after `", w.g(W.g(c)), "` \u2014 operations are `alias: count(relation)`; scalar aliases are not supported"].join("")), f], null);
+    e = N(f, 0, null);
+    f = N(f, 1, null);
+    a = Nf(Ca, new P(null, 3, 5, R, [a, c, e], null));
+    if (u(df(function(g) {
+      return J.h(tk, X.g(g));
+    }, Kf.h(new P(null, 2, 5, R, [c, e], null), Jf.g(e))))) return new P(null, 2, 5, R, [co(Bm, b, a), Yn(f)], null);
+    e = ao(
+      f,
+      an,
+      "expected newline after the operation"
+    );
+    c = N(e, 0, null);
+    e = N(e, 1, null);
+    return new P(null, 2, 5, R, [co(Bm, b, M.h(a, c)), e], null);
   }
   function zo(a) {
-    var b = Sn(a), c = (function() {
-      var g = Un(a);
-      switch (g instanceof z ? g.M : null) {
-        case "dash":
-          return g = $n(a), N(g, 0, null), g = N(g, 1, null), new P(null, 2, 5, R, [Xn(b, "join markers are not allowed inside `_agg` \u2014 aggregates are always inner; drop the `-`"), g], null);
-        case "arrow":
-          return g = $n(a), N(g, 0, null), g = N(g, 1, null), new P(null, 2, 5, R, [Xn(b, "join markers are not allowed inside `_agg` \u2014 aggregates are always inner; drop the `->`"), g], null);
-        default:
-          return new P(null, 2, 5, R, [null, a], null);
-      }
-    })(), d = N(c, 0, null);
-    c = N(c, 1, null);
-    d = u(d) ? M.h(ld, d) : ld;
-    var e = ko(c) ? wo.g ? wo.g(c) : wo.call(null, c) : new P(null, 2, 5, R, [null, c], null);
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = u(c) ? M.h(d, c) : d;
-    e = ao(e, Tm, "expected agg-relation name");
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = M.h(d, c);
-    e = J.h(bl, Un(e)) ? oo.g ? oo.g(e) : oo.call(null, e) : new P(null, 2, 5, R, [null, e], null);
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = u(c) ? M.h(d, c) : d;
-    e = ao(e, $m, "expected newline after agg-relation header");
-    c = N(e, 0, null);
-    e = N(e, 1, null);
-    d = M.h(d, c);
-    e = ao(e, im, "expected indented agg attributes");
-    c = N(
-      e,
-      0,
-      null
-    );
-    e = N(e, 1, null);
-    for (d = M.h(d, c); ; ) {
-      if (J.h(Cj, Un(e))) return e = $n(e), c = N(e, 0, null), e = N(e, 1, null), new P(null, 2, 5, R, [co(wl, b, M.h(d, c)), e], null);
-      if (J.h(wk, Un(e))) return new P(null, 2, 5, R, [co(wl, b, d), e], null);
-      c = Ym.g(e);
-      var f = Ao.g ? Ao.g(e) : Ao.call(null, e);
-      e = N(f, 0, null);
-      f = N(f, 1, null);
-      if (J.h(c, Ym.g(f))) return new P(null, 2, 5, R, [co(wl, b, M.h(d, e)), Vn(f)], null);
-      c = f;
-      d = M.h(d, e);
-      e = c;
-    }
-  }
-  function Ao(a) {
-    var b = Sn(a), c = ao(a, Tm, "expected aggregate attribute name");
+    var b = Sn(a);
+    a = bo(a, Zk);
+    var c = Wn(a, "distinct") && J.h(Tm, Z.g(Tn(a, 1))) ? $n(a) : new P(null, 2, 5, R, [null, a], null);
     a = N(c, 0, null);
-    c = N(c, 1, null);
-    c = bo(c, hm);
-    a = new P(null, 1, 5, R, [a], null);
-    var d = Bo.g ? Bo.g(c) : Bo.call(null, c);
-    c = N(d, 0, null);
-    d = N(d, 1, null);
-    a = M.h(a, c);
-    for (c = d; ; ) if (J.h(Hl, Un(c))) d = Vn(c), d = Bo.g ? Bo.g(d) : Bo.call(null, d), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c), c = d;
-    else return J.h($m, Un(c)) ? (d = $n(c), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(Hj, b, M.h(a, c)), d], null)) : new P(null, 2, 5, R, [
-      co(Hj, b, M.h(a, Xn(Sn(c), "expected , or newline after agg fn"))),
-      Yn(c)
-    ], null);
-  }
-  function Bo(a) {
-    var b = Sn(a), c;
-    if (c = J.h(Tm, Un(a))) {
-      c = W.g(Sn(a));
-      var d = new Ah(null, new r(null, 4, ["min", null, "sum", null, "max", null, "avg", null], null), null);
-      c = d.g ? d.g(c) : d.call(null, c);
-    }
-    return u(c) ? (c = $n(a), a = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Lm, b, new P(null, 1, 5, R, [a], null)), c], null)) : new P(null, 2, 5, R, [Xn(b, "expected aggregate function (avg/sum/min/max)"), Vn(a)], null);
+    var d = N(c, 1, null);
+    c = (function() {
+      var m = J.h(Zk, Un(d));
+      if (!m) a: for (m = 0; ; ) {
+        if (Xe(Tm, Z.g(Tn(d, m)))) {
+          m = false;
+          break a;
+        }
+        if (J.h(mk, Z.g(Tn(d, m + 1)))) m += 2;
+        else {
+          m = io(qd.i(d, $m, $m.g(d) + m + 1));
+          break a;
+        }
+      }
+      return m;
+    })();
+    var e = Ba(c) && J.h(Tm, Un(d)) ? Ko.g ? Ko.g(d) : Ko.call(null, d) : new P(null, 2, 5, R, [null, d], null);
+    c = N(e, 0, null);
+    var f = N(e, 1, null);
+    e = u(u(c) ? J.h(El, Un(f)) : c) ? (function() {
+      var m = Vn(f), p = Sn(m), q = Fo.g ? Fo.g(m) : Fo.call(null, m);
+      m = N(q, 0, null);
+      q = N(q, 1, null);
+      return new P(null, 2, 5, R, [co(am, p, new P(null, 1, 5, R, [m], null)), q], null);
+    })() : null == c && Ba((function() {
+      var m = Un(f), p = new Ah(null, new r(null, 4, [Fj, null, rl, null, vk, null, an, null], null), null);
+      return p.g ? p.g(m) : p.call(null, m);
+    })()) ? (function() {
+      var m = Sn(f), p = Fo.g ? Fo.g(f) : Fo.call(null, f), q = N(p, 0, null);
+      p = N(p, 1, null);
+      return new P(null, 2, 5, R, [co(am, m, new P(null, 1, 5, R, [q], null)), p], null);
+    })() : new P(null, 2, 5, R, [null, f], null);
+    var g = N(e, 0, null), h = N(e, 1, null);
+    e = J.h(
+      rl,
+      Un(h)
+    ) ? Y.g(Sn(h)) : null;
+    h = u(e) ? new P(null, 2, 5, R, [null, Vn(h)], null) : new P(null, 2, 5, R, [Xn(Sn(h), "Missing `)`"), h], null);
+    var k = N(h, 0, null);
+    h = N(h, 1, null);
+    a = Nf(Ca, new P(null, 4, 5, R, [a, c, g, k], null));
+    b = T.g(b);
+    return new P(null, 2, 5, R, [zn(Ql, new P(null, 2, 5, R, [b, u(e) ? e : qo(a, b)], null), a), h], null);
   }
   function wo(a) {
     var b = Sn(a), c = $n(a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    c = bo(c, hm);
-    return new P(null, 2, 5, R, [co(Rk, b, new P(null, 1, 5, R, [a], null)), c], null);
+    c = bo(c, gm);
+    return new P(null, 2, 5, R, [co(Pk, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function vo(a) {
     var b = Sn(a), c = Un(a);
     switch (c instanceof z ? c.M : null) {
       case "arrow":
       case "dash":
-        return c = $n(a), a = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(pl, b, new P(null, 1, 5, R, [a], null)), c], null);
+      case "bang":
+        return c = $n(a), a = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(ml, b, new P(null, 1, 5, R, [a], null)), c], null);
       default:
-        return new P(null, 2, 5, R, [Xn(b, "expected join marker (- or ->)"), Vn(a)], null);
+        return new P(null, 2, 5, R, [Xn(b, "expected join marker (-, -> or !)"), Vn(a)], null);
     }
   }
   function oo(a) {
     var b = Sn(a);
-    a = bo(a, bl);
-    a = J.h(ul, Un(a)) || J.h(wk, Un(a)) ? new P(null, 2, 5, R, [null, a], null) : Co.g ? Co.g(a) : Co.call(null, a);
+    a = bo(a, Zk);
+    a = J.h(rl, Un(a)) || J.h(vk, Un(a)) ? new P(null, 2, 5, R, [null, a], null) : Co.g ? Co.g(a) : Co.call(null, a);
     var c = N(a, 0, null);
     a = N(a, 1, null);
-    var d = J.h(ul, Un(a)) ? Y.g(Sn(a)) : null;
-    a = bo(a, ul);
+    var d = J.h(rl, Un(a)) ? Y.g(Sn(a)) : null;
+    a = bo(a, rl);
     c = Nf(Ca, new P(null, 1, 5, R, [c], null));
     b = T.g(b);
     u(d) || (d = C(c) ? jd(Zm.g(kd(c))) : null, d = u(d) ? d : b);
@@ -18514,18 +18519,18 @@ var init_main = __esm({
     var b = Sn(a), c = Do.g ? Do.g(a) : Do.call(null, a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    for (a = new P(null, 1, 5, R, [a], null); ; ) if (J.h(Hl, Un(c))) {
+    for (a = new P(null, 1, 5, R, [a], null); ; ) if (J.h(El, Un(c))) {
       c = Vn(c);
       c = Do.g ? Do.g(c) : Do.call(null, c);
       var d = N(c, 0, null), e = N(c, 1, null);
       c = e;
       a = M.h(a, d);
     } else if (J.h(Tm, Un(c))) {
-      var f = Ym.g(c);
+      var f = $m.g(c);
       e = Do.g ? Do.g(c) : Do.call(null, c);
       d = N(e, 0, null);
       e = N(e, 1, null);
-      if (J.h(f, Ym.g(e))) return new P(null, 2, 5, R, [co(ok, b, a), c], null);
+      if (J.h(f, $m.g(e))) return new P(null, 2, 5, R, [co(ok, b, a), c], null);
       c = e;
       a = M.h(a, d);
     } else return new P(null, 2, 5, R, [co(ok, b, a), c], null);
@@ -18534,7 +18539,7 @@ var init_main = __esm({
     var b = Sn(a), c = u(jo(a)) ? Eo.g ? Eo.g(a) : Eo.call(null, a) : Fo.g ? Fo.g(a) : Fo.call(null, a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    return new P(null, 2, 5, R, [co(oj, b, new P(null, 1, 5, R, [a], null)), c], null);
+    return new P(null, 2, 5, R, [co(uj, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function Fo(a) {
     var b = Sn(a), c = Go.g ? Go.g(a) : Go.call(null, a);
@@ -18563,18 +18568,18 @@ var init_main = __esm({
     } else return new P(null, 2, 5, R, [co(lk, b, a), c], null);
   }
   function Ho(a) {
-    var b = Sn(a), c = J.h(bl, Un(a)) ? Io.g ? Io.g(a) : Io.call(null, a) : Jo.g ? Jo.g(a) : Jo.call(null, a);
+    var b = Sn(a), c = J.h(Zk, Un(a)) ? Io.g ? Io.g(a) : Io.call(null, a) : Jo.g ? Jo.g(a) : Jo.call(null, a);
     a = N(c, 0, null);
     c = N(c, 1, null);
     return new P(null, 2, 5, R, [co(Sj, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function Io(a) {
     var b = Sn(a);
-    a = bo(a, bl);
+    a = bo(a, Zk);
     var c = Fo(a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    c = bo(c, ul);
+    c = bo(c, rl);
     return new P(null, 2, 5, R, [co(Vm, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function Jo(a) {
@@ -18604,7 +18609,7 @@ var init_main = __esm({
       var b = Sn(a), c = $n(a);
       a = N(c, 0, null);
       c = N(c, 1, null);
-      return new P(null, 2, 5, R, [co(Si, b, new P(null, 1, 5, R, [co(Uk, b, new P(null, 1, 5, R, [a], null))], null)), c], null);
+      return new P(null, 2, 5, R, [co(Vi, b, new P(null, 1, 5, R, [co(Sk, b, new P(null, 1, 5, R, [a], null))], null)), c], null);
     }
     return No.g ? No.g(a) : No.call(null, a);
   }
@@ -18625,66 +18630,66 @@ var init_main = __esm({
       var g = N(c, 0, null);
       c = N(c, 1, null);
       d = M.h(d, g);
-      return new P(null, 2, 5, R, [co(Nk, b, d), c], null);
+      return new P(null, 2, 5, R, [co(Lk, b, d), c], null);
     }
     if (Wn(a, "not")) {
       c = $n(a);
       f = N(c, 0, null);
       c = N(c, 1, null);
       e = new P(null, 1, 5, R, [f], null);
-      if (Wn(c, "in")) return c = $n(c), d = N(c, 0, null), c = N(c, 1, null), d = M.h(e, d), c = Mo(c), g = N(c, 0, null), c = N(c, 1, null), d = M.h(d, g), new P(null, 2, 5, R, [co(Nk, b, d), c], null);
+      if (Wn(c, "in")) return c = $n(c), d = N(c, 0, null), c = N(c, 1, null), d = M.h(e, d), c = Mo(c), g = N(c, 0, null), c = N(c, 1, null), d = M.h(d, g), new P(null, 2, 5, R, [co(Lk, b, d), c], null);
       d = Xn(Sn(c), "expected `in` after `not`");
-      return new P(null, 2, 5, R, [co(Nk, b, M.h(e, d)), c], null);
+      return new P(null, 2, 5, R, [co(Lk, b, M.h(e, d)), c], null);
     }
-    return Wn(a, "in") ? (c = $n(a), d = N(c, 0, null), c = N(c, 1, null), c = Mo(c), g = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Nk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : Wn(a, "like") || Wn(a, "ilike") ? (c = $n(a), d = N(c, 0, null), c = N(c, 1, null), c = J.h(jk, Un(c)) ? $n(c) : ao(c, Ri, "expected string or named-param after like/ilike"), g = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Nk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : u((function() {
+    return Wn(a, "in") ? (c = $n(a), d = N(c, 0, null), c = N(c, 1, null), c = Mo(c), g = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Lk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : Wn(a, "like") || Wn(a, "ilike") ? (c = $n(a), d = N(c, 0, null), c = N(c, 1, null), c = J.h(jk, Un(c)) ? $n(c) : ao(c, Ui, "expected string or named-param after like/ilike"), g = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Lk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : u((function() {
       var h = Un(a);
       return eo.g ? eo.g(h) : eo.call(null, h);
-    })()) ? (c = Oo.g ? Oo.g(a) : Oo.call(null, a), d = N(c, 0, null), c = N(c, 1, null), c = Po.g ? Po.g(c) : Po.call(null, c), g = N(c, 0, null), c = N(c, 1, null), g = J.h(uk, X.g(g)) ? qd.i(g, Zm, Zm.g(d)) : g, new P(null, 2, 5, R, [co(Nk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : new P(null, 2, 5, R, [Xn(b, "expected predicate operator"), Vn(a)], null);
+    })()) ? (c = Oo.g ? Oo.g(a) : Oo.call(null, a), d = N(c, 0, null), c = N(c, 1, null), c = Po.g ? Po.g(c) : Po.call(null, c), g = N(c, 0, null), c = N(c, 1, null), g = J.h(tk, X.g(g)) ? qd.i(g, Zm, Zm.g(d)) : g, new P(null, 2, 5, R, [co(Lk, b, new P(null, 2, 5, R, [d, g], null)), c], null)) : new P(null, 2, 5, R, [Xn(b, "expected predicate operator"), Vn(a)], null);
   }
   function Oo(a) {
     var b = Sn(a);
     var c = Un(a);
     c = eo.g ? eo.g(c) : eo.call(null, c);
-    return u(c) ? (c = $n(a), a = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Ti, b, new P(null, 1, 5, R, [a], null)), c], null)) : new P(null, 2, 5, R, [Xn(b, "expected binary operator"), Vn(a)], null);
+    return u(c) ? (c = $n(a), a = N(c, 0, null), c = N(c, 1, null), new P(null, 2, 5, R, [co(Wi, b, new P(null, 1, 5, R, [a], null)), c], null)) : new P(null, 2, 5, R, [Xn(b, "expected binary operator"), Vn(a)], null);
   }
   function Po(a) {
     var b = Sn(a);
-    if (J.h(Ri, Un(a))) {
+    if (J.h(Ui, Un(a))) {
       a = $n(a);
       var c = N(a, 0, null);
       a = N(a, 1, null);
-      return new P(null, 2, 5, R, [co(Uk, b, new P(null, 1, 5, R, [c], null)), a], null);
+      return new P(null, 2, 5, R, [co(Sk, b, new P(null, 1, 5, R, [c], null)), a], null);
     }
-    if (J.h(jj, Un(a))) return a = $n(a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Uk, b, new P(null, 1, 5, R, [c], null)), a], null);
-    if (J.h(bl, Un(a))) return a = No.g ? No.g(a) : No.call(null, a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Uk, b, new P(null, 1, 5, R, [c], null)), a], null);
+    if (J.h(mj, Un(a))) return a = $n(a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Sk, b, new P(null, 1, 5, R, [c], null)), a], null);
+    if (J.h(Zk, Un(a))) return a = No.g ? No.g(a) : No.call(null, a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Sk, b, new P(null, 1, 5, R, [c], null)), a], null);
     if (c = J.h(Tm, Un(a))) c = W.g(Sn(a)), c = fo.g ? fo.g(c) : fo.call(null, c);
     return u(c) ? new P(
       null,
       2,
       5,
       R,
-      [new r(null, 4, [X, uk, Zm, new P(null, 2, 5, R, [T.g(b), T.g(b)], null), W, "", kj, "expected value after operator"], null), a],
+      [new r(null, 4, [X, tk, Zm, new P(null, 2, 5, R, [T.g(b), T.g(b)], null), W, "", kj, "expected value after operator"], null), a],
       null
-    ) : J.h(Tm, Un(a)) || J.h(jk, Un(a)) ? (a = $n(a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Uk, b, new P(null, 1, 5, R, [c], null)), a], null)) : new P(null, 2, 5, R, [Xn(b, "expected value"), Vn(a)], null);
+    ) : J.h(Tm, Un(a)) || J.h(jk, Un(a)) ? (a = $n(a), c = N(a, 0, null), a = N(a, 1, null), new P(null, 2, 5, R, [co(Sk, b, new P(null, 1, 5, R, [c], null)), a], null)) : new P(null, 2, 5, R, [Xn(b, "expected value"), Vn(a)], null);
   }
   function No(a) {
     var b = Sn(a);
-    a = bo(a, bl);
-    if (J.h(ul, Un(a))) return new P(null, 2, 5, R, [co(Si, b, ld), Vn(a)], null);
+    a = bo(a, Zk);
+    if (J.h(rl, Un(a))) return new P(null, 2, 5, R, [co(Vi, b, ld), Vn(a)], null);
     var c = Po(a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    for (a = M.h(ld, a); ; ) if (J.h(Hl, Un(c))) {
+    for (a = M.h(ld, a); ; ) if (J.h(El, Un(c))) {
       c = Vn(c);
       var d = Po(c);
       c = N(d, 0, null);
       d = N(d, 1, null);
       a = M.h(a, c);
       c = d;
-    } else return J.h(ul, Un(c)) ? new P(null, 2, 5, R, [co(Si, b, a), Vn(c)], null) : new P(null, 2, 5, R, [co(Si, b, M.h(a, Xn(Sn(c), "expected , or ) in list"))), Yn(c)], null);
+    } else return J.h(rl, Un(c)) ? new P(null, 2, 5, R, [co(Vi, b, a), Vn(c)], null) : new P(null, 2, 5, R, [co(Vi, b, M.h(a, Xn(Sn(c), "expected , or ) in list"))), Yn(c)], null);
   }
   function Qo(a, b) {
-    return J.h(jj, Un(a)) ? $n(a) : J.h(jk, Un(a)) ? $n(a) : new P(null, 2, 5, R, [Xn(Sn(a), ["expected number or named-param after ", w.g(b)].join("")), a], null);
+    return J.h(mj, Un(a)) ? $n(a) : J.h(jk, Un(a)) ? $n(a) : new P(null, 2, 5, R, [Xn(Sn(a), ["expected number or named-param after ", w.g(b)].join("")), a], null);
   }
   function Eo(a) {
     var b = Sn(a), c = W.g(Sn(a)), d = ho(c), e = $n(a);
@@ -18697,29 +18702,29 @@ var init_main = __esm({
     a = u(c) ? M.h(a, c) : a;
     switch (d) {
       case "_limit":
-        return d = Qo(e, "_limit"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ol, b, M.h(a, c)), d], null);
+        return d = Qo(e, "_limit"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ll, b, M.h(a, c)), d], null);
       case "_offset":
-        return d = Qo(e, "_offset"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ol, b, M.h(a, c)), d], null);
+        return d = Qo(e, "_offset"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ll, b, M.h(a, c)), d], null);
       case "_join":
-        return d = ao(e, Tm, "expected join type (left|inner|right|full) after _join"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ol, b, M.h(a, c)), d], null);
+        return d = ao(e, Tm, "expected join type (left|inner|none) after _join"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ll, b, M.h(a, c)), d], null);
       case "_on":
-        return d = ao(e, Tm, "expected a self-relation name after _on"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ol, b, M.h(a, c)), d], null);
+        return d = ao(e, Tm, "expected a self-relation name after _on"), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ll, b, M.h(a, c)), d], null);
       case "_order_by":
-        if (J.h(jk, Un(e))) return d = $n(e), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ol, b, M.h(a, c)), d], null);
+        if (J.h(jk, Un(e))) return d = $n(e), c = N(d, 0, null), d = N(d, 1, null), new P(null, 2, 5, R, [co(ll, b, M.h(a, c)), d], null);
         d = Ro.g ? Ro.g(e) : Ro.call(null, e);
         c = N(d, 0, null);
         d = N(d, 1, null);
-        for (a = M.h(a, c); ; ) if (J.h(Hl, Un(d)) && Ba(jo(Vn(d)))) d = Vn(d), c = Ro.g ? Ro.g(d) : Ro.call(null, d), d = N(c, 0, null), c = N(c, 1, null), a = M.h(a, d), d = c;
-        else return new P(null, 2, 5, R, [co(ol, b, a), d], null);
+        for (a = M.h(a, c); ; ) if (J.h(El, Un(d)) && Ba(jo(Vn(d)))) d = Vn(d), c = Ro.g ? Ro.g(d) : Ro.call(null, d), d = N(c, 0, null), c = N(c, 1, null), a = M.h(a, d), d = c;
+        else return new P(null, 2, 5, R, [co(ll, b, a), d], null);
       case "_distinct":
-        for (d = ao(e, Tm, "expected identifier after _distinct"), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c); ; ) if (J.h(Hl, Un(d))) d = Vn(d), c = ao(d, Tm, "expected identifier after `,`"), d = N(c, 0, null), c = N(c, 1, null), a = M.h(a, d), d = c;
-        else return new P(null, 2, 5, R, [co(ol, b, a), d], null);
+        for (d = ao(e, Tm, "expected identifier after _distinct"), c = N(d, 0, null), d = N(d, 1, null), a = M.h(a, c); ; ) if (J.h(El, Un(d))) d = Vn(d), c = ao(d, Tm, "expected identifier after `,`"), d = N(c, 0, null), c = N(c, 1, null), a = M.h(a, d), d = c;
+        else return new P(null, 2, 5, R, [co(ll, b, a), d], null);
       default:
         throw Error(["No matching clause: ", w.g(d)].join(""));
     }
   }
   function Ro(a) {
-    var b = Sn(a), c = ao(a, Tm, "expected identifier in order-by");
+    var b = Sn(a), c = J.h(Tm, Un(a)) ? Ko(a) : ao(a, Tm, "expected identifier in order-by");
     a = N(c, 0, null);
     c = N(c, 1, null);
     if (Wn(c, "asc") || Wn(c, "desc")) {
@@ -18735,12 +18740,12 @@ var init_main = __esm({
   }
   function to(a) {
     var b = Sn(a);
-    a = bo(a, bl);
+    a = bo(a, Zk);
     var c = uo.g ? uo.g(a) : uo.call(null, a);
     a = N(c, 0, null);
     c = N(c, 1, null);
-    c = bo(c, ul);
-    return new P(null, 2, 5, R, [co(jl, b, new P(null, 1, 5, R, [a], null)), c], null);
+    c = bo(c, rl);
+    return new P(null, 2, 5, R, [co(gl, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function uo(a) {
     var b = Sn(a), c = So.g ? So.g(a) : So.call(null, a);
@@ -18766,26 +18771,26 @@ var init_main = __esm({
       d = N(d, 1, null);
       a = M.h(a, c);
       c = d;
-    } else return new P(null, 2, 5, R, [co(aj, b, a), c], null);
+    } else return new P(null, 2, 5, R, [co(ej, b, a), c], null);
   }
   function To(a) {
     var b = Sn(a);
-    if (J.h(bl, Un(a))) {
-      a = bo(a, bl);
+    if (J.h(Zk, Un(a))) {
+      a = bo(a, Zk);
       var c = uo(a);
       a = N(c, 0, null);
       c = N(c, 1, null);
-      c = bo(c, ul);
+      c = bo(c, rl);
       a = new P(null, 2, 5, R, [a, c], null);
     } else a = Lo(a);
     c = a;
     a = N(c, 0, null);
     c = N(c, 1, null);
-    return new P(null, 2, 5, R, [co(Ij, b, new P(null, 1, 5, R, [a], null)), c], null);
+    return new P(null, 2, 5, R, [co(Kj, b, new P(null, 1, 5, R, [a], null)), c], null);
   }
   function Uo(a) {
     a = Rn(a);
-    a = new r(null, 2, [Uj, ng(a), Ym, 0], null);
+    a = new r(null, 2, [Uj, ng(a), $m, 0], null);
     a = no(a);
     var b = N(a, 0, null);
     N(a, 1, null);
@@ -18948,16 +18953,16 @@ var init_main = __esm({
     e = a < e ? "..." : null;
     return [w.g(c), w.g(b), e, w.g(d)].join("");
   }
-  var jp, kp = pf(We), lp = pf(We), mp = pf(We), np = pf(We), op = xc(We, Gl, wi.v ? wi.v() : wi.call(null));
+  var jp, Ao = pf(We), Bo = pf(We), kp = pf(We), lp = pf(We), mp = xc(We, Dl, wi.v ? wi.v() : wi.call(null));
   jp = new Hi(yc.h("cljs.tools.reader.impl.inspect", "inspect*"), function(a, b) {
-    return null == b ? Ni : "string" === typeof b ? Ri : b instanceof z ? Mj : "number" === typeof b ? Mj : b instanceof vc ? Mj : Fd(b) ? pm : me(b) ? Mk : Cd(b) ? Wj : Ad(b) ? kl : J.h(b, true) ? Mj : J.h(b, false) ? Mj : Ea(b);
-  }, op, kp, lp, mp, np);
-  Ki(jp, Ri, function(a, b) {
+    return null == b ? Qi : "string" === typeof b ? Ui : b instanceof z ? Nj : "number" === typeof b ? Nj : b instanceof vc ? Nj : Fd(b) ? pm : me(b) ? Kk : Cd(b) ? Wj : Ad(b) ? hl : J.h(b, true) ? Nj : J.h(b, false) ? Nj : Ea(b);
+  }, mp, Ao, Bo, kp, lp);
+  Ki(jp, Ui, function(a, b) {
     a = u(a) ? 5 : 20;
     var c = b.length > a ? '..."' : '"', d = b.length;
     return ['"', w.g(b.substring(0, a < d ? a : d)), c].join("");
   });
-  Ki(jp, Mj, function(a, b) {
+  Ki(jp, Nj, function(a, b) {
     return w.g(b);
   });
   Ki(jp, Ac, function() {
@@ -18975,10 +18980,10 @@ var init_main = __esm({
   Ki(jp, ve, function() {
     return "<lazy seq>";
   });
-  Ki(jp, Ni, function() {
+  Ki(jp, Qi, function() {
     return "nil";
   });
-  Ki(jp, Mk, function(a, b) {
+  Ki(jp, Kk, function(a, b) {
     return ip(a, b, "(", ")");
   });
   Ki(jp, Wj, function(a, b) {
@@ -18986,21 +18991,21 @@ var init_main = __esm({
     b = Qe(Ge, wf(d, b));
     return ip(a, b, "{", c > d ? "...}" : "}");
   });
-  Ki(jp, kl, function(a, b) {
+  Ki(jp, hl, function(a, b) {
     return ip(a, b, "#{", "}");
   });
   Ki(jp, pm, function(a, b) {
     return ip(a, b, "[", "]");
   });
-  Ki(jp, Ii, function(a, b) {
+  Ki(jp, Pi, function(a, b) {
     return fi(fd([Ea(b)]));
   });
   function pp(a, b, c) {
-    b = new r(null, 2, [Z, Vi, Nj, b], null);
-    a = hp(a) ? qd.u(b, Sk, ep(a), fd([Qi, cp(a), Oj, dp(a)])) : b;
-    var d = Sk.g(a);
-    b = Qi.g(a);
-    var e = Oj.g(a);
+    b = new r(null, 2, [Z, Yi, Oj, b], null);
+    a = hp(a) ? qd.u(b, Qk, ep(a), fd([Ti, cp(a), Pj, dp(a)])) : b;
+    var d = Qk.g(a);
+    b = Ti.g(a);
+    var e = Pj.g(a);
     d = u(d) ? [w.g(d), " "].join("") : null;
     b = u(b) ? ["[line ", w.g(b), ", col ", w.g(e), "]"].join("") : null;
     c = Te(w, d, b, u(u(d) ? d : b) ? " " : null, c);
@@ -19010,10 +19015,10 @@ var init_main = __esm({
     return pp(a, Om, fd([Qe(w, b)]));
   }
   function rp(a, b) {
-    return pp(a, Pl, fd([Qe(w, b)]));
+    return pp(a, Il, fd([Qe(w, b)]));
   }
   function sp(a, b) {
-    return pp(a, wk, fd([Qe(w, b)]));
+    return pp(a, vk, fd([Qe(w, b)]));
   }
   function tp(a, b, c, d) {
     qp(a, fd(["The map literal starting with ", jp.h(false, D(d)), u(b) ? [" on line ", w.g(b), " column ", w.g(c)].join("") : null, " contains ", K(d), " form(s). Map literals must contain an even number of forms."]));
@@ -19026,7 +19031,7 @@ var init_main = __esm({
   }
   function wp(a, b) {
     a: {
-      var c = Ri instanceof z ? Ri.M : null;
+      var c = Ui instanceof z ? Ui.M : null;
       switch (c) {
         case "regex":
           c = '#"';
@@ -19038,7 +19043,7 @@ var init_main = __esm({
           throw Error(["No matching clause: ", w.g(c)].join(""));
       }
     }
-    return sp(a, fd(["Unexpected EOF reading ", ue(Ri), " starting ", Re(w, c, b), "."]));
+    return sp(a, fd(["Unexpected EOF reading ", ue(Ui), " starting ", Re(w, c, b), "."]));
   }
   function xp(a, b) {
     return rp(a, fd(["Invalid digit ", b, " in unicode character."]));
@@ -19267,7 +19272,7 @@ var init_main = __esm({
     }
   }
   function bq(a, b, c) {
-    a = Zp(Mk, ")", a, c);
+    a = Zp(Kk, ")", a, c);
     return yd(a) ? Cc : Qe(pe, a);
   }
   function cq(a, b, c) {
@@ -19375,7 +19380,7 @@ var init_main = __esm({
       case "false":
         return false;
       case "/":
-        return rl;
+        return nl;
       default:
         var c = Hp(b);
         c = u(c) ? yc.h(c.g ? c.g(0) : c.call(null, 0), c.g ? c.g(1) : c.call(null, 1)) : null;
@@ -19386,14 +19391,14 @@ var init_main = __esm({
   function iq(a) {
     var b = $o(a);
     if (Wo(b)) return qp(a, fd(["A single colon is not a valid keyword."]));
-    b = Qp(a, Wk, b, true);
+    b = Qp(a, Uk, b, true);
     var c = Hp(b);
     if (u(u(c) ? -1 === b.indexOf("::") : c)) {
       var d = c.g ? c.g(0) : c.call(null, 0);
       c = c.g ? c.g(1) : c.call(null, 1);
-      return ":" === Yc(b, 0) ? up(a, Wk, [":", w.g(b)].join("")) : te.h(d, c);
+      return ":" === Yc(b, 0) ? up(a, Uk, [":", w.g(b)].join("")) : te.h(d, c);
     }
-    return up(a, Wk, [":", w.g(b)].join(""));
+    return up(a, Uk, [":", w.g(b)].join(""));
   }
   function jq(a, b, c) {
     b = $p ? $p(a, true, null, c) : aq.call(null, a, true, null, c);
@@ -19403,9 +19408,9 @@ var init_main = __esm({
     return null != c && (c.l & 131072 || n === c.ec) ? ud(c, yh(fd([vd(c), b]))) : qp(a, fd(["Metadata can not be applied to ", jp.h(false, c), ". ", "Metadata can only be applied to IMetas."]));
   }
   function kq(a, b, c) {
-    b = Zp(kl, "}", a, c);
+    b = Zp(hl, "}", a, c);
     c = Eh(b);
-    J.h(K(b), K(c)) || Ap(a, kl, b);
+    J.h(K(b), K(c)) || Ap(a, hl, b);
     return c;
   }
   function lq(a) {
@@ -19442,7 +19447,7 @@ var init_main = __esm({
   }
   function nq(a, b, c) {
     b = $p ? $p(a, true, null, c) : aq.call(null, a, true, null, c);
-    return J.h(Yk, b) ? Number.NaN : J.h(Gk, b) ? Number.NEGATIVE_INFINITY : J.h(Fj, b) ? Number.POSITIVE_INFINITY : qp(a, fd([["Invalid token: ##", w.g(b)].join("")]));
+    return J.h(Wk, b) ? Number.NaN : J.h(Fk, b) ? Number.NEGATIVE_INFINITY : J.h(Ij, b) ? Number.POSITIVE_INFINITY : qp(a, fd([["Invalid token: ##", w.g(b)].join("")]));
   }
   function Op(a) {
     switch (a) {
@@ -19501,7 +19506,7 @@ var init_main = __esm({
     var e = y(hk.g(c), b);
     e = u(e) ? e : We.g ? We.g(b) : We.call(null, b);
     if (u(e)) return e.g ? e.g(d) : e.call(null, d);
-    c = Ii.g(c);
+    c = Pi.g(c);
     return u(c) ? c.h ? c.h(b, d) : c.call(null, b, d) : qp(a, fd(["No reader function for tag ", jp.h(false, b), "."]));
   }
   function aq(a) {
@@ -19518,7 +19523,7 @@ var init_main = __esm({
   }
   function oq(a, b) {
     a = Ve(a);
-    var c = y(a, wk), d = !Md(a, wk);
+    var c = y(a, vk), d = !Md(a, vk);
     return $p(b, d, c, a);
   }
   function $p(a, b, c, d) {
@@ -19546,18 +19551,18 @@ var init_main = __esm({
         f = k;
         if (f instanceof Mi) {
           c = f instanceof Mi ? f.data : null;
-          if (J.h(Vi, Z.g(c))) throw f;
+          if (J.h(Yi, Z.g(c))) throw f;
           b = f.message;
           a = yh(fd([new r(
             null,
             1,
-            [Z, Vi],
+            [Z, Yi],
             null
-          ), c, hp(a) ? new r(null, 3, [Qi, cp(a), pk, dp(a), Sk, ep(a)], null) : null]));
+          ), c, hp(a) ? new r(null, 3, [Ti, cp(a), pk, dp(a), Qk, ep(a)], null) : null]));
           throw new Mi(b, a, f);
         }
         b = f.message;
-        a = yh(fd([new r(null, 1, [Z, Vi], null), hp(a) ? new r(null, 3, [Qi, cp(a), pk, dp(a), Sk, ep(a)], null) : null]));
+        a = yh(fd([new r(null, 1, [Z, Yi], null), hp(a) ? new r(null, 3, [Ti, cp(a), pk, dp(a), Qk, ep(a)], null) : null]));
         throw new Mi(b, a, f);
       }
       throw k;
@@ -19633,7 +19638,7 @@ var init_main = __esm({
       m
     ], null);
   }
-  var uq = pf(null), vq = pf(yh(fd([new r(null, 4, [Sl, function(a) {
+  var uq = pf(null), vq = pf(yh(fd([new r(null, 4, [Ll, function(a) {
     if ("string" === typeof a) {
       var b = tq(a);
       if (u(b)) {
@@ -19648,10 +19653,10 @@ var init_main = __esm({
   }, cj, function(a) {
     if ("string" === typeof a) return new Li(a.toLowerCase());
     throw Error("UUID literal expects a string as its representation.");
-  }, ml, function(a) {
+  }, jl, function(a) {
     if (Fd(a)) return Kf.h(Bg, a);
     throw Error("Queue literal expects a vector for its elements.");
-  }, Yi, function(a) {
+  }, aj, function(a) {
     if (Fd(a)) {
       var b = [];
       a = C(a);
@@ -19681,7 +19686,7 @@ var init_main = __esm({
     }
     throw Error("JS literal expects a vector or map containing only string or unqualified keyword keys");
   }], null), We])));
-  var wq = th("float boolean int numeric string timestamp uuid bool text number datetime order integer".split(" "), [vk, Pm, tl, vk, Ri, Bm, lj, Pm, Ri, vk, Bm, Wm, tl]);
+  var wq = th("float boolean int numeric string timestamp uuid bool text number datetime order integer".split(" "), [uk, Pm, ql, uk, Ui, Am, nj, Pm, Ui, uk, Am, Wm, ql]);
   function xq(a) {
     return u(a) ? y(wq, a.toLowerCase()) : null;
   }
@@ -19704,23 +19709,23 @@ var init_main = __esm({
     }
   }
   function Eq(a) {
-    for (var b = K(a), c = 0, d = dl, e = ld; ; ) {
+    for (var b = K(a), c = 0, d = al, e = ld; ; ) {
       if (c >= b) return e;
       var f = Aq(a, c), g = Aq(a, c + 1), h = d, k = h instanceof z ? h.M : null;
       switch (k) {
         case "string":
-          J.h("'", f) && J.h("'", g) ? (d = Ri, c += 2) : J.h("'", f) ? (d = dl, c += 1) : (d = Ri, c += 1);
+          J.h("'", f) && J.h("'", g) ? (d = Ui, c += 2) : J.h("'", f) ? (d = al, c += 1) : (d = Ui, c += 1);
           continue;
         case "line-comment":
-          J.h("\n", f) ? (d = dl, c += 1) : (d = Tl, c += 1);
+          J.h("\n", f) ? (d = al, c += 1) : (d = Ol, c += 1);
           continue;
         case "block-comment":
-          J.h("*", f) && J.h("/", g) ? (d = dl, c += 2) : (d = el, c += 1);
+          J.h("*", f) && J.h("/", g) ? (d = al, c += 2) : (d = bl, c += 1);
           continue;
         default:
-          if (J.h("'", f)) d = Ri, c += 1;
-          else if (J.h("-", f) && J.h("-", g)) d = Tl, c += 2;
-          else if (J.h("/", f) && J.h("*", g)) d = el, c += 2;
+          if (J.h("'", f)) d = Ui, c += 1;
+          else if (J.h("-", f) && J.h("-", g)) d = Ol, c += 2;
+          else if (J.h("/", f) && J.h("*", g)) d = bl, c += 2;
           else if (J.h("?", f)) if (Bq(g)) {
             var m = Dq(a, c + 2, Cq), p = a.substring(c + 1, m), q = J.h("?", Aq(a, m)), t = q ? m + 1 : m, v = J.h(":", Aq(a, t)) && Bq(Aq(a, t + 1)), A = v ? Dq(a, t + 2, Cq) : t, E = v ? a.substring(t + 1, A) : null, B = v && J.h("(", Aq(a, A)) ? A : !v && J.h("(", Aq(a, t)) ? t : null, I = u(B) ? (function() {
               for (var da = B + 1; ; ) {
@@ -19755,20 +19760,20 @@ var init_main = __esm({
               };
             })(c, d, e, m, p, q, t, v, A, E, B, I, Q, H, O, S, ca, ua, h, k, f, g, b)) : null, V = ca ? ab : S;
             d = V;
-            f = dl;
+            f = al;
             e = M.h(
               e,
               (function() {
-                var da = new r(null, 7, [vj, Il, Ml, p, nm, E, Z, xq(E), dn, O, T, c, Y, V], null);
-                da = q ? qd.i(da, gl, true) : da;
+                var da = new r(null, 7, [zj, Fl, Ml, p, nm, E, Z, xq(E), en, O, T, c, Y, V], null);
+                da = q ? qd.i(da, dl, true) : da;
                 da = u(Q) ? qd.i(da, ik, Q) : da;
-                return ca ? qd.i(da, Ii, a.substring(ua, ab)) : da;
+                return ca ? qd.i(da, Pi, a.substring(ua, ab)) : da;
               })()
             );
             c = d;
             d = f;
-          } else d = c + 1, f = dl, e = M.h(e, new r(null, 3, [vj, am, T, c, Y, c + 1], null)), c = d, d = f;
-          else d = dl, c += 1;
+          } else d = c + 1, f = al, e = M.h(e, new r(null, 3, [zj, Yl, T, c, Y, c + 1], null)), c = d, d = f;
+          else d = al, c += 1;
       }
     }
   }
@@ -19823,7 +19828,7 @@ var init_main = __esm({
     return 2 <= K(a) && ha(a, '"') && yn(a);
   }
   function Iq(a) {
-    var b = Kf.i(Ch, gf.h(Ef(gl), vf.g(Ml)), a);
+    var b = Kf.i(Ch, gf.h(Ef(dl), vf.g(Ml)), a);
     return Ge.h((function() {
       return (function e(d) {
         return new ve(null, function() {
@@ -19835,7 +19840,7 @@ var init_main = __esm({
                   var A = Ua(g, v), E = Ve(A);
                   A = E;
                   var B = y(E, Ml);
-                  E = y(E, Ii);
+                  E = y(E, Pi);
                   var I = E;
                   I = u(I) ? b.g ? b.g(B) : b.call(null, B) : I;
                   u(I) && (I = k, A = new r(null, 3, [
@@ -19850,7 +19855,7 @@ var init_main = __esm({
                 } else return true;
               })() ? Be(De(k), e(Wb(f))) : Be(De(k), null);
             }
-            var m = D(f), p = m = Ve(m), q = y(m, Ml), t = y(m, Ii);
+            var m = D(f), p = m = Ve(m), q = y(m, Ml), t = y(m, Pi);
             if (u((function() {
               var v = t;
               return u(v) ? b.g ? b.g(q) : b.call(null, q) : v;
@@ -19871,19 +19876,19 @@ var init_main = __esm({
                   for (var E = 0; ; ) if (E < h) {
                     var B = Ua(g, E), I = Ve(B);
                     B = I;
-                    var Q = y(I, Ml), H = y(I, Ii), O = y(I, nm);
+                    var Q = y(I, Ml), H = y(I, Pi), O = y(I, nm);
                     I = y(I, Z);
                     var S = H;
-                    I = u(S) ? !ha(H, "[") && (J.h(Ri, I) || null == I) && !Hq(H) : S;
+                    I = u(S) ? !ha(H, "[") && (J.h(Ui, I) || null == I) && !Hq(H) : S;
                     u(I) && (I = k, B = new r(null, 3, [kj, ["?", w.g(Q), u(O) ? [":", w.g(O)].join("") : null, ' default must be double-quoted \u2014 write ="', nn(H, /^'|'$/, ""), '"'].join(""), T, T.g(B), Y, Y.g(B)], null), I.add(B));
                     E += 1;
                   } else return true;
                 })() ? Be(De(k), e(Wb(f))) : Be(De(k), null);
               }
-              var m = D(f), p = m = Ve(m), q = y(m, Ml), t = y(m, Ii), v = y(m, nm), A = y(m, Z);
+              var m = D(f), p = m = Ve(m), q = y(m, Ml), t = y(m, Pi), v = y(m, nm), A = y(m, Z);
               if (u((function() {
                 var E = t;
-                return u(E) ? !ha(t, "[") && (J.h(Ri, A) || null == A) && !Hq(t) : E;
+                return u(E) ? !ha(t, "[") && (J.h(Ui, A) || null == A) && !Hq(t) : E;
               })())) return ed(new r(null, 3, [kj, ["?", w.g(q), u(v) ? [":", w.g(v)].join("") : null, ' default must be double-quoted \u2014 write ="', nn(t, /^'|'$/, ""), '"'].join(""), T, T.g(p), Y, Y.g(p)], null), e(F(f)));
               f = F(f);
             } else return null;
@@ -19901,21 +19906,21 @@ var init_main = __esm({
       }, d);
     }
     var c = Eq(u(a) ? a : ""), d = Nf(function(k) {
-      return J.h(Il, vj.g(k));
+      return J.h(Fl, zj.g(k));
     }, c), e = Nf(function(k) {
-      return J.h(am, vj.g(k));
+      return J.h(Yl, zj.g(k));
     }, c);
-    if (yd(d) && yd(e)) return new r(null, 5, [Fl, an, Xj, ld, Mm, 0, Rj, ld, Em, ld], null);
-    if (yd(d)) return new r(null, 5, [Fl, am, Xj, ld, Mm, K(e), Rj, ld, Em, ld], null);
+    if (yd(d) && yd(e)) return new r(null, 5, [Bl, bn, Xj, ld, Mm, 0, Rj, ld, Em, ld], null);
+    if (yd(d)) return new r(null, 5, [Bl, Yl, Xj, ld, Mm, K(e), Rj, ld, Em, ld], null);
     var f = ng(Fh(vf.h(Ml, d))), g = Lf(function(k) {
-      var m = b(k), p = dn.g(D(m)), q = ng(Fh(nf(nm, m))), t = ng(Fh(nf(Z, m))), v = ng(Gf(xq, q)), A = D(t);
-      A = u(A) ? A : Ri;
+      var m = b(k), p = en.g(D(m)), q = ng(Fh(nf(nm, m))), t = ng(Fh(nf(Z, m))), v = ng(Gf(xq, q)), A = D(t);
+      A = u(A) ? A : Ui;
       var E = D(q);
       var B = Gf(tn, qn(w.g(k), /[_\s]+/));
       B = yd(B) ? w.g(k) : on(" ", ed(na(D(B)), F(B)));
-      k = new r(null, 8, [Ml, k, dn, p, Z, A, nm, E, Ol, B, dk, Kd(C(q)), $i, 1 < K(t), Ul, v], null);
-      k = u(df(gl, m)) ? qd.i(k, gk, true) : k;
-      return u(df(Ii, m)) ? qd.i(k, Ii, df(Ii, m)) : k;
+      k = new r(null, 8, [Ml, k, en, p, Z, A, nm, E, Hl, B, dk, Kd(C(q)), dj, 1 < K(t), Pl, v], null);
+      k = u(df(dl, m)) ? qd.i(k, gk, true) : k;
+      return u(df(Pi, m)) ? qd.i(k, Pi, df(Pi, m)) : k;
     }, f), h = Kf.h(
       Kf.h(Kf.h(Kf.h(Kf.h(ld, (function() {
         return (function p(m) {
@@ -19924,7 +19929,7 @@ var init_main = __esm({
               var t = C(q);
               if (t) {
                 var v = t, A = D(v), E = b(A);
-                if (1 < K(Fh(vf.h(dn, E))) && (t = C((/* @__PURE__ */ (function(B, I, Q, H, O, S, ca, ua, ab, V, da) {
+                if (1 < K(Fh(vf.h(en, E))) && (t = C((/* @__PURE__ */ (function(B, I, Q, H, O, S, ca, ua, ab, V, da) {
                   return function Va(oa) {
                     return new ve(
                       null,
@@ -19970,7 +19975,7 @@ var init_main = __esm({
               var t = C(q);
               if (t) {
                 var v = t, A = D(v);
-                if (u($i.g(A)) && (t = C((/* @__PURE__ */ (function(E, B, I, Q, H, O, S, ca, ua, ab) {
+                if (u(dj.g(A)) && (t = C((/* @__PURE__ */ (function(E, B, I, Q, H, O, S, ca, ua, ab) {
                   return function Ra(da) {
                     return new ve(null, /* @__PURE__ */ (function(oa, Va) {
                       return function() {
@@ -20108,21 +20113,21 @@ var init_main = __esm({
                     };
                   })(E, B, I, Q, H, O, S, ca, ua, ab, V), null, null);
                 };
-              })(q, A, v, t, f, b, g, h, c, d, e))(Ul.g(A)))) return Ge.h(t, p(F(q)));
+              })(q, A, v, t, f, b, g, h, c, d, e))(Pl.g(A)))) return Ge.h(t, p(F(q)));
               q = F(q);
             } else return null;
           }
         }, null, null);
       })(g);
     })());
-    return new r(null, 5, [Fl, Il, Xj, g, Mm, 0, Rj, h, Em, a], null);
+    return new r(null, 5, [Bl, Fl, Xj, g, Mm, 0, Rj, h, Em, a], null);
   }
   function Kq(a, b) {
     if (null == a) return null;
     var c = ha(a, "[");
-    c ? b = c : (c = new Ah(null, new r(null, 6, [tl, null, jj, null, vk, null, Cl, null, Bl, null, Pm, null], null), null), b = c.g ? c.g(b) : c.call(null, b));
+    c ? b = c : (c = new Ah(null, new r(null, 6, [ql, null, mj, null, uk, null, yl, null, xl, null, Pm, null], null), null), b = c.g ? c.g(b) : c.call(null, b));
     if (u(b)) try {
-      var d = new r(null, 3, [hk, x(vq), Ii, x(uq), wk, null], null);
+      var d = new r(null, 3, [hk, x(vq), Pi, x(uq), vk, null], null);
       if (u(u(a) ? Xe(a, "") : a)) {
         var e = new fp(a, K(a));
         a: {
@@ -20155,23 +20160,23 @@ var init_main = __esm({
   }
   ;
   function Lq(a) {
-    a = en.g(a);
+    a = fn.g(a);
     a = u(a) ? y(wq, a.toLowerCase()) : null;
-    return u(a) ? a : Ri;
+    return u(a) ? a : Ui;
   }
   function Mq(a) {
-    var b = Lq(a), c = dn.g(a), d = uj.g(a);
-    var e = u(u(null) ? Md(null, te.g(d)) : null) ? y(null, te.g(d)) : u(u(null) ? Md(null, d) : null) ? y(null, d) : u(sl.g(a)) ? Kq(sl.g(a), Lq(a)) : null;
-    if (u(null)) throw d = ["Parameter ?", w.g(uj.g(a)), " ", w.g(null)].join(""), a = new r(null, 7, [xl, "PARAM_TYPE_MISMATCH", cm, uj.g(a), Z, b, dn, c, Uk, e, kj, null, Zm, Zm.g(a)], null), new Mi(d, a, null);
+    var b = Lq(a), c = en.g(a), d = yj.g(a);
+    var e = u(u(null) ? Md(null, te.g(d)) : null) ? y(null, te.g(d)) : u(u(null) ? Md(null, d) : null) ? y(null, d) : u(pl.g(a)) ? Kq(pl.g(a), Lq(a)) : null;
+    if (u(null)) throw d = ["Parameter ?", w.g(yj.g(a)), " ", w.g(null)].join(""), a = new r(null, 7, [tl, "PARAM_TYPE_MISMATCH", Zl, yj.g(a), Z, b, en, c, Sk, e, kj, null, Zm, Zm.g(a)], null), new Mi(d, a, null);
     return e;
   }
   var Nq = (function() {
-    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Gl, wi.v ? wi.v() : wi.call(null));
+    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Dl, wi.v ? wi.v() : wi.call(null));
     return new Hi(yc.h("synthigy.xsql.compile", "op-compile-rewrite"), function(f) {
-      return u(f) ? f : Ii;
+      return u(f) ? f : Pi;
     }, e, a, b, c, d);
   })();
-  Ki(Nq, Ii, function(a, b) {
+  Ki(Nq, Pi, function(a, b) {
     return b;
   });
   function Oq(a) {
@@ -20179,16 +20184,16 @@ var init_main = __esm({
   }
   Ki(Nq, "get", function(a, b) {
     a = Ve(b);
-    var c = y(a, Aj);
-    b = y(a, Bk);
+    var c = y(a, Dj);
+    b = y(a, zk);
     var d = ae(function(e, f, g) {
       var h = N(e, 0, null);
       e = N(e, 1, null);
       var k;
       if (k = Fd(g)) {
-        if (k = J.h(1, K(g))) k = D(g), k = Cd(k) && J.h(new Ah(null, new r(null, 1, [Bk, null], null), null), Eh(Kg(k))) && Cd(Bk.g(k));
+        if (k = J.h(1, K(g))) k = D(g), k = Cd(k) && J.h(new Ah(null, new r(null, 1, [zk, null], null), null), Eh(Kg(k))) && Cd(zk.g(k));
       }
-      return k ? new P(null, 2, 5, R, [qd.i(h, f, null), qd.i(e, f, Oq(Bk.g(D(g))))], null) : new P(null, 2, 5, R, [qd.i(h, f, g), e], null);
+      return k ? new P(null, 2, 5, R, [qd.i(h, f, null), qd.i(e, f, Oq(zk.g(D(g))))], null) : new P(null, 2, 5, R, [qd.i(h, f, g), e], null);
     }, new P(null, 2, 5, R, [We, We], null), c);
     c = N(d, 0, null);
     d = N(d, 1, null);
@@ -20197,11 +20202,96 @@ var init_main = __esm({
     }, We, yh(fd([u(b) ? b : We, d])));
     return qd.u(
       a,
-      Aj,
+      Dj,
       c,
-      fd([Bk, b])
+      fd([zk, b])
     );
   });
+  function np(a) {
+    return df(function(b) {
+      var c;
+      if (c = J.h(ll, X.g(b))) {
+        c = J.h;
+        var d = null == b ? null : Jf.g(b);
+        d = null == d ? null : D(d);
+        d = null == d ? null : W.g(d);
+        c = c.call(J, "_join", ho(d));
+      }
+      return c ? (b = jd(Jf.g(b)), J.h(Tm, X.g(b)) ? W.g(b).toLowerCase() : null) : null;
+    }, (function() {
+      var b = Dn(a, xm);
+      return null == b ? null : If(b);
+    })());
+  }
+  function op(a) {
+    var b = np(a);
+    if (u(b)) a = b;
+    else a: switch (a = X.g(D(Jf.g(Dn(a, ml)))), a instanceof z ? a.M : null) {
+      case "arrow":
+        a = "left";
+        break a;
+      case "bang":
+        a = "none";
+        break a;
+      default:
+        a = "inner";
+    }
+    return a;
+  }
+  var ar = new Ah(null, new r(null, 5, ["min", null, "sum", null, "max", null, "count", null, "avg", null], null), null);
+  function br(a) {
+    var b = Dn(a, Ql);
+    return new r(null, 5, [Pk, (function() {
+      var c = Dn(a, Pk);
+      c = null == c ? null : Jf.g(c);
+      c = null == c ? null : D(c);
+      return null == c ? null : W.g(c);
+    })(), wj, df(function(c) {
+      return J.h(Tm, X.g(c)) ? W.g(c) : null;
+    }, Jf.g(a)), Dk, Kd(df(function(c) {
+      return J.h(Tm, X.g(c));
+    }, Jf.g(b))), dn, (function() {
+      var c = Dn(b, kk);
+      c = null == c ? null : Jf.g(c);
+      c = null == c ? null : Nf(function(d) {
+        return J.h(Tm, X.g(d));
+      }, c);
+      return null == c ? null : Lf(W, c);
+    })(), Cl, (function() {
+      var c = Dn(b, am);
+      c = null == c ? null : Jf.g(c);
+      return null == c ? null : D(c);
+    })()], null);
+  }
+  function Kr(a) {
+    return Nf(function(b) {
+      return J.h(kk, X.g(b));
+    }, If(a));
+  }
+  function ds(a) {
+    var b = Ve(a);
+    a = y(b, dn);
+    b = y(b, Cl);
+    a = D(a);
+    if (u(a)) return a;
+    a = D(Kr(b));
+    a = null == a ? null : Jf.g(a);
+    a = null == a ? null : D(a);
+    return null == a ? null : W.g(a);
+  }
+  var hs = function hs2(a) {
+    return J.h(kk, X.g(a)) ? Rf.i(a, Jf, function(c) {
+      return ng(F(c));
+    }) : Bn(a) ? Rf.i(a, Jf, function(c) {
+      return Lf(hs2, c);
+    }) : a;
+  };
+  function ms(a) {
+    return Kf.i(Ch, mf(function(b) {
+      b = D(Jf.g(b));
+      return J.h(Bm, X.g(b)) ? Pk.g(br(b)) : null;
+    }), Cn(a, Hm));
+  }
   function Pq(a) {
     a = D(Jf.g(a));
     var b = X.g(a);
@@ -20232,15 +20322,15 @@ var init_main = __esm({
   function Qq(a) {
     a = Ka(function(c, d) {
       var e = D(Jf.g(d));
-      var f = (f = J.h(jk, X.g(e))) ? dn.g(e) : f;
-      if (u(f)) return d = Mq(e), J.h(Am, d) ? qd.i(c, $l, true) : null == d ? Rf.B(c, Tk, M, null) : Bd(d) ? Rf.B(c, Tk, Kf, d) : Rf.B(c, Tk, M, d);
+      var f = (f = J.h(jk, X.g(e))) ? en.g(e) : f;
+      if (u(f)) return d = Mq(e), J.h(zm, d) ? qd.i(c, Xl, true) : null == d ? Rf.B(c, Rk, M, null) : Bd(d) ? Rf.B(c, Rk, Kf, d) : Rf.B(c, Rk, M, d);
       d = Pq(d);
-      return J.h(Am, d) ? qd.i(c, $l, true) : Rf.B(c, Tk, M, d);
-    }, new r(null, 2, [Tk, ld, $l, false], null), Cn(a, Uk));
+      return J.h(zm, d) ? qd.i(c, Xl, true) : Rf.B(c, Rk, M, d);
+    }, new r(null, 2, [Rk, ld, Xl, false], null), Cn(a, Sk));
     var b = Ve(a);
-    a = y(b, Tk);
-    b = y(b, $l);
-    return u(u(b) ? yd(a) : b) ? Am : a;
+    a = y(b, Rk);
+    b = y(b, Xl);
+    return u(u(b) ? yd(a) : b) ? zm : a;
   }
   ;
   var Rq = new r(null, 5, [
@@ -20253,20 +20343,20 @@ var init_main = __esm({
     "timestamp",
     new Ah(null, new r(null, 10, ["_in", null, "_le", null, "_gt", null, "is_not_null", null, "_neq", null, "is_null", null, "_eq", null, "_lt", null, "_not_in", null, "_ge", null], null), null),
     "enum",
-    new Ah(null, new r(null, 6, ["_in", null, "is_not_null", null, "_neq", null, "is_null", null, "_eq", null, "_not_in", null], null), null)
-  ], null), Sq = new Ah(null, new r(null, 9, [Jl, null, Hm, null, Pk, null, Sm, null, wl, null, sk, null, ym, null, $m, null, Pj, null], null), null);
+    new Ah(null, new r(null, 8, ["_ilike", null, "_like", null, "_in", null, "is_not_null", null, "_neq", null, "is_null", null, "_eq", null, "_not_in", null], null), null)
+  ], null), Sq = new Ah(null, new r(null, 6, [Hm, null, Sm, null, ym, null, Bm, null, an, null, Qj, null], null), null);
   function Tq(a, b) {
-    return new r(null, 4, [Gj, uk, T, D(Zm.g(a)), Y, jd(Zm.g(a)), kj, b], null);
+    return new r(null, 4, [Jj, tk, T, D(Zm.g(a)), Y, jd(Zm.g(a)), kj, b], null);
   }
   function Uq(a, b) {
-    return new r(null, 4, [Gj, Zl, T, D(Zm.g(a)), Y, jd(Zm.g(a)), kj, b], null);
+    return new r(null, 4, [Jj, Vl, T, D(Zm.g(a)), Y, jd(Zm.g(a)), kj, b], null);
   }
   function Vq(a, b) {
     b = df(function(c) {
       var d = N(c, 0, null);
       c = N(c, 1, null);
       return J.h(c, a) ? d : null;
-    }, Vl.g(b));
+    }, Rl.g(b));
     return u(b) ? b : "entity";
   }
   function Wq(a) {
@@ -20279,7 +20369,7 @@ var init_main = __esm({
   function Xq(a, b) {
     var c = Wq(b), d = tf(ld), e = tf(false);
     (function k(g, h) {
-      return J.h(uk, X.g(g)) ? Ba(x(e)) && D(Zm.g(g)) < c ? (d.ma(null, M.h(d.ka(null), qd.i(Tq(g, (function() {
+      return J.h(tk, X.g(g)) ? Ba(x(e)) && D(Zm.g(g)) < c ? (d.ma(null, M.h(d.ka(null), qd.i(Tq(g, (function() {
         var m = kj.g(g);
         if (!u(m)) {
           m = D(Zm.g(g));
@@ -20294,7 +20384,7 @@ var init_main = __esm({
           m = J.h("(", m) ? 'Inside `attr(\u2026)` write operator-first predicates joined with and/or: `xid(= "a" or = "b")`, `priority(>= 3 and <= 9)`.' : J.h(xm, X.g(h)) ? "Missing `)`" : J.h(Sm, X.g(h)) ? "Empty indented block \u2014 add a child or dedent." : u(q) ? ["Syntax error near `", q, "`"].join("") : "Syntax error";
         }
         return m;
-      })()), Gj, uk))), bc(e, true)) : null : u((function() {
+      })()), Jj, tk))), bc(e, true)) : null : u((function() {
         var m = X.g(g);
         return Sq.g ? Sq.g(m) : Sq.call(null, m);
       })()) ? (bc(e, false), Bn(g) ? li(function(m) {
@@ -20315,11 +20405,8 @@ var init_main = __esm({
       case "relation":
         $q.i ? $q.i(a, b, c) : $q.call(null, a, b, c);
         break;
-      case "count-block":
-        ar.i ? ar.i(a, b, c) : ar.call(null, a, b, c);
-        break;
-      case "agg-block":
-        br.i ? br.i(a, b, c) : br.call(null, a, b, c);
+      case "aggregate":
+        ns.i ? ns.i(a, b, c) : ns.call(null, a, b, c);
     }
   }
   function cr(a) {
@@ -20330,19 +20417,36 @@ var init_main = __esm({
   function Zq(a, b, c) {
     var d = cr(a);
     if (C(d)) {
-      var e = D(d);
-      d = W.g(e);
-      var f = Pf(b, new P(null, 2, 5, R, [fm, d], null)), g = Pf(b, new P(null, 2, 5, R, [Zi, d], null)), h = df(function(k) {
-        var m = J.h(uk, X.g(k));
-        return m ? (m = J.h(":", W.g(k))) ? k : m : m;
-      }, Jf.g(a));
-      return J.h("_args", d) ? bc(U.g(c), M.h(x(U.g(c)), Tq(e, "`_args` was removed \u2014 put args in parens on the root or relation line: `entity (\u2026)` / `-rel (\u2026)`. Parens may span multiple lines."))) : u(h) ? bc(U.g(c), M.h(x(U.g(c)), Tq(h, [
-        "Unexpected `:` after '",
-        w.g(d),
-        "'. For relation aliases use `-",
-        w.g(d),
-        ":<relation>`. Scalar aliases are not supported."
-      ].join("")))) : u(f) ? (a = Dn(a, Nk), u(a) ? dr.B ? dr.B(a, f, d, c) : dr.call(null, a, f, d, c) : null) : u(g) ? bc(U.g(c), M.h(x(U.g(c)), Tq(e, ["'", w.g(d), "' is a relation; prefix with '-' or '->' to select it"].join("")))) : bc(U.g(c), M.h(x(U.g(c)), Tq(e, ["Unknown attribute '", w.g(d), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
+      d = D(d);
+      var e = W.g(d), f = Pf(b, new P(null, 2, 5, R, [em, e], null)), g = Pf(b, new P(null, 2, 5, R, [bj, e], null));
+      return J.h("_args", e) ? bc(U.g(c), M.h(x(U.g(c)), Tq(d, "`_args` was removed \u2014 put args in parens on the root or relation line: `entity (\u2026)` / `-rel (\u2026)`. Parens may span multiple lines."))) : u((function() {
+        if (u(f)) {
+          var h = Wl.g(c);
+          return u(h) ? Ba(Dn(a, Lk)) && Ba(Dn(a, gl)) : h;
+        }
+        return f;
+      })()) ? bc(U.g(c), M.h(x(U.g(c)), Tq(d, [
+        "`!",
+        w.g(Wl.g(c)),
+        "` selects nothing \u2014 it keeps parents with no matching row, so '",
+        w.g(e),
+        "' has no value; filter it (`",
+        w.g(e),
+        " = \u2026`) or drop it"
+      ].join("")))) : u(f) ? (b = Dn(a, Lk), u(b) ? dr.B ? dr.B(b, f, e, c) : dr.call(null, b, f, e, c) : null) : u(g) ? bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["'", w.g(e), "' is a relation; prefix with '-' or '->' to select it"].join("")))) : u((function() {
+        var h = ar.g ? ar.g(e) : ar.call(null, e);
+        return u(h) ? Dn(a, gl) : h;
+      })()) ? (bc(U.g(c), (function(h) {
+        return Nf(function(k) {
+          var m = Zm.g(a), p = N(m, 0, null);
+          m = N(m, 1, null);
+          k = u(p) ? p <= T.g(k) && T.g(k) < m : p;
+          return Ba(k);
+        }, h);
+      })(x(U.g(c)))), bc(U.g(c), M.h(
+        x(U.g(c)),
+        Tq(d, ["An operation needs an alias \u2014 <alias>: ", w.g(e), "(\u2026)"].join(""))
+      ))) : bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Unknown attribute '", w.g(e), "' on ", w.g(Vq(b, Ik.g(c)))].join(""))));
     }
     return null;
   }
@@ -20352,7 +20456,7 @@ var init_main = __esm({
     }, Jf.g(a)));
   }
   function fr(a, b) {
-    var c = Dn(a, Rk);
+    var c = Dn(a, Pk);
     u(c) && (c = D(Ff(function(d) {
       return J.h(Tm, X.g(d));
     }, Jf.g(c))), a = D(cr(a)), u(u(c) ? u(a) ? J.h(W.g(c), W.g(a)) : a : c) && bc(U.g(b), M.h(x(U.g(b)), Uq(c, ["Redundant alias \u2014 '", w.g(W.g(c)), ":", w.g(W.g(a)), "' is the same as bare '", w.g(W.g(a)), "'"].join("")))));
@@ -20362,181 +20466,265 @@ var init_main = __esm({
     var d = cr(a);
     if (C(d)) {
       d = D(d);
-      var e = W.g(d), f = Pf(b, new P(null, 2, 5, R, [Zi, e], null)), g = Pf(b, new P(null, 2, 5, R, [fm, e], null));
-      if (u(f)) if (b = Pf(Jk.g(c), new P(null, 2, 5, R, [Vl, cn.g(f)], null)), f = Dn(a, xm), a = Dn(a, Sm), u(u(f) ? b : f) && (gr.i ? gr.i(f, b, c) : gr.call(null, f, b, c)), null != a && er(a)) if (u(b)) for (a = C(Jf.g(a)), d = null, g = f = 0; ; ) if (g < f) e = d.H(null, g), J.h(Hm, X.g(e)) && Yq(e, b, c), g += 1;
-      else if (a = C(a)) d = a, Gd(d) ? (a = Vb(d), f = Wb(d), d = a, e = K(a), a = f, f = e) : (e = D(d), J.h(Hm, X.g(e)) && Yq(e, b, c), a = G(d), d = null, f = 0), g = 0;
-      else return null;
-      else return null;
-      else return bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Relation '", w.g(e), "' must have at least one child selection"].join(""))));
-      else return u(g) ? bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["'", w.g(e), "' is an attribute; drop the '-' prefix to select it"].join("")))) : bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Unknown relation '", w.g(e), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
+      var e = W.g(d), f = Pf(b, new P(null, 2, 5, R, [bj, e], null)), g = Pf(b, new P(null, 2, 5, R, [em, e], null)), h = op(a), k = (function() {
+        var q = Wl.g(c);
+        return u(q) ? q : J.h("none", h) ? e : null;
+      })();
+      u((function() {
+        var q = new Ah(null, new r(null, 3, ["none", null, "inner", null, "left", null], null), null);
+        return q.g ? q.g(h) : q.call(null, h);
+      })()) || bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Unknown join '", w.g(h), "' on '", w.g(e), "' \u2014 use left, inner or none"].join(""))));
+      if (u((function() {
+        if (u(f)) {
+          var q = Wl.g(c);
+          return u(q) ? J.h("left", h) : q;
+        }
+        return f;
+      })())) return bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["`->", w.g(e), "` under `!", w.g(Wl.g(c)), "` projects nothing \u2014 use `-", w.g(e), "` or `!", w.g(e), "` to constrain"].join(""))));
+      if (u(f)) {
+        b = Pf(Ik.g(c), new P(null, 2, 5, R, [Rl, dn.g(f)], null));
+        g = Dn(a, xm);
+        var m = Dn(a, Sm);
+        a = u(k) ? qd.i(c, Wl, k) : c;
+        if (u(u(g) ? b : g)) {
+          var p = qd.i(c, vm, null == m ? null : ms(m));
+          gr.i ? gr.i(g, b, p) : gr.call(null, g, b, p);
+        }
+        if (!Ba(k) || null != m && er(m)) if (u(u(m) ? b : m)) for (d = C(Jf.g(m)), k = null, p = m = 0; ; ) if (p < m) g = k.H(null, p), J.h(
+          Hm,
+          X.g(g)
+        ) && Yq(g, b, a), p += 1;
+        else if (d = C(d)) k = d, Gd(k) ? (d = Vb(k), m = Wb(k), k = d, g = K(d), d = m, m = g) : (g = D(k), J.h(Hm, X.g(g)) && Yq(g, b, a), d = G(k), k = null, m = 0), p = 0;
+        else return null;
+        else return null;
+        else return bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Relation '", w.g(e), "' must have at least one child selection \u2014 or filter the parents with ", w.g(e), ".<field> = \u2026, or keep only parents without one with !", w.g(e)].join(""))));
+      } else return u(g) ? bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["'", w.g(e), "' is an attribute; drop the '-' prefix to select it"].join("")))) : bc(U.g(c), M.h(x(U.g(c)), Tq(d, ["Unknown relation '", w.g(e), "' on ", w.g(Vq(b, Ik.g(c)))].join(""))));
     } else return null;
   }
-  function ar(a, b, c) {
-    for (var d = C(Cn(a, sk)), e = null, f = 0, g = 0; ; ) if (g < f) {
-      a = e.H(null, g);
-      fr(a, c);
-      var h = cr(a);
-      if (C(h)) {
-        h = D(h);
-        var k = W.g(h), m = Pf(b, new P(null, 2, 5, R, [Zi, k], null));
-        if (u(m)) {
-          var p = Pf(Jk.g(c), new P(null, 2, 5, R, [Vl, cn.g(m)], null)), q = Dn(a, xm);
-          u((function() {
-            var A = q;
-            return u(A) ? p : A;
-          })()) && (gr.i ? gr.i(q, p, c) : gr.call(null, q, p, c));
-        } else bc(U.g(c), M.h(x(U.g(c)), Tq(h, ["Unknown relation '", w.g(k), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
-      }
-      g += 1;
-    } else if (a = C(d)) {
-      d = a;
-      if (Gd(d)) e = Vb(d), d = Wb(d), a = e, f = K(e), e = a;
-      else {
-        a = D(d);
-        fr(a, c);
-        e = cr(a);
-        if (C(e)) if (e = D(e), f = W.g(e), g = Pf(b, new P(null, 2, 5, R, [Zi, f], null)), u(g)) {
-          var t = Pf(Jk.g(c), new P(null, 2, 5, R, [Vl, cn.g(g)], null)), v = Dn(a, xm);
-          u((function() {
-            var A = v;
-            return u(A) ? t : A;
-          })()) && (gr.i ? gr.i(v, t, c) : gr.call(null, v, t, c));
-        } else bc(U.g(c), M.h(x(U.g(c)), Tq(e, ["Unknown relation '", w.g(f), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
-        d = G(d);
-        e = null;
-        f = 0;
-      }
-      g = 0;
-    } else return null;
+  var os = new r(null, 4, ["sum", new Ah(null, new r(null, 1, ["number", null], null), null), "avg", new Ah(null, new r(null, 1, ["number", null], null), null), "min", new Ah(null, new r(null, 3, ["string", null, "timestamp", null, "number", null], null), null), "max", new Ah(null, new r(null, 3, ["string", null, "timestamp", null, "number", null], null), null)], null), qs = new Ah(null, new r(null, 3, ["json", null, "hashed", null, "encrypted", null], null), null);
+  function ys(a) {
+    return Kd(df(function(b) {
+      return J.h(tk, X.g(b));
+    }, If(a)));
   }
-  function br(a, b, c) {
-    a = C(Cn(a, wl));
-    for (var d = null, e = 0, f = 0; ; ) if (f < e) {
-      var g = d.H(null, f);
-      fr(g, c);
-      var h = cr(g);
-      if (C(h)) {
-        var k = D(h), m = W.g(k), p = Pf(b, new P(null, 2, 5, R, [Zi, m], null));
-        if (Ba(p)) bc(U.g(c), M.h(x(U.g(c)), Tq(k, ["Unknown relation '", w.g(m), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
-        else {
-          var q = Pf(Jk.g(c), new P(null, 2, 5, R, [Vl, cn.g(p)], null));
-          if (u(q)) for (var t = q, v = C(Cn(g, Hj)), A = null, E = 0, B = 0; ; ) if (B < E) {
-            var I = A.H(null, B);
-            I = D(Ff(/* @__PURE__ */ (function() {
-              return function(ca) {
-                return J.h(Tm, X.g(ca));
-              };
-            })(
-              v,
-              A,
-              E,
-              B,
-              a,
-              d,
-              e,
-              f,
-              I,
-              t,
-              q,
-              k,
-              m,
-              p,
-              h,
-              g
-            ), Jf.g(I)));
-            var Q = W.g(I), H = Pf(t, new P(null, 2, 5, R, [fm, Q], null));
-            null == H ? bc(U.g(c), M.h(x(U.g(c)), Tq(I, ["Unknown attribute '", w.g(Q), "' on ", w.g(cn.g(p))].join("")))) : Xe("number", Z.g(H)) && bc(U.g(c), M.h(x(U.g(c)), Tq(I, ["_agg requires a numeric attribute; '", w.g(Q), "' is ", w.g(Z.g(H))].join(""))));
-            B += 1;
-          } else if (Q = C(v)) I = Q, Gd(I) ? (v = Vb(I), B = Wb(I), A = v, E = K(v), v = B) : (H = D(I), v = D(Ff(/* @__PURE__ */ (function() {
-            return function(ca) {
-              return J.h(Tm, X.g(ca));
-            };
-          })(v, A, E, B, a, d, e, f, H, I, Q, t, q, k, m, p, h, g), Jf.g(H))), A = W.g(v), E = Pf(t, new P(
-            null,
-            2,
-            5,
-            R,
-            [fm, A],
-            null
-          )), null == E ? bc(U.g(c), M.h(x(U.g(c)), Tq(v, ["Unknown attribute '", w.g(A), "' on ", w.g(cn.g(p))].join("")))) : Xe("number", Z.g(E)) && bc(U.g(c), M.h(x(U.g(c)), Tq(v, ["_agg requires a numeric attribute; '", w.g(A), "' is ", w.g(Z.g(E))].join("")))), v = G(I), A = null, E = 0), B = 0;
-          else break;
-        }
+  function Mu(a) {
+    a = Dn(a, Ql);
+    a = null == a ? null : Dn(a, kk);
+    return null == a ? null : cr(a);
+  }
+  function Nu(a) {
+    var b = br(a);
+    b = Ve(b);
+    var c = y(b, wj), d = y(b, dn), e = y(b, Cl), f = y(b, Dk), g = D(cr(a)), h = Dn(a, Ql), k = Mu(a), m = ds(b), p = J.h("count", c);
+    return null == h || ys(a) ? ld : Ba(ar.g ? ar.g(c) : ar.call(null, c)) ? new P(null, 1, 5, R, [Tq(g, ["Unknown operation '", w.g(c), "' \u2014 use count, sum, avg, min or max"].join(""))], null) : null == d && null == e ? new P(null, 1, 5, R, [Tq(h, p ? "`count` needs a relation \u2014 count(<relation>)" : ["`", w.g(c), "` needs a field \u2014 ", w.g(c), "(<relation>.<field>)"].join(""))], null) : ng(Ge.u(u(u(f) ? !p : f) ? new P(null, 1, 5, R, [Tq(D(cr(h)), "`distinct` only applies to count \u2014 count(distinct <relation>.<field>)")], null) : null, u(u(f) ? null == d : f) ? new P(null, 1, 5, R, [Tq(h, "count(distinct \u2026) needs a field \u2014 count(distinct <relation>.<field>)")], null) : null != d || p ? p && Ba(f) && 1 < K(k) ? new P(null, 1, 5, R, [Tq(jd(k), "`count` takes a relation \u2014 count(<relation>); count values with count(distinct <relation>.<field>)")], null) : u((function() {
+      var q = u(f) ? f : !p;
+      return u(q) ? J.h(1, K(k)) : q;
+    })()) ? new P(null, 1, 5, R, [Tq(D(k), ["`", w.g(c), "` needs a field \u2014 ", w.g(c), "(", w.g(m), ".<field>)"].join(""))], null) : u((function() {
+      var q = u(f) ? f : !p;
+      return u(q) ? 2 < K(k) : q;
+    })()) ? new P(null, 1, 5, R, [Tq(Yc(k, 2), "An operation reads one hop \u2014 <relation>.<field>; deeper paths belong in its filter")], null) : null : new P(null, 1, 5, R, [Tq(h, ["`", w.g(c), "` takes a field, then an optional filter \u2014 ", w.g(c), "(<relation>.<field>, <filter>)"].join(""))], null), fd([nf(function(q) {
+      q = cr(q);
+      var t = D(q);
+      return null == t ? null : Xe(m, W.g(t)) ? Tq(t, ["Every filter path starts with the operation's relation \u2014 ", w.g(m), ".<field>"].join("")) : J.h(1, K(q)) ? Tq(t, ["'", w.g(m), "' alone is not a field \u2014 ", w.g(m), ".<field>"].join("")) : null;
+    }, Kr(e))])));
+  }
+  function Ou(a, b) {
+    return cf(function(c) {
+      c = cr(c);
+      return J.h(b, W.g(D(c))) && 1 < K(c);
+    }, Kr(a));
+  }
+  function Pu(a) {
+    var b = ng(Qd(a));
+    if (2 > K(b)) a: for (a = new pa(), b = C(b); ; ) if (null != b) a = a.append(w.g(D(b))), b = G(b);
+    else {
+      a = a.toString();
+      break a;
+    }
+    else a = [on(", ", xd(b)), " or ", w.g(wd(b))].join("");
+    return a;
+  }
+  function Qu(a) {
+    return Kf.i(ld, gf.h(Ef(function(b) {
+      return J.h(Bm, X.g(b));
+    }), gf.h(vf.g(Nu), Oi)), If(a));
+  }
+  function ns(a, b, c) {
+    function d(I, Q) {
+      return bc(U.g(c), M.h(x(U.g(c)), Tq(I, Q)));
+    }
+    var e = br(a), f = Ve(e);
+    e = y(f, wj);
+    var g = y(f, Pk), h = y(f, Cl), k = y(f, Dk), m = (function() {
+      var I = Dn(a, Pk);
+      I = null == I ? null : Jf.g(I);
+      return null == I ? null : D(I);
+    })(), p = Mu(a), q = (function() {
+      var I = D(p);
+      if (u(I)) return I;
+      I = D(Kr(h));
+      I = null == I ? null : cr(I);
+      return null == I ? null : D(I);
+    })(), t = W.g(q), v = Pf(b, new P(null, 2, 5, R, [bj, t], null));
+    f = u(v) ? Pf(Ik.g(c), new P(null, 2, 5, R, [Rl, dn.g(v)], null)) : null;
+    var A = Vq(b, Ik.g(c));
+    if (ys(a) || Ba(ar.g ? ar.g(e) : ar.call(null, e)) || null == q) return null;
+    if (u(Wl.g(c))) return d(a, ["`", w.g(g), ": ", w.g(e), "(\u2026)` under `!", w.g(Wl.g(c)), "` aggregates nothing \u2014 `!", w.g(Wl.g(c)), "` keeps parents with no matching row"].join(""));
+    u(Pf(b, new P(null, 2, 5, R, [em, g], null))) && d(m, ["Alias '", w.g(g), "' is already a field of ", w.g(A), " \u2014 pick another name"].join(""));
+    if (u(Pf(b, new P(null, 2, 5, R, [em, t], null)))) return d(q, ["'", w.g(t), "' is an attribute \u2014 `", w.g(e), "` reads a to-many relation"].join(""));
+    if (null == v) return d(q, [
+      "Unknown relation '",
+      w.g(t),
+      "' on ",
+      w.g(A)
+    ].join(""));
+    if (Xe("many", vj.g(v))) return d(q, ["'", w.g(t), "' is to-one \u2014 `", w.g(e), "` reads a to-many relation"].join(""));
+    if (u(f)) {
+      b = J.h(2, K(p)) ? jd(p) : null;
+      if (u(b)) {
+        g = W.g(b);
+        var E = Pf(f, new P(null, 2, 5, R, [em, g], null)), B = os.g ? os.g(e) : os.call(null, e);
+        null == E ? d(b, ["Unknown attribute '", w.g(g), "' on ", w.g(dn.g(v))].join("")) : u(k) ? u((function() {
+          var I = Z.g(E);
+          return qs.g ? qs.g(I) : qs.call(null, I);
+        })()) && d(b, ["count(distinct \u2026) can't compare ", w.g(Z.g(E)), " attribute '", w.g(g), "'"].join("")) : u((function() {
+          if (u(B)) {
+            var I = Z.g(E);
+            I = B.g ? B.g(I) : B.call(null, I);
+            I = Ba(I);
+          } else I = B;
+          return I;
+        })()) && d(b, ["`", w.g(e), "` needs a ", Pu(B), " attribute; '", w.g(g), "' is ", w.g(Z.g(E))].join(""));
       }
-      f += 1;
-    } else if (k = C(a)) {
-      h = k;
-      if (Gd(h)) a = Vb(h), f = Wb(h), d = a, e = K(a), a = f;
-      else {
-        g = D(h);
-        fr(g, c);
-        m = cr(g);
-        if (C(m)) {
-          if (p = D(m), q = W.g(p), t = Pf(b, new P(null, 2, 5, R, [Zi, q], null)), Ba(t)) bc(U.g(c), M.h(x(U.g(c)), Tq(p, [
-            "Unknown relation '",
-            w.g(q),
-            "' on ",
-            w.g(Vq(b, Jk.g(c)))
-          ].join(""))));
-          else if (v = Pf(Jk.g(c), new P(null, 2, 5, R, [Vl, cn.g(t)], null)), u(v)) for (A = v, E = C(Cn(g, Hj)), B = null, Q = I = 0; ; ) if (Q < I) {
-            H = B.H(null, Q);
-            H = D(Ff(/* @__PURE__ */ (function() {
-              return function(ca) {
-                return J.h(Tm, X.g(ca));
-              };
-            })(E, B, I, Q, a, d, e, f, H, A, v, p, q, t, m, g, h, k), Jf.g(H)));
-            var O = W.g(H), S = Pf(A, new P(null, 2, 5, R, [fm, O], null));
-            null == S ? bc(U.g(c), M.h(x(U.g(c)), Tq(H, ["Unknown attribute '", w.g(O), "' on ", w.g(cn.g(t))].join("")))) : Xe("number", Z.g(S)) && bc(U.g(c), M.h(x(U.g(c)), Tq(H, [
-              "_agg requires a numeric attribute; '",
-              w.g(O),
-              "' is ",
-              w.g(Z.g(S))
-            ].join(""))));
-            Q += 1;
-          } else if (O = C(E)) H = O, Gd(H) ? (E = Vb(H), Q = Wb(H), B = E, I = K(E), E = Q) : (S = D(H), E = D(Ff(/* @__PURE__ */ (function() {
-            return function(ca) {
-              return J.h(Tm, X.g(ca));
-            };
-          })(E, B, I, Q, a, d, e, f, S, H, O, A, v, p, q, t, m, g, h, k), Jf.g(S))), B = W.g(E), I = Pf(A, new P(null, 2, 5, R, [fm, B], null)), null == I ? bc(U.g(c), M.h(x(U.g(c)), Tq(E, ["Unknown attribute '", w.g(B), "' on ", w.g(cn.g(t))].join("")))) : Xe("number", Z.g(I)) && bc(U.g(c), M.h(x(U.g(c)), Tq(E, ["_agg requires a numeric attribute; '", w.g(B), "' is ", w.g(Z.g(I))].join("")))), E = G(H), B = null, I = 0), Q = 0;
-          else break;
-        }
-        a = G(h);
-        d = null;
-        e = 0;
+      if (u(u(h) ? Ou(h, t) : h)) return e = hs(h), jr.i ? jr.i(e, f, c) : jr.call(null, e, f, c);
+    }
+    return null;
+  }
+  function Ru(a, b) {
+    function c(d) {
+      var e = X.g(d);
+      switch (e instanceof z ? e.M : null) {
+        case "scalar":
+          return W.g(D(cr(d)));
+        case "relation":
+          return e = Dn(d, Pk), e = null == e ? null : Jf.g(e), e = null == e ? null : D(e), e = null == e ? null : W.g(e), u(e) ? e : W.g(D(cr(d)));
+        default:
+          return null;
       }
-      f = 0;
-    } else return null;
+    }
+    (function f(e) {
+      if (Bn(e)) {
+        if (u((function() {
+          var k = X.g(e), m = new Ah(null, new r(null, 2, [Sm, null, Ak, null], null), null);
+          return m.g ? m.g(k) : m.call(null, k);
+        })())) {
+          var g = nf(function(k) {
+            return J.h(Hm, X.g(k)) ? D(Jf.g(k)) : null;
+          }, Jf.g(e)), h = Kf.i(Ch, mf(c), g);
+          Ka(function(k, m) {
+            var p = J.h(Bm, X.g(m)) ? (function() {
+              var t = Dn(m, Pk);
+              t = null == t ? null : Jf.g(t);
+              return null == t ? null : D(t);
+            })() : null;
+            if (u(p)) {
+              var q = W.g(p);
+              u((function() {
+                var t = k.g ? k.g(q) : k.call(null, q);
+                return u(t) ? t : h.g ? h.g(q) : h.call(null, q);
+              })()) && bc(U.g(b), M.h(x(U.g(b)), Tq(p, ["Duplicate key '", w.g(q), "' at this scope \u2014 every operation needs its own alias"].join(""))));
+              return M.h(k, q);
+            }
+            return k;
+          }, Ch, g);
+        }
+        return li(f, Jf.g(e));
+      }
+      return null;
+    })(a);
   }
   function hr(a, b, c) {
-    for (var d = C(fn.g(a)), e = null, f = 0, g = 0; ; ) if (g < f) {
+    for (var d = C(po.g(a)), e = null, f = 0, g = 0; ; ) if (g < f) {
       var h = e.H(null, g);
-      Md(fm.g(b), h) || bc(U.g(c), M.h(x(U.g(c)), Tq(a, ["Unknown order column '", w.g(h), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
+      Md(em.g(b), h) || Md(vm.g(c), h) || bc(U.g(c), M.h(x(U.g(c)), Tq(a, ["Unknown order column '", w.g(h), "' on ", w.g(Vq(b, Ik.g(c)))].join(""))));
       g += 1;
-    } else if (d = C(d)) e = d, Gd(e) ? (d = Vb(e), f = Wb(e), e = d, h = K(d), d = f, f = h) : (h = D(e), Md(fm.g(b), h) || bc(U.g(c), M.h(x(U.g(c)), Tq(a, ["Unknown order column '", w.g(h), "' on ", w.g(Vq(b, Jk.g(c)))].join("")))), d = G(e), e = null, f = 0), g = 0;
+    } else if (d = C(d)) e = d, Gd(e) ? (d = Vb(e), f = Wb(e), e = d, h = K(d), d = f, f = h) : (h = D(e), Md(em.g(b), h) || Md(vm.g(c), h) || bc(U.g(c), M.h(x(U.g(c)), Tq(a, ["Unknown order column '", w.g(h), "' on ", w.g(Vq(b, Ik.g(c)))].join("")))), d = G(e), e = null, f = 0), g = 0;
     else break;
+  }
+  function Su(a, b, c) {
+    function d(k, m) {
+      return bc(U.g(c), M.h(x(U.g(c)), Tq(k, m)));
+    }
+    var e = C(a);
+    D(e);
+    G(e);
+    var f = b;
+    for (e = true; ; ) {
+      b = C(a);
+      a = D(b);
+      b = G(b);
+      var g = e;
+      e = W.g(a);
+      var h = Vq(f, Ik.g(c));
+      if (yd(b)) {
+        Md(em.g(f), e) || g && Md(vm.g(c), e) || d(a, Md(bj.g(f), e) ? ["'", w.g(e), "' is a relation \u2014 sort by one of its attributes: ", w.g(e), ".<attribute>"].join("") : ["Unknown order column '", w.g(e), "' on ", w.g(h)].join(""));
+        break;
+      }
+      g = Pf(f, new P(null, 2, 5, R, [bj, e], null));
+      if (u(g)) a = g, e = Pf(Ik.g(c), new P(null, 2, 5, R, [Rl, dn.g(a)], null)), a = b, f = e, e = false;
+      else {
+        d(a, Md(em.g(f), e) ? ["'", w.g(e), "' is an attribute, not a relation \u2014 it can't be followed by `.`"].join("") : ["Unknown relation '", w.g(e), "' on ", w.g(h)].join(""));
+        break;
+      }
+    }
   }
   function ir(a, b, c) {
     if (u((function() {
       if (u(b)) {
-        var k = J.h;
-        var m = null == a ? null : Jf.g(a);
-        m = null == m ? null : D(m);
-        m = null == m ? null : W.g(m);
-        k = k.call(J, "_order_by", ho(m));
-      } else k = b;
-      return k;
+        var m = J.h;
+        var p = null == a ? null : Jf.g(a);
+        p = null == p ? null : D(p);
+        p = null == p ? null : W.g(p);
+        m = m.call(J, "_order_by", ho(p));
+      } else m = b;
+      return m;
     })())) {
-      var d = D(Ff(function(k) {
-        return J.h(jk, X.g(k));
+      var d = D(Ff(function(m) {
+        return J.h(jk, X.g(m));
       }, Jf.g(a)));
       if (u(d)) hr(d, b, c);
       else {
         d = C(Cn(a, tm));
         for (var e = null, f = 0, g = 0; ; ) if (g < f) {
-          var h = e.H(null, g);
-          h = D(Jf.g(h));
-          J.h(Tm, X.g(h)) && !Md(fm.g(b), W.g(h)) && bc(U.g(c), M.h(x(U.g(c)), Tq(h, ["Unknown order column '", w.g(W.g(h)), "' on ", w.g(Vq(b, Jk.g(c)))].join(""))));
+          var h = e.H(null, g), k = D(Jf.g(h));
+          h = (function() {
+            var m = X.g(k);
+            switch (m instanceof z ? m.M : null) {
+              case "path":
+                return cr(k);
+              case "identifier":
+                return new P(null, 1, 5, R, [k], null);
+              default:
+                return ld;
+            }
+          })();
+          C(h) && Su(
+            h,
+            b,
+            c
+          );
           g += 1;
-        } else if (d = C(d)) Gd(d) ? (f = Vb(d), d = Wb(d), e = f, f = K(f)) : (h = D(d), h = D(Jf.g(h)), J.h(Tm, X.g(h)) && !Md(fm.g(b), W.g(h)) && bc(U.g(c), M.h(x(U.g(c)), Tq(h, ["Unknown order column '", w.g(W.g(h)), "' on ", w.g(Vq(b, Jk.g(c)))].join("")))), d = G(d), e = null, f = 0), g = 0;
+        } else if (d = C(d)) Gd(d) ? (f = Vb(d), d = Wb(d), e = f, f = K(f)) : (h = D(d), k = D(Jf.g(h)), h = (function() {
+          var m = X.g(k);
+          switch (m instanceof z ? m.M : null) {
+            case "path":
+              return cr(k);
+            case "identifier":
+              return new P(null, 1, 5, R, [k], null);
+            default:
+              return ld;
+          }
+        })(), C(h) && Su(h, b, c), d = G(d), e = null, f = 0), g = 0;
         else break;
       }
     }
@@ -20544,7 +20732,7 @@ var init_main = __esm({
   function gr(a, b, c) {
     a = Dn(a, ok);
     if (u(a)) {
-      a = C(Cn(a, oj));
+      a = C(Cn(a, uj));
       for (var d = null, e = 0, f = 0; ; ) if (f < e) {
         var g = d.H(null, f);
         g = D(Jf.g(g));
@@ -20661,20 +20849,20 @@ var init_main = __esm({
   };
   function kr(a, b, c) {
     var d = Dn(a, kk);
-    a = Dn(a, Nk);
+    a = Dn(a, Lk);
     if (u(d)) {
       d = Nf(function(v) {
         return J.h(Tm, X.g(v));
       }, Jf.g(d));
-      for (var e = Jk.g(c), f = 0, g = null, h = null; ; ) {
+      for (var e = Ik.g(c), f = 0, g = null, h = null; ; ) {
         if (f >= K(d)) return u(u(a) ? g : a) ? dr.B ? dr.B(a, g, h, c) : dr.call(null, a, g, h, c) : null;
-        var k = Yc(d, f), m = W.g(k), p = J.h(f, K(d) - 1), q = Pf(b, new P(null, 2, 5, R, [fm, m], null)), t = Pf(b, new P(null, 2, 5, R, [Zi, m], null));
+        var k = Yc(d, f), m = W.g(k), p = J.h(f, K(d) - 1), q = Pf(b, new P(null, 2, 5, R, [em, m], null)), t = Pf(b, new P(null, 2, 5, R, [bj, m], null));
         if (u(q)) if (p) g = q, h = m, f += 1;
         else return bc(U.g(c), M.h(x(U.g(c)), Tq(k, ["'", w.g(m), "' is an attribute \u2014 path cannot continue past a scalar"].join(""))));
         else if (u(t)) {
           b = Pf(
             e,
-            new P(null, 2, 5, R, [Vl, cn.g(t)], null)
+            new P(null, 2, 5, R, [Rl, dn.g(t)], null)
           );
           if (null == b) return null;
           if (p) return bc(U.g(c), M.h(x(U.g(c)), Tq(k, ["'", w.g(m), "' is a relation \u2014 path must terminate at an attribute"].join(""))));
@@ -20701,7 +20889,7 @@ var init_main = __esm({
       null
     );
     if (J.h("like", c)) return new P(null, 2, 5, R, ["like", "_like"], null);
-    a = Dn(a, Ti);
+    a = Dn(a, Wi);
     if (u(a)) {
       var f = X.g(D(Jf.g(a)));
       return new P(null, 2, 5, R, ["binop", (function() {
@@ -20729,13 +20917,13 @@ var init_main = __esm({
   function nr(a, b, c, d) {
     var e = C(vf.h(function(B) {
       return nn(B, /-|\s/, "_");
-    }, tk.g(b)));
-    if (e) for (var f = C(Ge.h(Cn(a, Uk), (function() {
-      var B = Dn(a, Si);
-      return null == B ? null : Cn(B, Uk);
+    }, sk.g(b)));
+    if (e) for (var f = C(Ge.h(Cn(a, Sk), (function() {
+      var B = Dn(a, Vi);
+      return null == B ? null : Cn(B, Sk);
     })())), g = null, h = 0, k = 0; ; ) if (k < h) {
       var m = g.H(null, k), p = D(Jf.g(m)), q = u((function() {
-        var B = X.g(p), I = new Ah(null, new r(null, 2, [Ri, null, Tm, null], null), null);
+        var B = X.g(p), I = new Ah(null, new r(null, 2, [Ui, null, Tm, null], null), null);
         return I.g ? I.g(B) : I.call(null, B);
       })()) ? Pq(m) : null;
       "string" === typeof q && Ba(df(Dh([q]), e)) && bc(U.g(d), M.h(x(U.g(d)), Tq(p, ["'", w.g(q), "' is not a value of enum '", w.g(c), "'", (function() {
@@ -20760,7 +20948,7 @@ var init_main = __esm({
           g = E;
           h = A;
         } else m = D(v), p = D(Jf.g(m)), q = u((function() {
-          var B = X.g(p), I = new Ah(null, new r(null, 2, [Ri, null, Tm, null], null), null);
+          var B = X.g(p), I = new Ah(null, new r(null, 2, [Ui, null, Tm, null], null), null);
           return I.g ? I.g(B) : I.call(null, B);
         })()) ? Pq(m) : null, "string" === typeof q && Ba(df(
           Dh([q]),
@@ -20778,49 +20966,35 @@ var init_main = __esm({
     }
   }
   function dr(a, b, c, d) {
-    nr(a, b, c, d);
-    var e = lr(a), f = N(e, 0, null);
-    e = N(e, 1, null);
-    if (u(e)) {
-      if (u((function() {
-        var h = new Ah(null, new r(null, 2, ["not_in", null, "in", null], null), null);
-        return h.g ? h.g(f) : h.call(null, f);
-      })())) {
-        var g = Dn(a, Si);
-        u(g) && 0 === K(Cn(g, Uk)) && bc(U.g(d), M.h(x(U.g(d)), Tq(g, ["Empty list for '", w.g(c), "' \u2014 ", nn(f, "_", " "), " () is invalid"].join(""))));
-      }
-      g = (function() {
-        var h = Z.g(b);
-        return Rq.g ? Rq.g(h) : Rq.call(null, h);
-      })();
-      return u(g) ? u(g.g ? g.g(e) : g.call(null, e)) ? null : bc(U.g(d), M.h(x(U.g(d)), Tq(a, [
-        "Operator '",
-        w.g(mr.h ? mr.h(e, e) : mr.call(null, e, e)),
-        "' is not valid on ",
-        w.g(Z.g(b)),
-        " attribute '",
-        w.g(c),
-        "'"
-      ].join("")))) : null;
-    }
-    return null;
+    var e = lr(a), f = N(e, 0, null), g = N(e, 1, null);
+    u((function() {
+      var h = new Ah(null, new r(null, 2, ["_ilike", null, "_like", null], null), null);
+      return h.g ? h.g(g) : h.call(null, g);
+    })()) || nr(a, b, c, d);
+    return u(g) ? (u((function() {
+      var h = new Ah(null, new r(null, 2, ["not_in", null, "in", null], null), null);
+      return h.g ? h.g(f) : h.call(null, f);
+    })()) && (e = Dn(a, Vi), u(e) && 0 === K(Cn(e, Sk)) && bc(U.g(d), M.h(x(U.g(d)), Tq(e, ["Empty list for '", w.g(c), "' \u2014 ", nn(f, "_", " "), " () is invalid"].join(""))))), e = (function() {
+      var h = Z.g(b);
+      return Rq.g ? Rq.g(h) : Rq.call(null, h);
+    })(), u(e) ? u(e.g ? e.g(g) : e.call(null, g)) ? null : bc(U.g(d), M.h(x(U.g(d)), Tq(a, ["Operator '", w.g(mr.h ? mr.h(g, g) : mr.call(null, g, g)), "' is not valid on ", w.g(Z.g(b)), " attribute '", w.g(c), "'"].join("")))) : null) : null;
   }
   var or = (function() {
-    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Gl, wi.v ? wi.v() : wi.call(null));
+    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Dl, wi.v ? wi.v() : wi.call(null));
     return new Hi(yc.h("synthigy.xsql.lint", "op-lint-rules"), function(f) {
-      return u(f) ? f : Ii;
+      return u(f) ? f : Pi;
     }, e, a, b, c, d);
   })();
-  Ki(or, Ii, function() {
+  Ki(or, Pi, function() {
     return null;
   });
   function pr(a, b, c) {
-    var d = Dn(a, Nk), e = Dn(a, jl), f = df(function(m) {
+    var d = Dn(a, Lk), e = Dn(a, gl), f = df(function(m) {
       return J.h(Tm, X.g(m)) ? m : null;
     }, Jf.g(a)), g = (function() {
       var m = W.g(f);
       return u(m) ? m : "field";
-    })(), h = u(u(b) ? g : b) ? Pf(b, new P(null, 2, 5, R, [fm, g], null)) : null;
+    })(), h = u(u(b) ? g : b) ? Pf(b, new P(null, 2, 5, R, [em, g], null)) : null;
     if (u(d)) {
       e = lr(d);
       N(e, 0, null);
@@ -20831,21 +21005,21 @@ var init_main = __esm({
           N(p, 0, null);
           p = N(p, 1, null);
           return Fm.g(p);
-        }, fm.g(b)) : m : h : m;
+        }, em.g(b)) : m : h : m;
       })()) && bc(U.g(c), M.h(x(U.g(c)), Tq(a, ["`get` requires identity on a unique-constrained attribute. '", w.g(g), "' is not unique."].join(""))));
-    } else u(e) && (a = D(Jf.g(e)), a = Cn(a, aj), a = J.h(1, K(a)) ? Cn(D(a), Ij) : null, d = u(a) ? J.h(1, K(a)) : a, a = u(d) ? D(a) : null, a = u(a) ? Dn(a, Nk) : null, a = u(a) ? lr(a) : null, N(a, 0, null), a = N(a, 1, null), J.h("_eq", a) || bc(U.g(c), M.h(x(U.g(c)), Tq(e, [
+    } else u(e) && (a = D(Jf.g(e)), a = Cn(a, ej), a = J.h(1, K(a)) ? Cn(D(a), Kj) : null, d = u(a) ? J.h(1, K(a)) : a, a = u(d) ? D(a) : null, a = u(a) ? Dn(a, Lk) : null, a = u(a) ? lr(a) : null, N(a, 0, null), a = N(a, 1, null), J.h("_eq", a) || bc(U.g(c), M.h(x(U.g(c)), Tq(e, [
       "`get` only accepts `=` at the root. Compound or non-`=` predicates on '",
       w.g(g),
       "' are not allowed."
     ].join("")))));
   }
   function qr(a, b, c) {
-    a = u(u(c) ? a : c) ? Pf(c, new P(null, 2, 5, R, [fm, a], null)) : null;
+    a = u(u(c) ? a : c) ? Pf(c, new P(null, 2, 5, R, [em, a], null)) : null;
     return u(u(b) ? a : b) ? (b = lr(b), N(b, 0, null), b = N(b, 1, null), (b = J.h("_eq", b)) ? (a = Fm.g(a), u(a) ? a : Ba(df(function(d) {
       N(d, 0, null);
       d = N(d, 1, null);
       return Fm.g(d);
-    }, fm.g(c)))) : b) : null;
+    }, em.g(c)))) : b) : null;
   }
   function rr(a, b) {
     return Kd((function() {
@@ -20856,7 +21030,7 @@ var init_main = __esm({
           e = df(function(f) {
             return J.h(Tm, X.g(f)) ? f : null;
           }, Jf.g(e));
-          return qr(null == e ? null : W.g(e), Dn(d, Nk), b);
+          return qr(null == e ? null : W.g(e), Dn(d, Lk), b);
         }
         return null;
       }, If(c)) : null;
@@ -20866,13 +21040,13 @@ var init_main = __esm({
     return Kd(df(function(c) {
       if (J.h(Hm, X.g(c))) {
         var d = D(Jf.g(c));
-        if (J.h(ym, X.g(d)) && (c = Dn(d, Nk), d = df(function(e) {
+        if (J.h(ym, X.g(d)) && (c = Dn(d, Lk), d = df(function(e) {
           return J.h(Tm, X.g(e)) ? e : null;
-        }, Jf.g(d)), d = null == d ? null : W.g(d), d = u(u(b) ? d : b) ? Pf(b, new P(null, 2, 5, R, [fm, d], null)) : null, u(u(c) ? d : c))) return c = lr(c), N(c, 0, null), c = N(c, 1, null), (c = J.h("_eq", c)) ? (c = Fm.g(d), u(c) ? c : Ba(df(function(e) {
+        }, Jf.g(d)), d = null == d ? null : W.g(d), d = u(u(b) ? d : b) ? Pf(b, new P(null, 2, 5, R, [em, d], null)) : null, u(u(c) ? d : c))) return c = lr(c), N(c, 0, null), c = N(c, 1, null), (c = J.h("_eq", c)) ? (c = Fm.g(d), u(c) ? c : Ba(df(function(e) {
           N(e, 0, null);
           e = N(e, 1, null);
           return Fm.g(e);
-        }, fm.g(b)))) : c;
+        }, em.g(b)))) : c;
       }
       return null;
     }, Jf.g(a)));
@@ -20901,13 +21075,13 @@ var init_main = __esm({
       }
       g = 0;
     } else break;
-    u(u(a) ? C(Jf.g(b)) && !sr(b, a) && !rr(b, a) : a) ? (a = bc, d = U.g(c), e = M.h, f = x(U.g(c)), g = qd.u, b = Tq(b, '`get` requires identity. Add at least one root predicate like `xid = "\u2026"` on a unique-constrained attribute.'), c = K(Qk.h(c, "")), c = a(d, e.call(M, f, g.call(qd, b, T, 0, fd([Y, 1 > c ? 1 : c]))))) : c = null;
+    u(u(a) ? C(Jf.g(b)) && !sr(b, a) && !rr(b, a) : a) ? (a = bc, d = U.g(c), e = M.h, f = x(U.g(c)), g = qd.u, b = Tq(b, '`get` requires identity. Add at least one root predicate like `xid = "\u2026"` on a unique-constrained attribute.'), c = K(Ok.h(c, "")), c = a(d, e.call(M, f, g.call(qd, b, T, 0, fd([Y, 1 > c ? 1 : c]))))) : c = null;
     return c;
   });
   var tr = new Ah(null, new r(null, 2, ["search-tree", null, "get-tree", null], null), null);
   function ur(a) {
     var b;
-    if (b = J.h(ol, X.g(a))) b = J.h, a = D(Jf.g(a)), a = null == a ? null : W.g(a), b = b.call(J, "_on", ho(a));
+    if (b = J.h(ll, X.g(a))) b = J.h, a = D(Jf.g(a)), a = null == a ? null : W.g(a), b = b.call(J, "_on", ho(a));
     return b;
   }
   function vr(a) {
@@ -20926,15 +21100,15 @@ var init_main = __esm({
       d = bc;
       b = U.g(c);
       var e = M.h, f = x(U.g(c));
-      c = K(Qk.h(c, ""));
-      return d(b, e.call(M, f, new r(null, 4, [Gj, uk, T, 0, Y, 1 > c ? 1 : c, kj, ["`", w.g(a), "` requires `on <relation>` in the root parens \u2014 the self-relation to recurse over."].join("")], null)));
+      c = K(Ok.h(c, ""));
+      return d(b, e.call(M, f, new r(null, 4, [Jj, tk, T, 0, Y, 1 > c ? 1 : c, kj, ["`", w.g(a), "` requires `on <relation>` in the root parens \u2014 the self-relation to recurse over."].join("")], null)));
     }
-    return 1 < K(b) ? bc(U.g(c), M.h(x(U.g(c)), Tq(jd(b), "Only one `on` per tree op"))) : u(d) ? (a = D(b), b = wr(a), e = W.g(b), f = Pf(d, new P(null, 2, 5, R, [Zi, e], null)), d = Vq(d, Jk.g(c)), null == f ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, [
+    return 1 < K(b) ? bc(U.g(c), M.h(x(U.g(c)), Tq(jd(b), "Only one `on` per tree op"))) : u(d) ? (a = D(b), b = wr(a), e = W.g(b), f = Pf(d, new P(null, 2, 5, R, [bj, e], null)), d = Vq(d, Ik.g(c)), null == f ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, [
       "Unknown relation '",
       w.g(e),
       "' on ",
       w.g(d)
-    ].join("")))) : Xe(cn.g(f), d) ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, ["`on ", w.g(e), "` must be a SELF-relation of ", w.g(d), " \u2014 it targets ", w.g(cn.g(f))].join("")))) : J.h("many", pj.g(f)) ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, ["`on ", w.g(e), "` must be a tree (single-parent) relation \u2014 it is to-many"].join("")))) : null) : null;
+    ].join("")))) : Xe(dn.g(f), d) ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, ["`on ", w.g(e), "` must be a SELF-relation of ", w.g(d), " \u2014 it targets ", w.g(dn.g(f))].join("")))) : J.h("many", vj.g(f)) ? bc(U.g(c), M.h(x(U.g(c)), Tq(u(b) ? b : a, ["`on ", w.g(e), "` must be a tree (single-parent) relation \u2014 it is to-many"].join("")))) : null) : null;
   }
   function yr(a) {
     return Kd((function() {
@@ -20944,7 +21118,7 @@ var init_main = __esm({
           var d = Dn(c, kk), e = df(function(f) {
             return J.h(Tm, X.g(f)) ? W.g(f) : null;
           }, Jf.g(d));
-          c = Dn(c, Nk);
+          c = Dn(c, Lk);
           d = (function() {
             var f = new Ah(null, new r(null, 2, ["xid", null, "euuid", null], null), null);
             return f.g ? f.g(e) : f.call(null, e);
@@ -20968,7 +21142,7 @@ var init_main = __esm({
       var c = df(function(d) {
         return J.h(Tm, X.g(d)) ? W.g(d) : null;
       }, Jf.g(Dn(a, kk)));
-      a = Dn(a, Nk);
+      a = Dn(a, Lk);
       b = (function() {
         var d = new Ah(null, new r(null, 2, ["xid", null, "euuid", null], null), null);
         return d.g ? d.g(c) : d.call(null, c);
@@ -20979,7 +21153,7 @@ var init_main = __esm({
   }
   function Ar(a) {
     var b = D(Jf.g(a));
-    if (a = J.h(ol, X.g(b))) a = J.h, b = null == b ? null : Jf.g(b), b = null == b ? null : D(b), b = null == b ? null : W.g(b), a = a.call(J, "_on", ho(b));
+    if (a = J.h(ll, X.g(b))) a = J.h, b = null == b ? null : Jf.g(b), b = null == b ? null : D(b), b = null == b ? null : W.g(b), a = a.call(J, "_on", ho(b));
     return a;
   }
   function Br(a, b) {
@@ -20987,7 +21161,7 @@ var init_main = __esm({
       var p = jm.g(a), q = null == p ? null : If(p);
       return null == q ? null : Ff(/* @__PURE__ */ (function() {
         return function(t) {
-          return J.h(oj, X.g(t));
+          return J.h(uj, X.g(t));
         };
       })(p, q, "`get-tree` fixes its root by identity \u2014 only `xid = \u2026` and `on` belong in the root parens; filter relations instead"), q);
     })()), d = null, e = 0, f = 0; ; ) if (f < e) {
@@ -21018,7 +21192,7 @@ var init_main = __esm({
       var k = d.H(null, f), m = D(Jf.g(k));
       u((function() {
         var p = J.h(Hm, X.g(k));
-        return p ? (p = J.h(ym, X.g(m))) ? (p = Dn(m, Nk), u(p) ? p : Dn(m, jl)) : p : p;
+        return p ? (p = J.h(ym, X.g(m))) ? (p = Dn(m, Lk), u(p) ? p : Dn(m, gl)) : p : p;
       })()) && bc(U.g(b), M.h(
         x(U.g(b)),
         Tq(m, "`get-tree` ignores filters on root fields \u2014 filter relations instead")
@@ -21026,7 +21200,7 @@ var init_main = __esm({
       f += 1;
     } else if (c = C(c)) d = c, Gd(d) ? (c = Vb(d), f = Wb(d), d = c, e = K(c), c = f) : (k = D(d), m = D(Jf.g(k)), u((function() {
       var p = J.h(Hm, X.g(k));
-      return p ? (p = J.h(ym, X.g(m))) ? (p = Dn(m, Nk), u(p) ? p : Dn(m, jl)) : p : p;
+      return p ? (p = J.h(ym, X.g(m))) ? (p = Dn(m, Lk), u(p) ? p : Dn(m, gl)) : p : p;
     })()) && bc(U.g(b), M.h(x(U.g(b)), Tq(m, "`get-tree` ignores filters on root fields \u2014 filter relations instead"))), c = G(d), d = null, e = 0), f = 0;
     else break;
   }
@@ -21038,17 +21212,17 @@ var init_main = __esm({
       a = U.g(c);
       b = M.h;
       var d = x(U.g(c));
-      c = K(Qk.h(c, ""));
-      c = bc(a, b.call(M, d, new r(null, 4, [Gj, uk, T, 0, Y, 1 > c ? 1 : c, kj, "`get-tree` requires the tree root's identity in the root parens: `xid = \u2026`"], null)));
+      c = K(Ok.h(c, ""));
+      c = bc(a, b.call(M, d, new r(null, 4, [Jj, tk, T, 0, Y, 1 > c ? 1 : c, kj, "`get-tree` requires the tree root's identity in the root parens: `xid = \u2026`"], null)));
     }
     return c;
   });
   function Cr(a) {
-    var b = sl.g(a);
+    var b = pl.g(a);
     if (u(b)) {
       b = ia(b);
       b = ha(b, '"') && yn(b) && 1 < b.length ? b.substring(1, b.length - 1) : b;
-      var c = Ye(Eh(fn.g(a)));
+      var c = Ye(Eh(po.g(a)));
       b = Gf(tn, vf.h(sn, qn(b, /,/)));
       return yd(b) ? new P(null, 1, 5, R, [Tq(a, "An `:order` default must name at least one column")], null) : ng(nf(function(d) {
         var e = qn(d, /\s+/), f = C(e);
@@ -21067,7 +21241,7 @@ var init_main = __esm({
     (function f(d, e) {
       if (J.h(jk, X.g(d))) {
         var g = (function() {
-          var m = en.g(d);
+          var m = fn.g(d);
           return null == m ? null : m.toLowerCase();
         })(), h = (function() {
           var m = J.h("order", g);
@@ -21080,13 +21254,13 @@ var init_main = __esm({
           return b.ma(null, M.h(b.ka(null), m));
         }, Cr(d));
         u((function() {
-          var m = fn.g(d);
+          var m = po.g(d);
           return u(m) ? Ba(h) : m;
         })()) && b.ma(null, M.h(b.ka(null), Tq(d, "A restriction set `( \u2026 )` is only valid on order parameters")));
       }
       if (Bn(d)) {
         var k = (function() {
-          var m = J.h(ol, X.g(d));
+          var m = J.h(ll, X.g(d));
           if (m) {
             m = null == d ? null : Jf.g(d);
             m = null == m ? null : D(m);
@@ -21113,7 +21287,7 @@ var init_main = __esm({
   function Fr(a) {
     var b = tf(ld);
     (function e(d) {
-      if (J.h(ol, X.g(d))) {
+      if (J.h(ll, X.g(d))) {
         var f = (function() {
           var h = null == d ? null : Jf.g(d);
           return null == h ? null : D(h);
@@ -21121,29 +21295,26 @@ var init_main = __esm({
           var h = W.g(f);
           return Er.g ? Er.g(h) : Er.call(null, h);
         })();
-        u(g) && b.ma(null, M.h(b.ka(null), qd.i(Uq(f, ["`", w.g(W.g(f)), "` is the wire spelling \u2014 prefer `", w.g(g), "`"].join("")), Gj, Kk)));
+        u(g) && b.ma(null, M.h(b.ka(null), qd.i(Uq(f, ["`", w.g(W.g(f)), "` is the wire spelling \u2014 prefer `", w.g(g), "`"].join("")), Jj, Jk)));
       }
       return Bn(d) ? li(e, Jf.g(d)) : null;
     })(a);
     return x(b);
   }
   function Gr(a) {
-    var b = D(Jf.g(a));
-    if (J.h(ym, X.g(b))) {
-      if (a = df(function(c) {
-        return J.h(Tm, X.g(c)) ? c : null;
-      }, Jf.g(b)), u(a)) return new P(null, 2, 5, R, [ym, a], null);
-    } else if (u((function() {
-      var c = X.g(b), d = new Ah(null, new r(null, 2, [sk, null, Pj, null], null), null);
-      return d.g ? d.g(c) : d.call(null, c);
-    })())) {
-      if (u(df(function(c) {
-        return J.h(Rk, X.g(c));
-      }, Jf.g(b)))) return null;
-      a = df(function(c) {
-        return J.h(Tm, X.g(c)) ? c : null;
-      }, Jf.g(b));
-      if (u(a)) return new P(null, 2, 5, R, [Pj, a], null);
+    a = D(Jf.g(a));
+    if (J.h(ym, X.g(a))) {
+      if (a = df(function(b) {
+        return J.h(Tm, X.g(b)) ? b : null;
+      }, Jf.g(a)), u(a)) return new P(null, 2, 5, R, [ym, a], null);
+    } else if (J.h(Qj, X.g(a))) {
+      if (u(df(function(b) {
+        return J.h(Pk, X.g(b));
+      }, Jf.g(a)))) return null;
+      a = df(function(b) {
+        return J.h(Tm, X.g(b)) ? b : null;
+      }, Jf.g(a));
+      if (u(a)) return new P(null, 2, 5, R, [Qj, a], null);
     }
     return null;
   }
@@ -21151,7 +21322,7 @@ var init_main = __esm({
     (function e(d) {
       if (Bn(d)) {
         var f = X.g(d);
-        var g = new Ah(null, new r(null, 2, [Sm, null, Ck, null], null), null);
+        var g = new Ah(null, new r(null, 2, [Sm, null, Ak, null], null), null);
         f = g.g ? g.g(f) : g.call(null, f);
         if (u(f)) {
           f = tf(We);
@@ -21163,10 +21334,10 @@ var init_main = __esm({
               p = N(q, 0, null);
               q = N(q, 1, null);
               var t = W.g(q), v = y(x(f), t);
-              u(v) ? bc(U.g(b), M.h(x(U.g(b)), Uq(q, ["Duplicate ", ue(p), " '", w.g(t), "' at this scope (first listed at offset ", w.g(v), "). ", J.h(p, Pj) ? ["Add an alias (e.g. `-other:", w.g(t), "`) to project it again under a different key."].join("") : "XSQL has no scalar aliases; remove the duplicate."].join("")))) : f.ma(null, qd.i(f.ka(null), t, D(Zm.g(q))));
+              u(v) ? bc(U.g(b), M.h(x(U.g(b)), Uq(q, ["Duplicate ", ue(p), " '", w.g(t), "' at this scope (first listed at offset ", w.g(v), "). ", J.h(p, Qj) ? ["Add an alias (e.g. `-other:", w.g(t), "`) to project it again under a different key."].join("") : "XSQL has no scalar aliases; remove the duplicate."].join("")))) : f.ma(null, qd.i(f.ka(null), t, D(Zm.g(q))));
             }
             m += 1;
-          } else if (g = C(g)) Gd(g) ? (k = Vb(g), g = Wb(g), h = k, k = K(k)) : (h = D(g), J.h(Hm, X.g(h)) && (h = Gr(h), u(h) && (k = h, h = N(k, 0, null), k = N(k, 1, null), m = W.g(k), p = y(x(f), m), u(p) ? bc(U.g(b), M.h(x(U.g(b)), Uq(k, ["Duplicate ", ue(h), " '", w.g(m), "' at this scope (first listed at offset ", w.g(p), "). ", J.h(h, Pj) ? ["Add an alias (e.g. `-other:", w.g(m), "`) to project it again under a different key."].join("") : "XSQL has no scalar aliases; remove the duplicate."].join("")))) : f.ma(null, qd.i(f.ka(null), m, D(Zm.g(k)))))), g = G(g), h = null, k = 0), m = 0;
+          } else if (g = C(g)) Gd(g) ? (k = Vb(g), g = Wb(g), h = k, k = K(k)) : (h = D(g), J.h(Hm, X.g(h)) && (h = Gr(h), u(h) && (k = h, h = N(k, 0, null), k = N(k, 1, null), m = W.g(k), p = y(x(f), m), u(p) ? bc(U.g(b), M.h(x(U.g(b)), Uq(k, ["Duplicate ", ue(h), " '", w.g(m), "' at this scope (first listed at offset ", w.g(p), "). ", J.h(h, Qj) ? ["Add an alias (e.g. `-other:", w.g(m), "`) to project it again under a different key."].join("") : "XSQL has no scalar aliases; remove the duplicate."].join("")))) : f.ma(null, qd.i(f.ka(null), m, D(Zm.g(k)))))), g = G(g), h = null, k = 0), m = 0;
           else break;
         }
         return li(e, Jf.g(d));
@@ -21175,16 +21346,16 @@ var init_main = __esm({
     })(a);
   }
   function Ir(a, b, c) {
-    var d = Uo(a), e = Wi.g(d), f = null == e ? null : W.g(e);
+    var d = Uo(a), e = Zi.g(d), f = null == e ? null : W.g(e);
     var g = u(f) ? f : null;
     f = jm.g(d);
-    f = tf(ng(Ge.u(Xq(d, a), u(f) ? Xq(f, a) : null, fd([Dr(d), u(f) ? Dr(f) : null, Fr(d), u(f) ? Fr(f) : null]))));
-    var h = u(u(b) ? g : b) ? Pf(b, new P(null, 2, 5, R, [Vl, g], null)) : null;
-    a = new r(null, 4, [Qk, a, Jk, b, sm, h, U, f], null);
+    f = tf(ng(Ge.u(Xq(d, a), u(f) ? Xq(f, a) : null, fd([Dr(d), u(f) ? Dr(f) : null, Fr(d), u(f) ? Fr(f) : null, Qu(d)]))));
+    var h = u(u(b) ? g : b) ? Pf(b, new P(null, 2, 5, R, [Rl, g], null)) : null;
+    a = new r(null, 4, [Ok, a, Ik, b, sm, h, U, f], null);
     u(u(b) ? u(e) ? Ba(h) : e : b) && f.ma(null, M.h(f.ka(null), Tq(e, ["Unknown entity '", w.g(g), "' \u2014 not found in the deployed model."].join(""))));
     if (u(h)) {
       b = jm.g(d);
-      u(b) && gr(b, h, a);
+      u(b) && gr(b, h, qd.i(a, vm, ms(d)));
       b = C(Jf.g(d));
       e = null;
       for (var k = g = 0; ; ) if (k < g) {
@@ -21211,6 +21382,7 @@ var init_main = __esm({
       } else break;
     }
     Hr(d, a);
+    Ru(d, a);
     h = Kf.i(Ch, vf.g(Zm), vr(d));
     b = Ge.h(Ff(ur, If(d)), vr(d));
     b = C(b);
@@ -21225,14 +21397,21 @@ var init_main = __esm({
     return x(f);
   }
   ;
-  var Jr = new P(null, 5, 5, R, ["limit", "offset", "order by", "distinct", "join"], null), Kr = new P(null, 4, 5, R, ["avg", "sum", "min", "max"], null), Lr = new r(null, 5, ["string", new P(null, 12, 5, R, "=;!=;<;<=;>;>=;like;ilike;in;not in;is;is not null".split(";"), null), "number", new P(null, 9, 5, R, "=;!=;<;<=;>;>=;in;not in;is".split(";"), null), "boolean", new P(null, 3, 5, R, ["=", "!=", "is"], null), "timestamp", new P(
+  var Jr = new P(null, 5, 5, R, ["limit", "offset", "order by", "distinct", "join"], null), Tu = new P(null, 5, 5, R, ["count", "sum", "avg", "min", "max"], null), Uu = new r(null, 4, ["sum", new Ah(null, new r(null, 1, ["number", null], null), null), "avg", new Ah(null, new r(null, 1, ["number", null], null), null), "min", new Ah(null, new r(null, 3, ["string", null, "timestamp", null, "number", null], null), null), "max", new Ah(null, new r(null, 3, ["string", null, "timestamp", null, "number", null], null), null)], null), Vu = new Ah(null, new r(null, 3, [
+    "json",
     null,
-    9,
+    "hashed",
+    null,
+    "encrypted",
+    null
+  ], null), null), Lr = new r(null, 5, ["string", new P(null, 12, 5, R, "=;!=;<;<=;>;>=;like;ilike;in;not in;is;is not null".split(";"), null), "number", new P(null, 9, 5, R, "=;!=;<;<=;>;>=;in;not in;is".split(";"), null), "boolean", new P(null, 3, 5, R, ["=", "!=", "is"], null), "timestamp", new P(null, 9, 5, R, "=;!=;<;<=;>;>=;in;not in;is".split(";"), null), "enum", new P(
+    null,
+    7,
     5,
     R,
-    "=;!=;<;<=;>;>=;in;not in;is".split(";"),
+    "=;!=;like;ilike;in;not in;is".split(";"),
     null
-  ), "enum", new P(null, 5, 5, R, ["=", "!=", "in", "not in", "is"], null)], null);
+  )], null);
   function Mr(a, b) {
     return 0 <= b && b < K(a) ? a.substring(b, b + 1) : null;
   }
@@ -21259,7 +21438,7 @@ var init_main = __esm({
       b += 1;
       break a;
     }
-    return 2 <= b && J.h(">", Mr(a, b - 1)) && J.h("-", Mr(a, b - 2)) ? qm : 1 <= b && J.h("-", Mr(a, b - 1)) ? qj : null;
+    return 2 <= b && J.h(">", Mr(a, b - 1)) && J.h("-", Mr(a, b - 2)) ? qm : 1 <= b && J.h("-", Mr(a, b - 1)) ? qj : 1 <= b && J.h("!", Mr(a, b - 1)) ? $l : null;
   }
   function Sr(a, b) {
     K(a);
@@ -21365,11 +21544,11 @@ var init_main = __esm({
   function as(a) {
     var b = pf(false);
     return df(function(c) {
-      return J.h(Rk, X.g(c)) ? (qf(b, true), null) : J.h(Tm, X.g(c)) ? W.g(c) : null;
+      return J.h(Pk, X.g(c)) ? (qf(b, true), null) : J.h(Tm, X.g(c)) ? W.g(c) : null;
     }, Jf.g(a));
   }
   function bs(a, b, c) {
-    var d = tf(ld), e = new Ah(null, new r(null, 3, [wl, null, sk, null, Pj, null], null), null);
+    var d = tf(ld), e = new Ah(null, new r(null, 1, [Qj, null], null), null);
     (function h(g) {
       if (Bn(g)) {
         var k = X.g(g);
@@ -21380,7 +21559,7 @@ var init_main = __esm({
           var m = M.h, p = d.ka(null), q = as(g);
           var t = D(Zm.g(g));
           t = Vr(b, t);
-          k.call(d, null, m.call(M, p, new r(null, 5, [Ml, q, im, t, T, D(Zm.g(g)), vj, X.g(g), X, g], null)));
+          k.call(d, null, m.call(M, p, new r(null, 5, [Ml, q, hm, t, T, D(Zm.g(g)), zj, X.g(g), X, g], null)));
         }
         return li(h, Jf.g(g));
       }
@@ -21389,7 +21568,7 @@ var init_main = __esm({
     return x(d);
   }
   function cs(a, b, c, d, e, f) {
-    var g = Pf(e, new P(null, 2, 5, R, [Vl, f], null));
+    var g = Pf(e, new P(null, 2, 5, R, [Rl, f], null));
     if (u(g)) for (var h = bs(a, b, c), k = (function() {
       for (var p = 0, q = ld; ; ) {
         if (p >= K(h)) return q;
@@ -21400,22 +21579,22 @@ var init_main = __esm({
             break a;
           }
           var A = Yc(h, v);
-          A = (A = im.g(A) < im.g(t)) ? Yc(q, v) : A;
+          A = (A = hm.g(A) < hm.g(t)) ? Yc(q, v) : A;
           if (u(A)) {
             v = Yc(q, v);
             break a;
           }
           --v;
         }
-        t = Pf(u(v) ? v : g, new P(null, 2, 5, R, [Zi, Ml.g(t)], null));
-        t = u(t) ? Pf(e, new P(null, 2, 5, R, [Vl, cn.g(t)], null)) : null;
+        t = Pf(u(v) ? v : g, new P(null, 2, 5, R, [bj, Ml.g(t)], null));
+        t = u(t) ? Pf(e, new P(null, 2, 5, R, [Rl, dn.g(t)], null)) : null;
         p += 1;
         q = M.h(q, t);
       }
     })(), m = K(h) - 1; ; ) {
       if (0 > m) return null;
       if (u((function() {
-        var p = im.g(Yc(h, m)) < d;
+        var p = hm.g(Yc(h, m)) < d;
         return p ? Yc(k, m) : p;
       })())) return Yc(
         k,
@@ -21425,13 +21604,27 @@ var init_main = __esm({
     }
     else return null;
   }
-  function ds(a, b, c, d, e, f) {
-    if (u(Pf(e, new P(null, 2, 5, R, [Vl, f], null)))) for (a = bs(a, b, c), b = K(a) - 1; ; ) {
-      if (0 > b) return null;
-      if (im.g(Yc(a, b)) < d) return vj.g(Yc(a, b));
-      --b;
+  function Wu(a, b, c, d) {
+    var e = zj.g(a);
+    var f = new Ah(null, new r(null, 2, [xj, null, kl, null], null), null);
+    e = f.g ? f.g(e) : f.call(null, e);
+    if (u(e)) a: for (b = bs(b, c, d), e = K(b) - 1, d = Vr(c, d); ; ) if (0 <= e) if (c = Yc(b, e), hm.g(c) >= d) c = d, --e, d = c;
+    else {
+      if (J.h(Qj, zj.g(c)) && J.h("none", op(X.g(c)))) {
+        b = Ml.g(c);
+        break a;
+      }
+      d = e - 1;
+      c = hm.g(c);
+      e = d;
+      d = c;
     }
-    else return null;
+    else {
+      b = null;
+      break a;
+    }
+    else b = e;
+    return u(b) ? qd.i(a, Wl, b) : a;
   }
   function es(a, b, c) {
     if (u(b)) {
@@ -21441,10 +21634,10 @@ var init_main = __esm({
       for (var d = 0, e = b; ; ) {
         if (d >= K(a)) return null;
         var f = W.g(Yc(a, d));
-        b = Pf(e, new P(null, 2, 5, R, [fm, f], null));
-        e = Pf(e, new P(null, 2, 5, R, [Zi, f], null));
+        b = Pf(e, new P(null, 2, 5, R, [em, f], null));
+        e = Pf(e, new P(null, 2, 5, R, [bj, f], null));
         if (J.h(d, K(a) - 1)) return b;
-        if (u(e)) if (b = Pf(c, new P(null, 2, 5, R, [Vl, cn.g(e)], null)), u(b)) d += 1, e = b;
+        if (u(e)) if (b = Pf(c, new P(null, 2, 5, R, [Rl, dn.g(e)], null)), u(b)) d += 1, e = b;
         else return null;
         else return null;
       }
@@ -21466,59 +21659,39 @@ var init_main = __esm({
       for (a = Ff(C, qn(a, /\./)); ; ) {
         if (yd(a)) return c;
         b = D(a);
-        c = Pf(c, new P(null, 2, 5, R, [Zi, b], null));
-        c = u(c) ? Pf(d, new P(null, 2, 5, R, [Vl, cn.g(c)], null)) : null;
+        c = Pf(c, new P(null, 2, 5, R, [bj, b], null));
+        c = u(c) ? Pf(d, new P(null, 2, 5, R, [Rl, dn.g(c)], null)) : null;
         if (u(c)) a = F(a);
         else return null;
       }
     } else return null;
   }
   function gs(a, b) {
-    return u(a) ? (a = Dn(a, im), u(a) ? Vr(b, D(Zm.g(a))) : null) : null;
-  }
-  function hs(a, b) {
-    a = Dn(a, im);
-    return u(a) ? Vr(b, D(Zm.g(a))) : null;
+    return u(a) ? (a = Dn(a, hm), u(a) ? Vr(b, D(Zm.g(a))) : null) : null;
   }
   function is(a, b, c, d, e) {
     var f = Vr(c, b);
     return Ka(function(g, h) {
-      if (u((function() {
-        var E = X.g(h), B = new Ah(null, new r(null, 2, [sk, null, Pj, null], null), null);
-        return B.g ? B.g(E) : B.call(null, E);
-      })())) {
+      if (J.h(Qj, X.g(h))) {
         var k = as(h), m = wd(g);
-        k = Pf(m, new P(null, 2, 5, R, [Zi, k], null));
-        var p = u(k) ? Pf(d, new P(null, 2, 5, R, [Vl, cn.g(k)], null)) : null;
-        k = Dn(h, Sm);
-        m = Dn(h, xm);
-        var q = u(k) ? Yr(k, b) : k, t = u(m) ? Yr(m, b) : m, v = gs(k, c);
-        return u((function() {
-          var E = p;
-          return u(E) ? (E = u(q) ? q : t, u(E) ? Ba(u(q) ? u(v) ? f < v : v : q) : E) : E;
-        })()) ? M.h(g, p) : g;
-      }
-      if (J.h(wl, X.g(h))) {
-        k = as(h);
-        m = wd(g);
-        k = Pf(m, new P(null, 2, 5, R, [Zi, k], null));
-        p = u(k) ? Pf(d, new P(null, 2, 5, R, [Vl, cn.g(k)], null)) : null;
-        k = Dn(h, im);
-        var A = u(k) ? b > D(Zm.g(k)) : k;
-        v = hs(h, c);
-        return u((function() {
-          var E = p;
-          return u(E) ? u(A) ? Ba(u(v) ? f < v : v) : A : E;
-        })()) ? M.h(g, p) : g;
+        k = Pf(m, new P(null, 2, 5, R, [bj, k], null));
+        k = u(k) ? Pf(d, new P(null, 2, 5, R, [Rl, dn.g(k)], null)) : null;
+        m = Dn(h, Sm);
+        var p = Dn(h, xm);
+        h = u(m) ? Yr(m, b) : m;
+        p = u(p) ? Yr(p, b) : p;
+        m = gs(m, c);
+        u(k) ? (p = u(h) ? h : p, h = u(p) ? Ba(u(h) ? u(m) ? f < m : m : h) : p) : h = k;
+        return u(h) ? M.h(g, k) : g;
       }
       return g;
     }, e, a);
   }
   function js(a, b, c, d) {
-    var e = $r(a, b, Nk);
+    var e = $r(a, b, Lk);
     if (u((function() {
       return u(e) ? df(function(g) {
-        return J.h(Ti, X.g(g));
+        return J.h(Wi, X.g(g));
       }, Jf.g(e)) : e;
     })())) {
       var f = (function() {
@@ -21529,7 +21702,7 @@ var init_main = __esm({
       f = $r(a, b, ym);
       if (u(f)) return f = df(function(g) {
         return J.h(Tm, X.g(g)) ? g : null;
-      }, Jf.g(f)), u(f) ? Pf(c, new P(null, 2, 5, R, [fm, W.g(f)], null)) : null;
+      }, Jf.g(f)), u(f) ? Pf(c, new P(null, 2, 5, R, [em, W.g(f)], null)) : null;
     }
     return null;
   }
@@ -21566,12 +21739,12 @@ var init_main = __esm({
             };
           })(m, p, q, t, v, e, f, g, h, k), Jf.g(v));
           u(A) && e.ma(null, M.h(e.ka(null), W.g(A)));
-        } else u((function() {
-          var B = X.g(v), I = new Ah(null, new r(null, 2, [sk, null, Pj, null], null), null);
-          return I.g ? I.g(B) : I.call(null, B);
-        })()) && !u(df(/* @__PURE__ */ (function() {
+        } else J.h(
+          Qj,
+          X.g(v)
+        ) && !u(df(/* @__PURE__ */ (function() {
           return function(B) {
-            return J.h(Rk, X.g(B));
+            return J.h(Pk, X.g(B));
           };
         })(m, p, q, t, v, e, f, g, h, k), Jf.g(v))) && (A = df(/* @__PURE__ */ (function() {
           return function(B) {
@@ -21585,25 +21758,12 @@ var init_main = __esm({
           return function(B) {
             return J.h(Tm, X.g(B)) ? B : null;
           };
-        })(
-          m,
-          p,
-          q,
-          t,
-          v,
-          A,
-          E,
-          e,
-          f,
-          g,
-          h,
-          k
-        ), Jf.g(v)), u(m) && e.ma(null, M.h(e.ka(null), W.g(m)))) : u((function() {
-          var B = X.g(v), I = new Ah(null, new r(null, 2, [sk, null, Pj, null], null), null);
-          return I.g ? I.g(B) : I.call(null, B);
-        })()) && !u(df(/* @__PURE__ */ (function() {
+        })(m, p, q, t, v, A, E, e, f, g, h, k), Jf.g(v)), u(m) && e.ma(null, M.h(e.ka(null), W.g(m)))) : J.h(Qj, X.g(v)) && !u(df(/* @__PURE__ */ (function() {
           return function(B) {
-            return J.h(Rk, X.g(B));
+            return J.h(
+              Pk,
+              X.g(B)
+            );
           };
         })(m, p, q, t, v, A, E, e, f, g, h, k), Jf.g(v))) && (m = df(/* @__PURE__ */ (function() {
           return function(B) {
@@ -21612,40 +21772,10 @@ var init_main = __esm({
         })(m, p, q, t, v, A, E, e, f, g, h, k), Jf.g(v)), u(m) && f.ma(null, M.h(f.ka(null), W.g(m)))), m = G(A), p = null, q = 0), t = 0;
         else return null;
       }
-    }, Ff(
-      function(m) {
-        return J.h(Hm, X.g(m));
-      },
-      Jf.g(a)
-    ));
-    return new r(null, 2, [Xm, x(e), om, x(f)], null);
-  }
-  function ms(a, b, c) {
-    return Kf.i(Ch, mf(function(d) {
-      var e = Zm.g(d), f = N(e, 0, null);
-      e = N(e, 1, null);
-      return !J.h(b, X.g(d)) || c >= f && c < e || !Ba(df(function(g) {
-        return J.h(Rk, X.g(g));
-      }, Jf.g(d))) ? null : df(function(g) {
-        return J.h(Tm, X.g(g)) ? W.g(g) : null;
-      }, Jf.g(d));
-    }), Jf.g(a));
-  }
-  function ns(a, b) {
-    return Kf.i(Ch, mf(function(c) {
-      var d = Zm.g(c), e = N(d, 0, null);
-      d = N(d, 1, null);
-      return !J.h(Hj, X.g(c)) || b >= e && b < d ? null : df(function(f) {
-        return J.h(Tm, X.g(f)) ? W.g(f) : null;
-      }, Jf.g(c));
-    }), Jf.g(a));
-  }
-  function os(a) {
-    return Kf.i(Ch, mf(function(b) {
-      return J.h(Lm, X.g(b)) ? df(function(c) {
-        return J.h(Tm, X.g(c)) ? W.g(c) : null;
-      }, Jf.g(b)) : null;
-    }), Jf.g(a));
+    }, Ff(function(m) {
+      return J.h(Hm, X.g(m));
+    }, Jf.g(a)));
+    return new r(null, 2, [Ym, x(e), om, x(f)], null);
   }
   function ps(a, b) {
     for (var c = 0, d = 0; ; ) {
@@ -21655,19 +21785,24 @@ var init_main = __esm({
       J.h(e, "(") ? d += 1 : J.h(e, ")") && (--d, d = 0 > d ? 0 : d);
     }
   }
-  function qs(a, b) {
+  function Xu(a, b) {
     for (var c = 0, d = ld; ; ) {
-      if (c >= b) return wd(d);
+      if (c >= b) return d;
       var e = Mr(a, c), f = c + 1;
       d = J.h(e, "(") ? M.h(d, c) : J.h(e, ")") ? C(d) ? xd(d) : d : d;
       c = f;
     }
   }
-  var rs = /^\s*(?:_order_by|order\s+by)(?=\s|$)/, ss = /^\s*[A-Za-z_][A-Za-z0-9_]*(?:\s+(?:asc|desc))?\s*$/;
+  var rs = /^\s*(?:_order_by|order\s+by)(?=\s|$)/, ss = /^\s*[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*(?:\s+(?:asc|desc))?\s*$/;
+  function Yu(a, b) {
+    a = Sh(/[A-Za-z0-9_.]*$/, (u(a) ? a : "").substring(0, b));
+    a = rn(a, /\./, -1);
+    return ng(Gf(tn, xd(ng(a))));
+  }
   function ts(a, b) {
     var c = u(a) ? a : "";
     a = (function() {
-      var h = qs(c, b);
+      var h = wd(Xu(c, b));
       return u(h) ? h + 1 : 0;
     })();
     var d = ng(rn(c.substring(a, b), /,/, -1));
@@ -21688,17 +21823,17 @@ var init_main = __esm({
       return xn(w.g(D(f)), "?") ? null : u((function() {
         var h = yd(f);
         return h ? u(e) ? !g : e : h;
-      })()) ? null : yd(f) ? vl : J.h(1, K(f)) ? g ? cl : vl : J.h(2, K(f)) && !g ? cl : null;
+      })()) ? null : yd(f) ? sl : J.h(1, K(f)) ? g ? $k : sl : J.h(2, K(f)) && !g ? $k : null;
     }
     return null;
   }
   function us(a) {
-    var b = null == Dn(a, ol);
+    var b = null == Dn(a, ll);
     if (b) {
       a: for (; ; ) if (b = C(Jf.g(a))) a = kd(b);
       else break a;
       b = X.g(a);
-      var c = new Ah(null, new r(null, 3, [jk, null, jj, null, Ri, null], null), null);
+      var c = new Ah(null, new r(null, 3, [jk, null, mj, null, Ui, null], null), null);
       b = c.g ? c.g(b) : c.call(null, b);
       if (u(b)) return b;
       a = W.g(a);
@@ -21709,368 +21844,412 @@ var init_main = __esm({
   }
   function vs(a, b) {
     b = le(a, Wr(a, b), b);
-    a = Sh(/([A-Za-z_][A-Za-z0-9_]*)\s*(?:!=|=)\s*("[^"]*|[A-Za-z0-9_]*)$/, b);
-    b = Sh(/([A-Za-z_][A-Za-z0-9_]*)\s+(?:not\s+)?in\s*\(((?:\s*(?:"[^"]*"|[^\s,()"]+)\s*,)*)\s*("[^"]*|[A-Za-z0-9_]*)$/, b);
-    return u(a) ? new r(null, 2, [vl, Yc(a, 1), ek, xn(Yc(a, 2), '"')], null) : u(b) ? new r(null, 3, [vl, Yc(b, 1), ek, xn(Yc(b, 3), '"'), Ik, Kf.i(Ch, vf.g(jd), Uh(/"([^"]*)"/, Yc(b, 2)))], null) : null;
+    a = Sh(/([A-Za-z_][A-Za-z0-9_.]*)\s*(?:!=|=)\s*("[^"]*|[A-Za-z0-9_]*)$/, b);
+    b = Sh(/([A-Za-z_][A-Za-z0-9_.]*)\s+(?:not\s+)?in\s*\(((?:\s*(?:"[^"]*"|[^\s,()"]+)\s*,)*)\s*("[^"]*|[A-Za-z0-9_]*)$/, b);
+    return u(a) ? new r(null, 2, [kk, Yc(a, 1), ek, xn(Yc(a, 2), '"')], null) : u(b) ? new r(null, 3, [kk, Yc(b, 1), ek, xn(Yc(b, 3), '"'), Hk, Kf.i(Ch, vf.g(jd), Uh(/"([^"]*)"/, Yc(b, 2)))], null) : null;
+  }
+  function Zu(a, b, c) {
+    return Ka(function(d, e) {
+      d = Pf(d, new P(null, 3, 5, R, [bj, e, dn], null));
+      d = null == d ? null : M.h(new P(null, 1, 5, R, [Rl], null), d);
+      d = null == d ? null : Pf(c, d);
+      return u(d) ? d : new Mc(null);
+    }, b, Ii(rn(a, /\./, -1)));
+  }
+  function $u(a, b, c) {
+    return Pf(Zu(a, b, c), new P(null, 2, 5, R, [em, kd(rn(a, /\./, -1))], null));
+  }
+  var av = /[ \t]*[a-z_][a-z0-9_]*[ \t]*:[ \t]*([a-z_]+)[ \t]*/;
+  function bv(a, b) {
+    return df(function(c) {
+      var d = Rh(av, le(a, Wr(a, c), c));
+      return u(d) ? (N(d, 0, null), d = N(d, 1, null), u(df(Dh([d]), Tu)) ? new r(null, 2, [wj, d, Tl, c], null) : null) : null;
+    }, Jb(Xu(a, b)));
+  }
+  function cv(a, b) {
+    return Kd(Rh(/[ \t]*[a-z_][a-z0-9_]*[ \t]*:[ \t]*[a-z_]*/, le(a, Wr(a, b), b)));
+  }
+  function dv(a, b, c, d, e, f) {
+    var g = bv(b, c);
+    if (u(g)) {
+      var h = Ve(g);
+      g = y(h, wj);
+      h = y(h, Tl);
+      var k = Vr(b, h);
+      a = 0 < k ? cs(a, b, h, k, d, e) : null;
+      u(a) ? e = a : (f = wd(f), e = u(f) ? f : Pf(d, new P(null, 2, 5, R, [Rl, e], null)));
+      f = new P(null, 1, 5, R, [e], null);
+      b = b.substring(h + 1, c);
+      h = rn(b, /,|\(|\)|\band\b|\bor\b/, -1);
+      c = jd(Sh(/([a-z_][a-z0-9_]*)/, nn(b, /^\s*distinct\s+/, "")));
+      if (J.h(1, K(h))) return c = Kd(Sh(/^\s*distinct\s+/, b)), b = nn(b, /^\s*(?:distinct\s+)?/, ""), h = J.h("count", g) && !c, u(Rh(/[a-z0-9_]*/, b)) ? new r(null, 5, [zj, Mk, wm, f, wj, g, Dk, c, cl, h], null) : u(Rh(/[a-z_][a-z0-9_]*\.[a-z0-9_]*/, b)) ? new r(null, 5, [zj, hj, wm, f, wj, g, Dk, c, dn, Zu(b, e, d)], null) : u(Rh(Ni("[a-z_][a-z0-9_]*(?:\\.[a-z_][a-z0-9_]*)+\\.[a-z0-9_]*"), b)) ? h ? new r(null, 3, [zj, jj, wm, f, Jm, Zu(b, e, d)], null) : new r(null, 2, [zj, tj, wm, f], null) : u(Rh(Ni("[a-z_][a-z0-9_]*(?:\\.[a-z_][a-z0-9_]*)+\\s+"), b)) ? h ? new r(null, 3, [zj, Ck, wm, f, wl, $u(ia(b), e, d)], null) : new r(null, 2, [zj, tj, wm, f], null) : null;
+      g = wd(h);
+      return u(Sh(/\)\s*$/, b)) ? new r(null, 2, [zj, vl, wm, f], null) : u(Rh(/\s*[a-z0-9_]*/, g)) ? new r(null, 3, [
+        zj,
+        Lm,
+        wm,
+        f,
+        Qj,
+        c
+      ], null) : u(Rh(Ni("\\s*[a-z_][a-z0-9_]*(?:\\.[a-z_][a-z0-9_]*)*\\.[a-z0-9_]*"), g)) ? new r(null, 3, [zj, jj, wm, f, Jm, Zu(ia(g), e, d)], null) : u(Rh(Ni("\\s*[a-z_][a-z0-9_]*(?:\\.[a-z_][a-z0-9_]*)+\\s+"), g)) ? new r(null, 3, [zj, Ck, wm, f, wl, $u(ia(g), e, d)], null) : null;
+    }
+    return null;
+  }
+  function ev(a, b, c) {
+    b = $r(b, c, Qj);
+    a = u(b) ? Dn(b, Sm) : a;
+    return ms(a);
+  }
+  function fv(a, b) {
+    var c = Uo(u(a) ? a : "");
+    b = Zr(c, b, u(a) ? a : "");
+    a = N(b, 0, null);
+    b = N(b, 1, null);
+    return ev(c, a, b);
   }
   function ws(a, b, c, d, e, f, g) {
-    var h = u(u(f) ? u(g) ? Pf(f, new P(null, 2, 5, R, [Vl, g], null)) : g : f) ? M.h(ld, Pf(f, new P(null, 2, 5, R, [Vl, g], null))) : ld;
+    var h = u(u(f) ? u(g) ? Pf(f, new P(null, 2, 5, R, [Rl, g], null)) : g : f) ? M.h(ld, Pf(f, new P(null, 2, 5, R, [Rl, g], null))) : ld;
     h = is(c, e, d, f, h);
     var k = wd(h), m = Sr(d, e), p = Qr(d, e), q = T.g(Xr(d, e)), t = Rr(d, q), v = ks(a, c, d, e);
     v = ls(v, d, e);
     var A = js(b, c, k, f), E = (function() {
-      var V = J.h(Ri, X.g(b));
-      return V ? (V = J.h(e, jd(Zm.g(b)))) ? (V = W.g(b), 1 < K(V) && J.h('"', ke(V, K(V) - 1))) : V : V;
-    })(), B = ts(d, e), I = vs(d, e), Q = u(I) ? Pf(k, new P(null, 2, 5, R, [fm, vl.g(I)], null)) : null;
-    if (J.h(vl, B)) return new r(null, 2, [vj, zk, wm, h], null);
-    if (J.h(cl, B)) return new r(
-      null,
-      2,
-      [vj, Ql, wm, h],
-      null
-    );
-    if (u(Q)) return new r(null, 5, [vj, dm, wm, h, Al, Q, ek, ek.g(I), Ik, Ik.g(I)], null);
-    if (u(u(A) ? !E : A)) return new r(null, 3, [vj, dm, wm, h, Al, A], null);
-    if (E) return new r(null, 2, [vj, zl, wm, h], null);
-    if (J.h(m, "is")) return new r(null, 2, [vj, Dj, wm, h], null);
-    if (J.h(m, "not")) return q = Ur(d, Tr(d, e)), J.h(q, "is") ? new r(null, 2, [vj, bn, wm, h], null) : new r(null, 2, [vj, Xi, wm, h], null);
-    if (J.h(m, "like") || J.h(m, "ilike")) return new r(null, 2, [vj, xj, wm, h], null);
-    if (J.h(m, "in")) return new r(null, 2, [vj, Bj, wm, h], null);
+      var da = J.h(Ui, X.g(b));
+      return da ? (da = J.h(e, jd(Zm.g(b)))) ? (da = W.g(b), 1 < K(da) && J.h('"', ke(da, K(da) - 1))) : da : da;
+    })(), B = ts(d, e), I = vs(d, e), Q = u(I) ? $u(kk.g(I), k, f) : null;
+    if (J.h(sl, B)) return new r(null, 4, [zj, yk, wm, h, ol, Yu(d, e), im, ev(a, b, c)], null);
+    if (J.h(
+      $k,
+      B
+    )) return new r(null, 2, [zj, Jl, wm, h], null);
+    if (u(Q)) return new r(null, 5, [zj, cm, wm, h, wl, Q, ek, ek.g(I), Hk, Hk.g(I)], null);
+    if (u(u(A) ? !E : A)) return new r(null, 3, [zj, cm, wm, h, wl, A], null);
+    if (E) return new r(null, 2, [zj, vl, wm, h], null);
+    if (J.h(m, "is")) return new r(null, 2, [zj, Gj, wm, h], null);
+    if (J.h(m, "not")) return q = Ur(d, Tr(d, e)), J.h(q, "is") ? new r(null, 2, [zj, cn, wm, h], null) : new r(null, 2, [zj, $i, wm, h], null);
+    if (J.h(m, "like") || J.h(m, "ilike")) return new r(null, 2, [zj, Bj, wm, h], null);
+    if (J.h(m, "in")) return new r(null, 2, [
+      zj,
+      Ej,
+      wm,
+      h
+    ], null);
     if (u((function() {
-      var V = new Ah(null, new r(null, 2, ["on", null, "_on", null], null), null);
-      return V.g ? V.g(m) : V.call(null, m);
-    })())) return new r(null, 2, [vj, Xk, wm, h], null);
+      var da = new Ah(null, new r(null, 2, ["on", null, "_on", null], null), null);
+      return da.g ? da.g(m) : da.call(null, m);
+    })())) return new r(null, 2, [zj, Vk, wm, h], null);
     var H = $r(b, c, xm);
     A = Kd(u(H) ? H : $r(b, c, ok));
     var O = $r(b, c, ck), S = (function() {
-      var V = u(O) ? Dn(O, kk) : O;
-      return u(V) ? V : $r(b, c, kk);
+      var da = u(O) ? Dn(O, kk) : O;
+      return u(da) ? da : $r(b, c, kk);
     })();
     E = u((function() {
       if (u(S)) {
-        var V = e >= jd(Zm.g(S));
-        return V ? k : V;
+        var da = e >= jd(Zm.g(S));
+        return da ? k : da;
       }
       return S;
     })()) ? es(S, k, f) : null;
     B = J.h(p, ".") ? fs(d, e, k, f) : null;
     I = (function() {
-      var V = (function() {
-        for (var oa = e - 1; ; ) if (0 <= oa && Nr(Mr(d, oa))) --oa;
-        else return oa;
+      var da = (function() {
+        for (var Va = e - 1; ; ) if (0 <= Va && Nr(Mr(d, Va))) --Va;
+        else return Va;
       })();
       if (u((function() {
-        var oa = V < e - 1;
-        return oa ? (oa = 0 <= V) ? Or(Mr(d, V)) : oa : oa;
+        var Va = da < e - 1;
+        return Va ? (Va = 0 <= da) ? Or(Mr(d, da)) : Va : Va;
       })())) {
-        var da = V + 1, Ra = (function() {
-          for (var oa = V; ; ) {
-            var Va = (Va = 0 <= oa) ? Or(Mr(d, oa)) : Va;
-            if (u(Va)) --oa;
-            else return oa + 1;
+        var Ra = da + 1, oa = (function() {
+          for (var Va = da; ; ) {
+            var ra = (ra = 0 <= Va) ? Or(Mr(d, Va)) : ra;
+            if (u(ra)) --Va;
+            else return Va + 1;
           }
         })();
-        return Pf(k, new P(null, 2, 5, R, [fm, d.substring(Ra, da)], null));
+        return Pf(k, new P(null, 2, 5, R, [em, d.substring(oa, Ra)], null));
       }
       return null;
     })();
-    Q = A && Xe(p, "(") && Xe(p, ",") ? (function() {
-      var V = (function() {
-        var Ra = $r(b, c, ok);
-        return u(Ra) ? Ra : null == H ? null : Dn(H, ok);
+    Q = dv(a, d, e, f, g, h);
+    var ca = A && Xe(p, "(") && Xe(p, ",") ? (function() {
+      var da = (function() {
+        var oa = $r(b, c, ok);
+        return u(oa) ? oa : null == H ? null : Dn(H, ok);
       })();
-      if (u(V)) {
-        var da = tf(ld);
-        (function Va(oa) {
-          return Cd(oa) ? (J.h(ck, X.g(oa)) && da.ma(null, M.h(da.ka(null), oa)), li(Va, Jf.g(oa))) : null;
-        })(V);
-        return kd(Ff(function(oa) {
-          oa = jd(Zm.g(oa));
-          var Va;
-          if (Va = oa <= e) Va = K(d), Va = tn(d.substring(oa, e < Va ? e : Va));
-          return Va;
-        }, x(da)));
+      if (u(da)) {
+        var Ra = tf(ld);
+        (function ra(Va) {
+          return Cd(Va) ? (J.h(ck, X.g(Va)) && Ra.ma(null, M.h(Ra.ka(null), Va)), li(ra, Jf.g(Va))) : null;
+        })(da);
+        return kd(Ff(function(Va) {
+          Va = jd(Zm.g(Va));
+          var ra;
+          if (ra = Va <= e) ra = K(d), ra = tn(d.substring(Va, e < ra ? e : ra));
+          return ra;
+        }, x(Ra)));
       }
       return null;
     })() : null;
-    if (A) return J.h(m, "asc") || J.h(m, "desc") ? new r(null, 2, [vj, Nm, wm, h], null) : J.h(p, "(") || J.h(p, ",") ? new r(null, 2, [vj, Nm, wm, h], null) : u(E) ? new r(null, 3, [vj, Ek, wm, h, Al, E], null) : u(B) ? new r(null, 3, [vj, hj, wm, h, Jm, B], null) : u(u(Q) ? us(Q) : Q) ? new r(null, 2, [vj, zl, wm, h], null) : new r(null, 2, [vj, Nm, wm, h], null);
+    if (A) return J.h(m, "asc") || J.h(m, "desc") ? new r(null, 2, [zj, Nm, wm, h], null) : J.h(p, "(") || J.h(p, ",") ? new r(null, 2, [zj, Nm, wm, h], null) : u(E) ? new r(null, 3, [zj, Ck, wm, h, wl, E], null) : u(B) ? new r(null, 3, [zj, jj, wm, h, Jm, B], null) : u(u(ca) ? us(ca) : ca) ? new r(null, 2, [zj, vl, wm, h], null) : new r(null, 2, [zj, Nm, wm, h], null);
     if (u((function() {
-      var V = 0 < ps(d, e);
-      if (V) {
-        a: for (V = e - 1; ; ) {
-          if (0 > V) {
-            V = d.substring(0, e);
+      var da = 0 < ps(d, e);
+      if (da) {
+        a: for (da = e - 1; ; ) {
+          if (0 > da) {
+            da = d.substring(0, e);
             break a;
           }
-          var da = Mr(d, V);
-          if (J.h(
-            da,
-            ","
-          ) || J.h(da, "(")) {
-            V = d.substring(V + 1, e);
+          var Ra = Mr(d, da);
+          if (J.h(Ra, ",") || J.h(Ra, "(")) {
+            da = d.substring(da + 1, e);
             break a;
           }
-          --V;
+          --da;
         }
-        V = ia(V);
-        return (da = C(V)) ? (da = !ha(V, "_")) ? Sh(/(\d|"|\bnull|\btrue|\bfalse)$/, V) : da : da;
+        da = ia(da);
+        return (Ra = C(da)) ? (Ra = !ha(da, "_")) ? Sh(/(\d|"|\bnull|\btrue|\bfalse)$/, da) : Ra : Ra;
       }
-      return V;
+      return da;
     })()) || u((function() {
-      var V = $r(b, c, ym);
-      if (u(V)) {
-        var da = (function() {
-          var Va = Dn(V, jl);
-          return u(Va) ? Va : Dn(V, Nk);
+      var da = $r(b, c, ym);
+      if (u(da)) {
+        var Ra = (function() {
+          var ra = Dn(da, gl);
+          return u(ra) ? ra : Dn(da, Lk);
         })();
-        if (u(da)) {
-          var Ra = jd(Zm.g(da)), oa = Ra <= e;
-          return oa ? (Ra = tn(le(d, Ra, (function() {
-            var Va = K(d);
-            return e < Va ? e : Va;
-          })()))) ? us(da) : Ra : oa;
+        if (u(Ra)) {
+          var oa = jd(Zm.g(Ra)), Va = oa <= e;
+          return Va ? (oa = tn(le(d, oa, (function() {
+            var ra = K(d);
+            return e < ra ? e : ra;
+          })()))) ? us(Ra) : oa : Va;
         }
       }
       return null;
-    })())) return new r(null, 2, [vj, zl, wm, h], null);
+    })())) return new r(null, 2, [
+      zj,
+      vl,
+      wm,
+      h
+    ], null);
+    if (u(Q)) return Q;
     if (u((function() {
-      var V = $r(b, c, jl);
-      return u(V) ? V : 0 < ps(d, e) && (V = qs(d, e), u(V)) ? (V = Sr(d, V), u(V) ? Pf(k, new P(null, 2, 5, R, [fm, V], null)) : null) : null;
+      var da = $r(b, c, gl);
+      return u(da) ? da : 0 < ps(d, e) && (da = wd(Xu(d, e)), u(da)) ? (da = Sr(d, da), u(da) ? Pf(k, new P(null, 2, 5, R, [em, da], null)) : null) : null;
     })())) {
-      var ca = (function() {
-        var V = J.h(ym, X.g(b)) ? b : null;
-        return u(V) ? V : df(function(da) {
-          return J.h(ym, X.g(da)) ? da : null;
+      var ua = (function() {
+        var da = J.h(ym, X.g(b)) ? b : null;
+        return u(da) ? da : df(function(Ra) {
+          return J.h(ym, X.g(Ra)) ? Ra : null;
         }, oe(c));
       })();
-      t = (function() {
-        var V = df(function(da) {
-          return J.h(Tm, X.g(da)) ? W.g(da) : null;
-        }, Jf.g(ca));
-        if (u(V)) return V;
-        V = qs(d, e);
-        return null == V ? null : Sr(d, V);
+      a = (function() {
+        var da = df(function(Ra) {
+          return J.h(Tm, X.g(Ra)) ? W.g(Ra) : null;
+        }, Jf.g(ua));
+        if (u(da)) return da;
+        da = wd(Xu(d, e));
+        return null == da ? null : Sr(d, da);
       })();
-      t = Pf(k, new P(null, 2, 5, R, [fm, t], null));
-      var ua = Qr(d, q);
+      a = Pf(k, new P(null, 2, 5, R, [em, a], null));
+      var ab = Qr(d, q);
       return u((function() {
-        var V = new Ah(null, new r(null, 4, ["=", null, "!", null, "<", null, ">", null], null), null);
-        return V.g ? V.g(ua) : V.call(null, ua);
-      })()) ? new r(null, 3, [vj, dm, wm, h, Al, t], null) : new r(null, 3, [vj, Ek, wm, h, Al, t], null);
+        var da = new Ah(null, new r(null, 4, ["=", null, "!", null, "<", null, ">", null], null), null);
+        return da.g ? da.g(ab) : da.call(null, ab);
+      })()) ? new r(null, 3, [zj, cm, wm, h, wl, a], null) : new r(null, 3, [zj, Ck, wm, h, wl, a], null);
     }
-    if (u($r(b, c, Hj))) return q = $r(b, c, Hj), t = Dn(q, Tm), null == t || e < jd(Zm.g(t)) ? new r(null, 3, [vj, fl, wm, h, Lk, (function() {
-      var V = $r(b, c, wl);
-      return u(V) ? ns(V, e) : Ch;
-    })()], null) : new r(null, 3, [vj, Lm, wm, h, dj, os(q)], null);
-    if (u((function() {
-      var V = $r(b, c, Pk);
-      return u(V) ? Ba(H) : V;
-    })())) return new r(null, 3, [vj, zm, wm, h, vm, ms($r(b, c, Pk), sk, e)], null);
-    if (u((function() {
-      var V = $r(b, c, Jl);
-      return u(V) ? Ba($r(b, c, Hj)) && Ba(H) && Xe(wl, ds(a, d, e, Vr(
-        d,
-        e
-      ), f, g)) : V;
-    })())) return new r(null, 3, [vj, Zk, wm, h, vm, ms($r(b, c, Jl), wl, e)], null);
-    if (u(I)) return new r(null, 3, [vj, Ek, wm, h, Al, I], null);
-    var ab = Vr(d, e);
+    if (cv(d, e)) return new r(null, 2, [zj, Xm, wm, h], null);
+    if (u(I)) return new r(null, 3, [zj, Ck, wm, h, wl, I], null);
+    var V = Vr(d, e);
     return u((function() {
-      var V = 0 < ab;
-      return V ? u(f) ? g : f : V;
-    })()) ? (q = cs(a, d, e, ab, f, g), u(q) ? (h = ds(a, d, e, ab, f, g), new r(null, 5, [vj, tj, wm, new P(null, 1, 5, R, [q], null), Gm, t, Ok, v, zj, J.h(wl, h)], null)) : u($r(b, c, Sm)) ? new r(null, 4, [vj, tj, wm, h, Gm, t, Ok, v], null) : new r(null, 4, [vj, nl, wm, h, Gm, t, Ok, v], null)) : u($r(b, c, Sm)) ? new r(null, 4, [vj, tj, wm, h, Gm, t, Ok, v], null) : new r(null, 3, [
-      vj,
-      qk,
-      Gm,
-      t,
-      Ok,
-      v
-    ], null);
+      var da = 0 < V;
+      return da ? u(f) ? g : f : da;
+    })()) ? (q = cs(a, d, e, V, f, g), u(q) ? new r(null, 4, [zj, xj, wm, new P(null, 1, 5, R, [q], null), Gm, t, Nk, v], null) : u($r(
+      b,
+      c,
+      Sm
+    )) ? new r(null, 4, [zj, xj, wm, h, Gm, t, Nk, v], null) : new r(null, 4, [zj, kl, wm, h, Gm, t, Nk, v], null)) : u($r(b, c, Sm)) ? new r(null, 4, [zj, xj, wm, h, Gm, t, Nk, v], null) : new r(null, 3, [zj, qk, Gm, t, Nk, v], null);
+  }
+  function gv(a) {
+    return Qd(Kg(em.g(a)));
   }
   function xs(a) {
     return Qd(vf.h(D, Ff(function(b) {
       N(b, 0, null);
       b = N(b, 1, null);
-      return J.h("many", pj.g(b));
-    }, Zi.g(a))));
+      return J.h("many", vj.g(b));
+    }, bj.g(a))));
   }
-  function ys(a, b) {
-    return u(a) ? Lf(function(c) {
-      return new r(null, 3, [Ol, c, Z, "attribute", Rl, "Attributes"], null);
-    }, Qd(Gf(b, vf.h(D, Ff(function(c) {
-      N(c, 0, null);
-      c = N(c, 1, null);
-      return J.h("number", Z.g(c));
-    }, fm.g(a)))))) : null;
+  function hv(a, b, c) {
+    var d = Uu.g ? Uu.g(b) : Uu.call(null, b);
+    return Lf(function(e) {
+      return new r(null, 3, [Hl, e, Z, "attribute", Kl, "Attributes"], null);
+    }, Qd(vf.h(D, Ff(function(e) {
+      N(e, 0, null);
+      e = N(e, 1, null);
+      return u(c) ? (e = Z.g(e), e = Vu.g ? Vu.g(e) : Vu.call(null, e), Ba(e)) : u(d) ? (e = Z.g(e), d.g ? d.g(e) : d.call(null, e)) : d;
+    }, em.g(a)))));
   }
   function zs(a, b) {
-    return new r(null, 5, [Ol, a, Z, "relation", Rl, "Relations", Cm, "already used \u2014 alias it", xk, [w.g(b), "${alias}:", w.g(a)].join("")], null);
+    return new r(null, 5, [Hl, a, Z, "relation", Kl, "Relations", Cm, "already used \u2014 alias it", wk, [w.g(b), "${alias}:", w.g(a)].join("")], null);
   }
   function As(a, b) {
     b = Ve(b);
-    var c = y(b, gm), d = y(b, Qm);
-    b = y(b, Ok);
-    var e = Xm.h(b, Ch), f = om.h(b, Ch);
-    b = Gf(e, Qd(Kg(fm.g(a))));
+    var c = y(b, fm), d = y(b, Qm);
+    b = y(b, Nk);
+    var e = Ym.h(b, Ch), f = om.h(b, Ch);
+    b = Gf(e, gv(a));
     return Ge.h(Lf(function(g) {
-      return new r(null, 3, [Ol, g, Z, "attribute", Rl, "Attributes"], null);
+      return new r(null, 3, [Hl, g, Z, "attribute", Kl, "Attributes"], null);
     }, b), Lf(function(g) {
       if (u(f.g ? f.g(g) : f.call(null, g))) return zs(g, u(c) ? c : "");
-      g = new r(null, 3, [Ol, [w.g(u(c) ? c : ""), w.g(g)].join(""), Z, "relation", Rl, "Relations"], null);
+      g = new r(null, 3, [Hl, [w.g(u(c) ? c : ""), w.g(g)].join(""), Z, "relation", Kl, "Relations"], null);
       return u(d) ? qd.i(g, Cm, d) : g;
-    }, Qd(Kg(Zi.g(a)))));
+    }, Qd(Kg(bj.g(a)))));
   }
   function Bs(a, b) {
     if (u(a)) {
       var c = om.h(b, Ch);
       return Lf(function(d) {
-        return u(c.g ? c.g(d) : c.call(null, d)) ? zs(d, "") : new r(null, 3, [Ol, d, Z, "relation", Rl, "Relations"], null);
-      }, Qd(Kg(Zi.g(a))));
+        return u(c.g ? c.g(d) : c.call(null, d)) ? zs(d, "") : new r(null, 3, [Hl, d, Z, "relation", Kl, "Relations"], null);
+      }, Qd(Kg(bj.g(a))));
     }
     return null;
   }
+  function iv(a, b) {
+    return u(a) ? Ge.h(Lf(function(c) {
+      return new r(null, 5, [Hl, c, Z, "attribute", Kl, "Attributes", Cm, "filter", wk, [w.g(c), " = ${value}"].join("")], null);
+    }, gv(a)), Lf(function(c) {
+      return new r(null, 4, [Hl, ["-", w.g(c)].join(""), Z, "relation", Kl, "Relations", Cm, "constraint"], null);
+    }, Gf(om.h(b, Ch), Qd(Kg(bj.g(a)))))) : null;
+  }
   function Cs(a, b, c) {
     var d = (function() {
-      var m = wd(wm.g(a));
-      return u(m) ? m : u(u(b) ? c : b) ? Pf(b, new P(null, 2, 5, R, [Vl, c], null)) : null;
-    })(), e = Gm.g(a), f = vj.g(a);
+      var k = wd(wm.g(a));
+      return u(k) ? k : u(u(b) ? c : b) ? Pf(b, new P(null, 2, 5, R, [Rl, c], null)) : null;
+    })(), e = Gm.g(a), f = zj.g(a);
     switch (f instanceof z ? f.M : null) {
       case "line-start-root":
-        return u(e) ? Bs(d, Ok.g(a)) : Ge.h(u(d) ? As(d, new r(null, 2, [gm, "->", Ok, Ok.g(a)], null)) : null, new P(null, 2, 5, R, [new r(null, 5, [Ol, "_count", Z, "keyword", Rl, "Operators", Cm, "aliased counters", Ll, Xl], null), new r(null, 5, [Ol, "_agg", Z, "keyword", Rl, "Operators", Cm, "aggregates", Ll, Xl], null)], null));
+        return u(e) ? Bs(d, Nk.g(a)) : u(Wl.g(a)) ? iv(d, Nk.g(a)) : u(d) ? As(d, new r(null, 2, [fm, "->", Nk, Nk.g(a)], null)) : null;
       case "root-entity-line":
-        return Lf(function(m) {
-          return new r(
-            null,
-            4,
-            [Ol, m, Z, "class", Rl, "Entities", Cm, "root entity"],
-            null
-          );
-        }, Qd(Kg(Vl.g(b))));
+        return Lf(function(k) {
+          return new r(null, 4, [Hl, k, Z, "class", Kl, "Entities", Cm, "root entity"], null);
+        }, Qd(Kg(Rl.g(b))));
       case "block-start":
-        return u(zj.g(a)) ? ys(d, Ch) : u(e) ? Bs(d, Ok.g(a)) : Ge.h(u(d) ? As(d, new r(null, 2, [gm, "->", Ok, Ok.g(a)], null)) : null, new P(null, 2, 5, R, [new r(null, 5, [Ol, "_count", Z, "keyword", Rl, "Operators", Cm, "aliased counters", Ll, Xl], null), new r(null, 5, [Ol, "_agg", Z, "keyword", Rl, "Operators", Cm, "aggregates", Ll, Xl], null)], null));
+        return u(e) ? Bs(d, Nk.g(a)) : u(Wl.g(a)) ? iv(d, Nk.g(a)) : u(d) ? As(d, new r(null, 2, [fm, "->", Nk, Nk.g(a)], null)) : null;
       case "arg-list-start":
-        return Ge.h(Lf(function(m) {
-          return new r(
-            null,
-            3,
-            [Ol, m, Z, "attribute", Rl, "Attributes"],
-            null
-          );
-        }, Qd(Kg(fm.g(d)))), Lf(function(m) {
-          return new r(null, 3, [Ol, m, Z, "keyword", Rl, "Operators"], null);
+        return Ge.h(Lf(function(k) {
+          return new r(null, 3, [Hl, k, Z, "attribute", Kl, "Attributes"], null);
+        }, gv(d)), Lf(function(k) {
+          return new r(null, 3, [Hl, k, Z, "keyword", Kl, "Operators"], null);
         }, Jr));
       case "after-attr-in-pred":
-        var g = Pf(a, new P(null, 2, 5, R, [Al, Z], null));
+        var g = Pf(a, new P(null, 2, 5, R, [wl, Z], null));
         e = (function() {
-          var m = Lr.g ? Lr.g(g) : Lr.call(null, g);
-          return u(m) ? m : Lr.g ? Lr.g("string") : Lr.call(null, "string");
+          var k = Lr.g ? Lr.g(g) : Lr.call(null, g);
+          return u(k) ? k : Lr.g ? Lr.g("string") : Lr.call(null, "string");
         })();
-        return Lf(function(m) {
-          return new r(null, 2, [Ol, m, Z, "operator"], null);
-        }, e);
-      case "after-predicate-value":
-        return new P(null, 2, 5, R, [new r(null, 5, [Ol, "and", Z, "keyword", Rl, "Operators", Cm, "both must match", ak, "and "], null), new r(
-          null,
-          5,
-          [Ol, "or", Z, "keyword", Rl, "Operators", Cm, "either matches", ak, "or "],
-          null
-        )], null);
-      case "after-is":
-        return new P(null, 2, 5, R, [new r(null, 2, [Ol, "null", Z, "constant"], null), new r(null, 2, [Ol, "not null", Z, "constant"], null)], null);
-      case "after-is-not":
-        return new P(null, 1, 5, R, [new r(null, 2, [Ol, "null", Z, "constant"], null)], null);
-      case "after-not":
-        return new P(null, 1, 5, R, [new r(null, 2, [Ol, "in", Z, "operator"], null)], null);
-      case "after-like":
-        return new P(null, 4, 5, R, [new r(
-          null,
-          3,
-          [Ol, '"%\u2026%" (contains)', Z, "text", xk, '"%${1}%"'],
-          null
-        ), new r(null, 3, [Ol, '"\u2026%" (starts with)', Z, "text", xk, '"${1}%"'], null), new r(null, 3, [Ol, '"%\u2026" (ends with)', Z, "text", xk, '"%${1}"'], null), new r(null, 3, [Ol, '"\u2026" (exact)', Z, "text", xk, '"${1}"'], null)], null);
-      case "after-in":
-        return new P(null, 1, 5, R, [new r(null, 4, [Ol, "(\u2026)", Z, "text", xk, "(${1})", Cm, "list of values"], null)], null);
-      case "path-continuation":
-        return e = Jm.g(a), u(e) ? As(e, new r(null, 1, [Qm, "path hop"], null)) : null;
-      case "count-block-body":
-      case "agg-block-body":
-        if (u(d)) {
-          var h = vm.h(a, Ch);
-          e = xs(d);
-          e = J.h(
-            Zk,
-            vj.g(a)
-          ) ? Nf(function(m) {
-            m = Pf(d, new P(null, 3, 5, R, [Zi, m, cn], null));
-            m = Pf(b, new P(null, 2, 5, R, [Vl, m], null));
-            return Kd(df(function(p) {
-              N(p, 0, null);
-              p = N(p, 1, null);
-              return J.h("number", Z.g(p));
-            }, fm.g(m)));
-          }, e) : e;
-          return Lf(function(m) {
-            return u(h.g ? h.g(m) : h.call(null, m)) ? zs(m, "") : new r(null, 3, [Ol, m, Z, "relation", Rl, "Relations"], null);
-          }, e);
-        }
-        return null;
-      case "agg-attr-name":
-        return ys(d, Lk.h(a, Ch));
-      case "agg-fn":
-        return Lf(function(m) {
-          return new r(null, 2, [Ol, m, Z, "function"], null);
-        }, Gf(dj.h(a, Ch), Kr));
-      case "order-attr":
-        return Lf(function(m) {
+        return Lf(function(k) {
           return new r(
             null,
-            3,
-            [Ol, m, Z, "attribute", Rl, "Attributes"],
+            2,
+            [Hl, k, Z, "operator"],
             null
           );
-        }, Qd(Kg(fm.g(d))));
+        }, e);
+      case "after-predicate-value":
+        return new P(null, 2, 5, R, [new r(null, 5, [Hl, "and", Z, "keyword", Kl, "Operators", Cm, "both must match", ak, "and "], null), new r(null, 5, [Hl, "or", Z, "keyword", Kl, "Operators", Cm, "either matches", ak, "or "], null)], null);
+      case "after-is":
+        return new P(null, 2, 5, R, [new r(null, 2, [Hl, "null", Z, "constant"], null), new r(null, 2, [Hl, "not null", Z, "constant"], null)], null);
+      case "after-is-not":
+        return new P(null, 1, 5, R, [new r(null, 2, [Hl, "null", Z, "constant"], null)], null);
+      case "after-not":
+        return new P(
+          null,
+          1,
+          5,
+          R,
+          [new r(null, 2, [Hl, "in", Z, "operator"], null)],
+          null
+        );
+      case "after-like":
+        return new P(null, 4, 5, R, [new r(null, 3, [Hl, '"%\u2026%" (contains)', Z, "text", wk, '"%${1}%"'], null), new r(null, 3, [Hl, '"\u2026%" (starts with)', Z, "text", wk, '"${1}%"'], null), new r(null, 3, [Hl, '"%\u2026" (ends with)', Z, "text", wk, '"%${1}"'], null), new r(null, 3, [Hl, '"\u2026" (exact)', Z, "text", wk, '"${1}"'], null)], null);
+      case "after-in":
+        return new P(null, 1, 5, R, [new r(null, 4, [Hl, "(\u2026)", Z, "text", wk, "(${1})", Cm, "list of values"], null)], null);
+      case "path-continuation":
+        return e = Jm.g(a), u(e) ? As(e, new r(null, 1, [Qm, "path hop"], null)) : null;
+      case "order-attr":
+        return f = ol.g(a), e = Ka(function(k, m) {
+          k = Pf(k, new P(null, 2, 5, R, [bj, m], null));
+          return u(k) ? Pf(b, new P(null, 2, 5, R, [Rl, dn.g(k)], null)) : null;
+        }, d, f), u(e) ? Ge.u(Lf(function(k) {
+          return new r(null, 3, [Hl, k, Z, "attribute", Kl, "Attributes"], null);
+        }, gv(e)), Lf(function(k) {
+          return new r(null, 4, [Hl, k, Z, "relation", Kl, "Relations", Cm, "sort by its attribute: ."], null);
+        }, Qd(Kg(bj.g(e)))), fd([yd(f) ? Lf(function(k) {
+          return new r(null, 4, [
+            Hl,
+            k,
+            Z,
+            "property",
+            Kl,
+            "Operations",
+            Cm,
+            "operation"
+          ], null);
+        }, Qd(im.g(a))) : null])) : null;
+      case "aggregate-fn":
+        return new P(null, 5, 5, R, [new r(null, 4, [Hl, "count", Z, "function", Kl, "Operations", Cm, "related rows"], null), new r(null, 4, [Hl, "sum", Z, "function", Kl, "Operations", Cm, "sum of a number field"], null), new r(null, 4, [Hl, "avg", Z, "function", Kl, "Operations", Cm, "average of a number field"], null), new r(null, 4, [Hl, "min", Z, "function", Kl, "Operations", Cm, "smallest value"], null), new r(
+          null,
+          4,
+          [Hl, "max", Z, "function", Kl, "Operations", Cm, "largest value"],
+          null
+        )], null);
+      case "call-relation":
+        return u(d) ? Ge.h(Lf(function(k) {
+          return new r(null, 3, [Hl, k, Z, "relation", Kl, "Relations"], null);
+        }, Nf(function(k) {
+          k = Pf(b, new P(null, 2, 5, R, [Rl, Pf(d, new P(null, 3, 5, R, [bj, k, dn], null))], null));
+          return J.h("count", wj.g(a)) && Ba(Dk.g(a)) || C(hv(k, wj.g(a), Dk.g(a)));
+        }, xs(d))), u(cl.g(a)) ? new P(null, 1, 5, R, [new r(null, 4, [Hl, "distinct", Z, "keyword", Kl, "Operators", Cm, "count distinct values"], null)], null) : null) : null;
+      case "call-field":
+        return e = dn.g(a), u(e) ? J.h("count", wj.g(a)) && Ba(Dk.g(a)) ? As(e, new r(null, 1, [Qm, "path hop"], null)) : hv(e, wj.g(a), Dk.g(a)) : null;
+      case "call-filter-head":
+        return e = Qj.g(a), u(e) ? new P(null, 1, 5, R, [new r(null, 4, [Hl, e, Z, "relation", Kl, "Relations", Cm, "the operation's relation"], null)], null) : null;
+      case "call-none":
+        return ld;
       case "order-dir":
-        return new P(null, 2, 5, R, [new r(null, 3, [Ol, "asc", Z, "constant", Cm, "ascending"], null), new r(null, 3, [Ol, "desc", Z, "constant", Cm, "descending"], null)], null);
+        return new P(null, 2, 5, R, [new r(null, 3, [Hl, "asc", Z, "constant", Cm, "ascending"], null), new r(null, 3, [Hl, "desc", Z, "constant", Cm, "descending"], null)], null);
       case "on-relation":
         if (u(d)) {
-          var k = (function() {
-            return u(c) ? c : df(function(m) {
-              var p = N(m, 0, null);
-              m = N(m, 1, null);
-              return J.h(m, d) ? p : null;
-            }, Vl.g(b));
+          var h = (function() {
+            return u(c) ? c : df(function(k) {
+              var m = N(k, 0, null);
+              k = N(k, 1, null);
+              return J.h(k, d) ? m : null;
+            }, Rl.g(b));
           })();
-          return Lf(function(m) {
-            return new r(null, 4, [Ol, m, Z, "relation", Rl, "Relations", Cm, "self-relation"], null);
-          }, Qd(vf.h(D, Ff(function(m) {
-            N(
-              m,
-              0,
-              null
-            );
-            m = N(m, 1, null);
-            return J.h(k, cn.g(m)) && Xe("many", pj.g(m));
-          }, Zi.g(d)))));
+          return Lf(function(k) {
+            return new r(null, 4, [Hl, k, Z, "relation", Kl, "Relations", Cm, "self-relation"], null);
+          }, Qd(vf.h(D, Ff(function(k) {
+            N(k, 0, null);
+            k = N(k, 1, null);
+            return J.h(h, dn.g(k)) && Xe("many", vj.g(k));
+          }, bj.g(d)))));
         }
         return null;
       case "value-suggestion":
-        switch (Pf(a, new P(null, 2, 5, R, [Al, Z], null))) {
+        switch (Pf(a, new P(null, 2, 5, R, [wl, Z], null))) {
           case "boolean":
-            return u(ek.g(a)) ? ld : new P(null, 2, 5, R, [new r(null, 2, [Ol, "true", Z, "constant"], null), new r(null, 2, [Ol, "false", Z, "constant"], null)], null);
+            return u(ek.g(a)) ? ld : new P(null, 2, 5, R, [new r(null, 2, [Hl, "true", Z, "constant"], null), new r(null, 2, [Hl, "false", Z, "constant"], null)], null);
           case "enum":
-            return Lf(function(m) {
-              return new r(null, 3, [Ol, u(ek.g(a)) ? m : ['"', w.g(m), '"'].join(""), Z, "constant", Cm, "enum"], null);
+            return Lf(function(k) {
+              return new r(null, 3, [Hl, u(ek.g(a)) ? k : ['"', w.g(k), '"'].join(""), Z, "constant", Cm, "enum"], null);
             }, Gf((function() {
-              var m = Ik.g(a);
-              return u(m) ? m : Ch;
-            })(), Pf(a, new P(
-              null,
-              2,
-              5,
-              R,
-              [Al, em],
-              null
-            ))));
+              var k = Hk.g(a);
+              return u(k) ? k : Ch;
+            })(), Pf(a, new P(null, 2, 5, R, [wl, dm], null))));
           default:
             return ld;
         }
@@ -22079,26 +22258,26 @@ var init_main = __esm({
     }
   }
   var Ds = (function() {
-    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Gl, wi.v ? wi.v() : wi.call(null));
+    var a = pf(We), b = pf(We), c = pf(We), d = pf(We), e = xc(We, Dl, wi.v ? wi.v() : wi.call(null));
     return new Hi(yc.h("synthigy.xsql.complete", "op-complete-options"), function(f) {
-      return u(f) ? f : Ii;
+      return u(f) ? f : Pi;
     }, e, a, b, c, d);
   })();
-  Ki(Ds, Ii, function(a, b, c) {
+  Ki(Ds, Pi, function(a, b, c) {
     return c;
   });
   Ki(Ds, "get", function(a, b, c, d) {
     a = Ve(b);
-    a = y(a, vj);
+    a = y(a, zj);
     switch (a instanceof z ? a.M : null) {
       case "line-start-root":
         var e = df(function(f) {
           N(f, 0, null);
           f = N(f, 1, null);
           return Fm.g(f);
-        }, fm.g(d));
+        }, em.g(d));
         return Lf(function(f) {
-          return u(u(e) ? J.h("attribute", Z.g(f)) && Kd(Pf(d, new P(null, 3, 5, R, [fm, Ol.g(f), Fm], null))) : e) ? qd.i(f, Cm, "unique \u2014 identity") : f;
+          return u(u(e) ? J.h("attribute", Z.g(f)) && Kd(Pf(d, new P(null, 3, 5, R, [em, Hl.g(f), Fm], null))) : e) ? qd.i(f, Cm, "unique \u2014 identity") : f;
         }, c);
       default:
         return c;
@@ -22106,38 +22285,38 @@ var init_main = __esm({
   });
   function Es(a, b) {
     var c = Ve(a);
-    a = y(c, vj);
+    a = y(c, zj);
     c = y(c, wm);
-    return J.h(Nm, a) && 1 >= K(c) ? M.h(ng(b), new r(null, 4, [Ol, "on", Z, "keyword", Rl, "Operators", Cm, "self-relation to recurse over"], null)) : b;
+    return J.h(Nm, a) && 1 >= K(c) ? M.h(ng(b), new r(null, 4, [Hl, "on", Z, "keyword", Kl, "Operators", Cm, "self-relation to recurse over"], null)) : b;
   }
   Ki(Ds, "search-tree", function(a, b, c) {
     return Es(b, c);
   });
   Ki(Ds, "get-tree", function(a, b, c) {
     a = Ve(b);
-    b = y(a, vj);
+    b = y(a, zj);
     var d = y(a, wm);
     c = J.h(Nm, b) && 1 >= K(d) ? Nf(function(e) {
       var f = J.h("attribute", Z.g(e));
-      return f ? (e = Ol.g(e), f = new Ah(null, new r(null, 2, ["xid", null, "euuid", null], null), null), f.g ? f.g(e) : f.call(null, e)) : f;
+      return f ? (e = Hl.g(e), f = new Ah(null, new r(null, 2, ["xid", null, "euuid", null], null), null), f.g ? f.g(e) : f.call(null, e)) : f;
     }, c) : c;
     return Es(a, c);
   });
   function Fs(a) {
     var b = Ve(a);
-    a = y(b, Qk);
-    var c = xc(b, Tj, 0), d = y(b, Jk), e = y(b, Wi);
+    a = y(b, Ok);
+    var c = xc(b, Tj, 0), d = y(b, Ik), e = y(b, Zi);
     b = y(b, rk);
     var f = Uo(u(a) ? a : ""), g = (function() {
-      var p = Wi.g(f);
+      var p = Zi.g(f);
       p = null == p ? null : W.g(p);
       return u(p) ? p : e;
     })(), h = Zr(f, c, u(a) ? a : ""), k = N(h, 0, null);
     h = N(h, 1, null);
-    var m = ws(f, k, h, a, c, d, g);
+    var m = Wu(ws(f, k, h, a, c, d, g), f, u(a) ? a : "", c);
     k = (function() {
       var p = wd(wm.g(m));
-      return u(p) ? p : u(u(d) ? g : d) ? Pf(d, new P(null, 2, 5, R, [Vl, g], null)) : null;
+      return u(p) ? p : u(u(d) ? g : d) ? Pf(d, new P(null, 2, 5, R, [Rl, g], null)) : null;
     })();
     h = ng(Cs(m, d, g));
     b = Ds.B(b, m, h, k);
@@ -22145,9 +22324,9 @@ var init_main = __esm({
     c = Ve(a);
     a = y(c, T);
     c = y(c, Y);
-    return new r(null, 3, [T, a, Y, c, Dl, b], null);
+    return new r(null, 3, [T, a, Y, c, zl, b], null);
   }
-  var Gs = new Ah(null, new r(null, 13, [hj, null, zl, null, bn, null, dm, null, Lm, null, xj, null, Ek, null, zk, null, Bj, null, Xi, null, Ql, null, Nm, null, Dj, null], null), null);
+  var Gs = new Ah(null, new r(null, 17, [Mk, null, jj, null, Xm, null, vl, null, cn, null, cm, null, Bj, null, hj, null, Ck, null, tj, null, yk, null, Ej, null, $i, null, Jl, null, Nm, null, Gj, null, Lm, null], null), null);
   function Hs(a, b, c, d) {
     a = bs(a, b, c);
     var e = K(a) - 1;
@@ -22155,42 +22334,42 @@ var init_main = __esm({
     for (b = Cc; ; ) {
       if (0 > e) return Kf.i(ld, Ef(ff(za)), ed(d, b));
       var f = Yc(a, e);
-      im.g(f) < c ? (--e, c = im.g(f), b = M.h(b, Ml.g(f))) : --e;
+      hm.g(f) < c ? (--e, c = hm.g(f), b = M.h(b, Ml.g(f))) : --e;
     }
   }
   function Is(a, b, c) {
     var d = Vr(b, c);
     return df(function(e) {
-      return im.g(e) < d ? e : null;
+      return hm.g(e) < d ? e : null;
     }, Jb(bs(a, b, c)));
   }
   function Js(a) {
     a = Ve(a);
-    var b = y(a, Qk), c = y(a, Tj), d = y(a, Jk), e = y(a, Wi), f = Uo(u(b) ? b : "");
+    var b = y(a, Ok), c = y(a, Tj), d = y(a, Ik), e = y(a, Zi), f = Uo(u(b) ? b : "");
     a = (function() {
-      var H = Wi.g(f);
+      var H = Zi.g(f);
       H = null == H ? null : W.g(H);
       return u(H) ? H : e;
     })();
-    var g = Zr(f, c, u(b) ? b : ""), h = N(g, 0, null), k = N(g, 1, null), m = ws(f, h, k, b, c, d, a), p = wm.g(m), q = wd(p);
+    var g = Zr(f, c, u(b) ? b : ""), h = N(g, 0, null), k = N(g, 1, null), m = Wu(ws(f, h, k, b, c, d, a), f, u(b) ? b : "", c), p = wm.g(m), q = wd(p);
     g = (function() {
       var H = Vr(b, c);
       return 2 > H ? 2 : H;
     })();
     var t = u((function() {
-      var H = vj.g(m), O = new Ah(null, new r(null, 2, [tj, null, nl, null], null), null);
+      var H = zj.g(m), O = new Ah(null, new r(null, 2, [xj, null, kl, null], null), null);
       return O.g ? O.g(H) : O.call(null, H);
     })()) ? (function() {
-      var H = $r(h, k, Pj);
+      var H = $r(h, k, Qj);
       return u(H) ? J.h(Wr(b, c), Wr(b, D(Zm.g(H)))) ? H : null : null;
     })() : null, v = u(t) ? (function() {
       var H = as(t);
-      H = Pf(q, new P(null, 2, 5, R, [Zi, H], null));
-      H = u(H) ? Pf(d, new P(null, 2, 5, R, [Vl, cn.g(H)], null)) : null;
+      H = Pf(q, new P(null, 2, 5, R, [bj, H], null));
+      H = u(H) ? Pf(d, new P(null, 2, 5, R, [Rl, dn.g(H)], null)) : null;
       return u(u(H) ? Xe(H, q) : H) ? H : null;
-    })() : null, A = J.h(qk, vj.g(m)) && C(a) ? Pf(d, new P(null, 2, 5, R, [Vl, a], null)) : null;
-    p = J.h(1, K(p)) && Xe(q, Pf(d, new P(null, 2, 5, R, [Vl, a], null)));
-    var E = $r(h, k, Pj), B = (function() {
+    })() : null, A = J.h(qk, zj.g(m)) && C(a) ? Pf(d, new P(null, 2, 5, R, [Rl, a], null)) : null;
+    p = J.h(1, K(p)) && Xe(q, Pf(d, new P(null, 2, 5, R, [Rl, a], null)));
+    var E = $r(h, k, Qj), B = (function() {
       if (u(E)) {
         var H = Dn(E, Sm);
         if (u(H)) {
@@ -22203,77 +22382,52 @@ var init_main = __esm({
       return null;
     })(), I = (function() {
       var H = Is(f, b, c);
-      return u(H) ? J.h(Pj, vj.g(H)) && (null == B || T.g(H) > D(Zm.g(E))) ? H : null : null;
+      return u(H) ? J.h(Qj, zj.g(H)) && (null == B || T.g(H) > D(Zm.g(E))) ? H : null : null;
     })();
     p = u(I) ? (function() {
       var H = Dn(X.g(I), Sm);
-      return u(H) ? ls(H, b, c) : new r(null, 2, [Xm, Ch, om, Ch], null);
-    })() : u(B) ? ls(B, b, c) : p ? new r(null, 2, [Xm, Ch, om, Ch], null) : Ok.g(m);
+      return u(H) ? ls(H, b, c) : new r(null, 2, [Ym, Ch, om, Ch], null);
+    })() : u(B) ? ls(B, b, c) : p ? new r(null, 2, [Ym, Ch, om, Ch], null) : Nk.g(m);
     var Q = Hs(f, b, c, a);
-    if (u(v)) return new r(null, 5, [Fl, Kj, Oi, v, Ok, (function() {
+    if (u(v)) return new r(null, 6, [Bl, Mj, Wl, (function() {
+      var H = Wl.g(m);
+      return u(H) ? H : J.h("none", op(t)) ? as(t) : null;
+    })(), Ri, v, Nk, (function() {
       var H = Dn(t, Sm);
-      return u(H) ? ls(H, b, c) : new r(null, 2, [Xm, Ch, om, Ch], null);
-    })(), kk, M.h(Q, as(t)), im, 2 + Vr(b, c)], null);
-    if (u(A)) return new r(null, 5, [Fl, Kj, Oi, A, Ok, ls(f, b, c), kk, Q, im, g], null);
-    v = vj.g(m);
+      return u(H) ? ls(H, b, c) : new r(null, 2, [Ym, Ch, om, Ch], null);
+    })(), kk, M.h(Q, as(t)), hm, 2 + Vr(b, c)], null);
+    if (u(A)) return new r(
+      null,
+      5,
+      [Bl, Mj, Ri, A, Nk, ls(f, b, c), kk, Q, hm, g],
+      null
+    );
+    v = zj.g(m);
     switch (v instanceof z ? v.M : null) {
       case "root-entity-line":
-        return new r(null, 2, [Fl, yk, Vl, ng(Qd(Kg(Vl.g(d))))], null);
-      case "count-block-body":
-        return new r(null, 7, [Fl, Kj, Oi, q, Ok, new r(null, 2, [Xm, Ch, om, vm.h(m, Ch)], null), Qj, true, ql, gj, kk, Q, im, g], null);
-      case "agg-block-body":
-        return new r(null, 7, [Fl, Kj, Oi, q, Ok, new r(null, 2, [Xm, Ch, om, vm.h(m, Ch)], null), Qj, true, ql, Ak, kk, Q, im, g], null);
-      case "agg-attr-name":
-        return new r(null, 7, [Fl, Kj, Oi, q, Lj, true, Ok, new r(null, 2, [Xm, Lk.h(m, Ch), om, Ch], null), ql, Hj, kk, Q, im, g], null);
+        return new r(null, 2, [Bl, xk, Rl, ng(Qd(Kg(Rl.g(d))))], null);
       default:
-        return Md(Gs, vj.g(m)) ? new r(
-          null,
-          3,
-          [Fl, Bk, kk, Q, Dl, ng(Cs(m, d, a))],
-          null
-        ) : new r(null, 5, [Fl, Kj, Oi, q, Ok, p, kk, Q, im, g], null);
+        return Md(Gs, zj.g(m)) ? new r(null, 3, [Bl, zk, kk, Q, zl, ng(Cs(m, d, a))], null) : new r(null, 6, [Bl, Mj, Ri, q, Nk, p, Wl, Wl.g(m), kk, Q, hm, g], null);
     }
   }
   ;
   function Ks(a, b) {
     for (var c = K(a), d = 0, e = 1, f = 0; ; ) {
-      if (d >= b || d >= c) return new r(null, 2, [Qi, e, Oj, b - f - -1], null);
+      if (d >= b || d >= c) return new r(null, 2, [Ti, e, Pj, b - f - -1], null);
       J.h("\n", a.charAt(d)) ? (e += 1, f = d + 1, d += 1) : d += 1;
     }
   }
   ;
   var Ls = mg("SELECT;FROM;WHERE;GROUP BY;HAVING;ORDER BY;LIMIT;OFFSET;JOIN;LEFT JOIN;RIGHT JOIN;INNER JOIN;ON;AS;AND;OR;NOT;IN;BETWEEN;LIKE;ILIKE;IS NULL;IS NOT NULL;DISTINCT;WITH;UNION;UNION ALL;CASE;WHEN;THEN;ELSE;END;ASC;DESC;NULLS FIRST;NULLS LAST;COUNT;SUM;AVG;MIN;MAX;ROUND;COALESCE;NULLIF;CAST".split(";")), Ms = Kf.h(Kf.i(Ch, gf.h(vf.g(function(a) {
     return qn(a, /\s+/);
-  }), function(a) {
-    var b = ki(a);
-    return (function() {
-      function c(g, h) {
-        return Ka(b, g, h);
-      }
-      function d(g) {
-        return a.g ? a.g(g) : a.call(null, g);
-      }
-      function e() {
-        return a.v ? a.v() : a.call(null);
-      }
-      var f = null;
-      f = function(g, h) {
-        switch (arguments.length) {
-          case 0:
-            return e.call(this);
-          case 1:
-            return d.call(this, g);
-          case 2:
-            return c.call(this, g, h);
-        }
-        throw Error("Invalid arity: " + arguments.length);
-      };
-      f.v = e;
-      f.g = d;
-      f.h = c;
-      return f;
-    })();
-  }), Ls), new P(null, 26, 5, R, "TRUE FALSE NULL LOWER UPPER LENGTH TRIM CONCAT SUBSTRING SUBSTR EXTRACT ABS CEIL FLOOR EXISTS ANY ALL DATE INTERVAL OVER PARTITION USING FULL OUTER CROSS FILTER".split(" "), null)), Ns = Nf(function(a) {
+  }), Oi), Ls), new P(
+    null,
+    26,
+    5,
+    R,
+    "TRUE FALSE NULL LOWER UPPER LENGTH TRIM CONCAT SUBSTRING SUBSTR EXTRACT ABS CEIL FLOOR EXISTS ANY ALL DATE INTERVAL OVER PARTITION USING FULL OUTER CROSS FILTER".split(" "),
+    null
+  )), Ns = Nf(function(a) {
     return 4 <= K(a);
   }, Ms);
   function at(a, b) {
@@ -22321,39 +22475,39 @@ var init_main = __esm({
         else return k;
       }
     }
-    for (var c = K(a), d = 0, e = dl, f = ld; ; ) {
+    for (var c = K(a), d = 0, e = al, f = ld; ; ) {
       if (d >= c) return f;
       var g = at(a, d), h = at(a, d + 1);
       switch (e instanceof z ? e.M : null) {
         case "string":
-          J.h(g, "'") && J.h(h, "'") ? (e = Ri, d += 2) : J.h(g, "'") ? (e = dl, d += 1) : (e = Ri, d += 1);
+          J.h(g, "'") && J.h(h, "'") ? (e = Ui, d += 2) : J.h(g, "'") ? (e = al, d += 1) : (e = Ui, d += 1);
           continue;
         case "dstring":
           e = d + 1;
-          g = J.h(g, '"') ? dl : yl;
+          g = J.h(g, '"') ? al : ul;
           d = e;
           e = g;
           continue;
         case "line-comment":
           e = d + 1;
-          g = J.h(g, "\n") ? dl : Tl;
+          g = J.h(g, "\n") ? al : Ol;
           d = e;
           e = g;
           continue;
         case "block-comment":
-          J.h(g, "*") && J.h(h, "/") ? (e = dl, d += 2) : (e = el, d += 1);
+          J.h(g, "*") && J.h(h, "/") ? (e = al, d += 2) : (e = bl, d += 1);
           continue;
         case "brace":
           e = d + 1;
-          g = J.h(g, "}") ? dl : hl;
+          g = J.h(g, "}") ? al : el;
           d = e;
           e = g;
           continue;
         default:
-          J.h(g, "'") ? (e = Ri, d += 1) : J.h(g, '"') ? (e = yl, d += 1) : J.h(g, "-") && J.h(h, "-") ? (e = Tl, d += 2) : J.h(g, "/") && J.h(h, "*") ? (e = el, d += 2) : J.h(g, "{") ? (e = hl, d += 1) : J.h(g, "?") ? (e = (function() {
+          J.h(g, "'") ? (e = Ui, d += 1) : J.h(g, '"') ? (e = ul, d += 1) : J.h(g, "-") && J.h(h, "-") ? (e = Ol, d += 2) : J.h(g, "/") && J.h(h, "*") ? (e = bl, d += 2) : J.h(g, "{") ? (e = el, d += 1) : J.h(g, "?") ? (e = (function() {
             var k = d + 1, m = b(d + 1);
             return k > m ? k : m;
-          })(), g = dl, d = e, e = g) : ct(g) ? (e = h = b(d + 1), g = dl, f = M.h(f, new r(null, 3, [lm, a.substring(d, h), T, d, Y, h], null)), d = e, e = g) : (e = dl, d += 1);
+          })(), g = al, d = e, e = g) : ct(g) ? (e = h = b(d + 1), g = al, f = M.h(f, new r(null, 3, [lm, a.substring(d, h), T, d, Y, h], null)), d = e, e = g) : (e = al, d += 1);
       }
     }
   }
@@ -22392,7 +22546,7 @@ var init_main = __esm({
                     return function(ra) {
                       return u(bt(Va, ra)) ? ra : null;
                     };
-                  })(O, k, da, S, ca, ua, ab, V, q, t, v, p, m, c, d, e, b), Ns), u(S) && Ce(v, new r(null, 4, [Gj, Zl, kj, ["Unknown word '", w.g(ua), "' \u2014 did you mean '", w.g(S), "'?"].join(""), T, ab, Y, V], null)));
+                  })(O, k, da, S, ca, ua, ab, V, q, t, v, p, m, c, d, e, b), Ns), u(S) && Ce(v, new r(null, 4, [Jj, Vl, kj, ["Unknown word '", w.g(ua), "' \u2014 did you mean '", w.g(S), "'?"].join(""), T, ab, Y, V], null)));
                   O += 1;
                 } else return true;
               })() ? Be(De(v), h(Wb(p))) : Be(De(v), null);
@@ -22416,7 +22570,7 @@ var init_main = __esm({
               d,
               e,
               b
-            ), Ns), u(A))) return ed(new r(null, 4, [Gj, Zl, kj, ["Unknown word '", w.g(B), "' \u2014 did you mean '", w.g(A), "'?"].join(""), T, I, Y, Q], null), h(F(p)));
+            ), Ns), u(A))) return ed(new r(null, 4, [Jj, Vl, kj, ["Unknown word '", w.g(B), "' \u2014 did you mean '", w.g(A), "'?"].join(""), T, I, Y, Q], null), h(F(p)));
             k = F(p);
           } else return null;
         }
@@ -22429,30 +22583,30 @@ var init_main = __esm({
     b = y(b, nm);
     return ["?", w.g(a), u(b) ? [":", w.g(b)].join("") : null, "[]"].join("");
   }
-  var ht = new r(null, 4, [yj, function(a) {
+  var ht = new r(null, 4, [Cj, function(a) {
     return ["Drop the outer parens \u2014 ", w.g(a), " already expands to (?, ?, ?). Write `IN ", w.g(a), "`."].join("");
   }, Zj, function(a) {
     return ["ANY() needs a real array, but ", w.g(a), " expands to a row (?, ?, ?). Write `IN ", w.g(a), "`."].join("");
-  }, Dk, function(a) {
+  }, Bk, function(a) {
     return ["`=` and `IN` don't combine. Write `IN ", w.g(a), "`."].join("");
-  }, mj, function(a) {
+  }, oj, function(a) {
     return [w.g(a), " expands to (?, ?, ?) \u2014 `=` against a row is a type mismatch. Write `IN ", w.g(a), "`."].join("");
   }], null);
   function it(a, b) {
     function c(g, h) {
       g = Sh(g, f);
-      return u(g) ? (g = "string" === typeof g ? g : D(g), new r(null, 2, [vj, h, km, d + (e.length - K(g))], null)) : null;
+      return u(g) ? (g = "string" === typeof g ? g : D(g), new r(null, 2, [zj, h, km, d + (e.length - K(g))], null)) : null;
     }
     var d = (function() {
       var g = b - 48;
       return 0 > g ? 0 : g;
     })(), e = a.substring(d, b), f = e.toLowerCase();
-    a = c(/\bin\s*\(\s*$/, yj);
+    a = c(/\bin\s*\(\s*$/, Cj);
     if (u(a)) return a;
     a = c(/\bany\s*\(\s*$/, Zj);
     if (u(a)) return a;
-    a = c(/=\s*in\s+$/, Dk);
-    return u(a) ? a : c(/=\s*\(\s*$/, mj);
+    a = c(/=\s*in\s+$/, Bk);
+    return u(a) ? a : c(/=\s*\(\s*$/, oj);
   }
   function jt(a) {
     return (function d(c) {
@@ -22462,17 +22616,17 @@ var init_main = __esm({
             var f = Vb(e), g = K(f), h = ze(g);
             return (function() {
               for (var A = 0; ; ) if (A < g) {
-                var E = Ua(f, A), B = Ve(E), I = B, Q = y(B, vj), H = y(B, dn);
+                var E = Ua(f, A), B = Ve(E), I = B, Q = y(B, zj), H = y(B, en);
                 E = y(B, T);
                 B = y(B, Y);
                 if (u((function() {
-                  var S = J.h(Il, Q);
+                  var S = J.h(Fl, Q);
                   return S ? H : S;
                 })())) {
                   var O = it(a, E);
-                  u(O) && Ce(h, new r(null, 4, [Gj, uk, kj, (function() {
+                  u(O) && Ce(h, new r(null, 4, [Jj, tk, kj, (function() {
                     var S = gt(I);
-                    var ca = vj.g(O);
+                    var ca = zj.g(O);
                     ca = ht.g ? ht.g(ca) : ht.call(null, ca);
                     return ca.g ? ca.g(S) : ca.call(null, S);
                   })(), T, km.g(O), Y, B], null));
@@ -22481,17 +22635,17 @@ var init_main = __esm({
               } else return true;
             })() ? Be(De(h), d(Wb(e))) : Be(De(h), null);
           }
-          var k = D(e), m = Ve(k), p = m, q = y(m, vj), t = y(m, dn);
+          var k = D(e), m = Ve(k), p = m, q = y(m, zj), t = y(m, en);
           k = y(m, T);
           m = y(m, Y);
           if (u((function() {
-            var A = J.h(Il, q);
+            var A = J.h(Fl, q);
             return A ? t : A;
           })())) {
             var v = it(a, k);
-            if (u(v)) return ed(new r(null, 4, [Gj, uk, kj, (function() {
+            if (u(v)) return ed(new r(null, 4, [Jj, tk, kj, (function() {
               var A = gt(p);
-              var E = vj.g(v);
+              var E = zj.g(v);
               E = ht.g ? ht.g(E) : ht.call(null, E);
               return E.g ? E.g(A) : E.call(null, A);
             })(), T, km.g(v), Y, m], null), d(F(e)));
@@ -22548,7 +22702,7 @@ var init_main = __esm({
       var d = D(b), e = N(d, 0, null), f = N(d, 1, null), g = u(e) ? jd(Sh(/^@([\w-]+)/, e)) : null;
       a = /* @__PURE__ */ (function(v, A, E, B, I, Q) {
         return function(H) {
-          return Qf(H, new P(null, 2, 5, R, [ij, Q], null), new P(null, 2, 5, R, [I, I + K(B)], null));
+          return Qf(H, new P(null, 2, 5, R, [lj, Q], null), new P(null, 2, 5, R, [I, I + K(B)], null));
         };
       })(b, c, d, e, f, g);
       if (Ba(st.g ? st.g(g) : st.call(null, g))) return new P(null, 2, 5, R, [c, b], null);
@@ -22557,7 +22711,7 @@ var init_main = __esm({
         if (ha(h, '"')) {
           var m = h.substring(1), p = un(m, '"');
           if (u(p)) a = F(b), h = (function() {
-            var v = Qf(c, new P(null, 2, 5, R, [ij, g], null), new P(
+            var v = Qf(c, new P(null, 2, 5, R, [lj, g], null), new P(
               null,
               2,
               5,
@@ -22565,7 +22719,7 @@ var init_main = __esm({
               [f, k],
               null
             ));
-            return 0 < p ? qd.i(v, ej, m.substring(0, p)) : v;
+            return 0 < p ? qd.i(v, gj, m.substring(0, p)) : v;
           })(), b = a, c = h;
           else if (d = (function() {
             for (var v = F(b), A = ld; ; ) {
@@ -22580,8 +22734,8 @@ var init_main = __esm({
                 A = M.h(A, E);
               } else return new P(null, 3, 5, R, [A, null, null], null);
             }
-          })(), a = N(d, 0, null), h = N(d, 1, null), d = N(d, 2, null), u(h)) a = Qf(qd.i(c, ej, on("\n", Kf.h(new P(null, 1, 5, R, [m], null), a))), new P(null, 2, 5, R, [ij, g], null), new P(null, 2, 5, R, [f, jd(h) + K(D(h))], null)), b = d, c = a;
-          else return new P(null, 2, 5, R, [qd.i(Qf(qd.i(c, ej, on("\n", Kf.h(new P(null, 1, 5, R, [m], null), a))), new P(null, 2, 5, R, [ij, g], null), new P(null, 2, 5, R, [f, k], null)), Dm, new r(null, 3, [kj, "unterminated @description string \u2014 missing closing quote", T, f, Y, k], null)), null], null);
+          })(), a = N(d, 0, null), h = N(d, 1, null), d = N(d, 2, null), u(h)) a = Qf(qd.i(c, gj, on("\n", Kf.h(new P(null, 1, 5, R, [m], null), a))), new P(null, 2, 5, R, [lj, g], null), new P(null, 2, 5, R, [f, jd(h) + K(D(h))], null)), b = d, c = a;
+          else return new P(null, 2, 5, R, [qd.i(Qf(qd.i(c, gj, on("\n", Kf.h(new P(null, 1, 5, R, [m], null), a))), new P(null, 2, 5, R, [lj, g], null), new P(null, 2, 5, R, [f, k], null)), Dm, new r(null, 3, [kj, "unterminated @description string \u2014 missing closing quote", T, f, Y, k], null)), null], null);
         } else {
           d = Gh(/* @__PURE__ */ (function() {
             return function(v) {
@@ -22594,8 +22748,8 @@ var init_main = __esm({
           h = xf(K(d), F(b));
           a = a((function() {
             var v = c;
-            v = C(q) ? qd.i(v, ej, q) : v;
-            return C(q) ? qd.i(v, Dm, new r(null, 4, [Gj, Zl, kj, '@description should be a quoted string, e.g. @description "\u2026"', T, f, Y, k], null)) : v;
+            v = C(q) ? qd.i(v, gj, q) : v;
+            return C(q) ? qd.i(v, Dm, new r(null, 4, [Jj, Vl, kj, '@description should be a quoted string, e.g. @description "\u2026"', T, f, Y, k], null)) : v;
           })());
           b = h;
           c = a;
@@ -22610,9 +22764,9 @@ var init_main = __esm({
           switch (g) {
             case "namespace":
               var v = c;
-              return C(t) ? qd.i(v, bj, t) : v;
+              return C(t) ? qd.i(v, fj, t) : v;
             case "watch":
-              return qd.i(c, Fk, C(t) ? ng(Gf(tn, qn(t, /[\s,]+/))) : true);
+              return qd.i(c, Ek, C(t) ? ng(Gf(tn, qn(t, /[\s,]+/))) : true);
             case "returns":
               return v = c, C(t) ? qd.i(v, mm, t) : v;
             default:
@@ -22639,9 +22793,9 @@ var init_main = __esm({
     d = ut(c);
     c = N(d, 0, null);
     var m = N(d, 1, null), p = Ve(c);
-    c = y(p, ej);
-    d = y(p, bj);
-    var q = y(p, Fk), t = y(p, mm), v = y(p, ij), A = y(p, Dm);
+    c = y(p, gj);
+    d = y(p, fj);
+    var q = y(p, Ek), t = y(p, mm), v = y(p, lj), A = y(p, Dm);
     p = zf(function(H) {
       var O = N(H, 0, null);
       N(H, 1, null);
@@ -22649,20 +22803,20 @@ var init_main = __esm({
     }, m);
     m = C(p) ? jd(D(p)) : k + 1;
     var E = on("\n", vf.h(D, p)), B = (function() {
-      var H = null == g ? M.h(ld, new r(null, 4, [Gj, uk, kj, ["operation @", w.g(f), " requires a name"].join(""), T, e, Y, k], null)) : ld;
-      return u(A) ? M.h(H, Rf.i(A, Gj, function(O) {
-        return u(O) ? O : uk;
+      var H = null == g ? M.h(ld, new r(null, 4, [Jj, tk, kj, ["operation @", w.g(f), " requires a name"].join(""), T, e, Y, k], null)) : ld;
+      return u(A) ? M.h(H, Rf.i(A, Jj, function(O) {
+        return u(O) ? O : tk;
       })) : H;
     })();
     if (a) {
       a = Sh(/\?(\w+)(?::(\w+))?(\[\])?/, E);
       var I = N(a, 1, null), Q = N(a, 2, null);
       a = Kd(N(a, 3, null));
-      return th([ej, Rj, Ml, rk, dn, El, wj, bj, rm, Kl, Vj, Jj], [c, (function() {
-        var H = null == I ? M.h(B, new r(null, 4, [Gj, uk, kj, ["@", w.g(f), " needs a data variable, e.g. ?records:Entity[]"].join(""), T, e, Y, k], null)) : B;
+      return th([gj, Rj, Ml, rk, en, Al, Aj, fj, rm, Gl, Vj, Lj], [c, (function() {
+        var H = null == I ? M.h(B, new r(null, 4, [Jj, tk, kj, ["@", w.g(f), " needs a data variable, e.g. ?records:Entity[]"].join(""), T, e, Y, k], null)) : B;
         H = u(u(I) ? null == Q : I) ? M.h(H, new r(null, 4, [
-          Gj,
-          uk,
+          Jj,
+          tk,
           kj,
           ["@", w.g(f), " data variable ?", w.g(I), " must carry the entity, e.g. ?", w.g(I), ":Entity[]"].join(""),
           T,
@@ -22673,14 +22827,14 @@ var init_main = __esm({
         H = u(q) ? M.h(H, (function() {
           var O = b("watch"), S = N(O, 0, null);
           O = N(O, 1, null);
-          return new r(null, 4, [Gj, Zl, kj, ["@watch is ignored on @", w.g(f), " \u2014 mutations have no watch variant"].join(""), T, S, Y, O], null);
+          return new r(null, 4, [Jj, Vl, kj, ["@watch is ignored on @", w.g(f), " \u2014 mutations have no watch variant"].join(""), T, S, Y, O], null);
         })()) : H;
         return u(t) ? M.h(H, (function() {
           var O = b("returns"), S = N(O, 0, null);
           O = N(O, 1, null);
           return new r(null, 4, [
-            Gj,
-            Zl,
+            Jj,
+            Vl,
             kj,
             ["@returns is ignored on @", w.g(f), " \u2014 mutation results are schema-derived"].join(""),
             T,
@@ -22691,22 +22845,22 @@ var init_main = __esm({
         })()) : H;
       })(), g, f, a, E, Q, d, m, true, e, I]);
     }
-    return th([ej, Rj, Ml, rk, fk, yk, Fk, Im, El, bj, rm, mm, Vj], [c, (function() {
+    return th([gj, Rj, Ml, rk, fk, xk, Ek, Im, Al, fj, rm, mm, Vj], [c, (function() {
       var H = u(u(t) ? !h : t) ? M.h(B, (function() {
         var O = b("returns"), S = N(O, 0, null);
         O = N(O, 1, null);
-        return new r(null, 4, [Gj, Zl, kj, ["@returns is only used by @sql-template \u2014 @", w.g(f), " derives its result shape"].join(""), T, S, Y, O], null);
+        return new r(null, 4, [Jj, Vl, kj, ["@returns is only used by @sql-template \u2014 @", w.g(f), " derives its result shape"].join(""), T, S, Y, O], null);
       })()) : B;
-      H = h && null == t ? M.h(H, new r(null, 4, [Gj, Zl, kj, "@sql-template without @returns \u2014 result columns are untyped in generated SDKs", T, e, Y, k], null)) : H;
+      H = h && null == t ? M.h(H, new r(null, 4, [Jj, Vl, kj, "@sql-template without @returns \u2014 result columns are untyped in generated SDKs", T, e, Y, k], null)) : H;
       H = Bd(q) && !h ? M.h(H, (function() {
         var O = b("watch"), S = N(O, 0, null);
         O = N(O, 1, null);
-        return new r(null, 4, [Gj, Zl, kj, ["@watch entity list is only used by @sql-template \u2014 @", w.g(f), " derives its dependencies; use bare @watch"].join(""), T, S, Y, O], null);
+        return new r(null, 4, [Jj, Vl, kj, ["@watch entity list is only used by @sql-template \u2014 @", w.g(f), " derives its dependencies; use bare @watch"].join(""), T, S, Y, O], null);
       })()) : H;
       return u(u(q) ? mt.g ? mt.g(f) : mt.call(null, f) : q) ? M.h(H, (function() {
         var O = b("watch"), S = N(O, 0, null);
         O = N(O, 1, null);
-        return new r(null, 4, [Gj, Zl, kj, ["@watch is not supported on @", w.g(f), " \u2014 tree walks have no live variant yet"].join(""), T, S, Y, O], null);
+        return new r(null, 4, [Jj, Vl, kj, ["@watch is not supported on @", w.g(f), " \u2014 tree walks have no live variant yet"].join(""), T, S, Y, O], null);
       })()) : H;
     })(), g, f, h, !h && C(ia(u(E) ? E : "")) ? (function() {
       var H = Sh(/^\s*([\w.-]+)/, E);
@@ -22728,7 +22882,7 @@ var init_main = __esm({
       d = st.g ? st.g(c) : st.call(null, c);
       return u(d) ? d : tt.g ? tt.g(c) : tt.call(null, c);
     }, a));
-    return new r(null, 8, [rk, null, Ml, null, ej, null, fk, false, El, on("\n", vf.h(D, a)), rm, C(a) ? jd(D(a)) : b, Vj, b, Rj, ld], null);
+    return new r(null, 8, [rk, null, Ml, null, gj, null, fk, false, Al, on("\n", vf.h(D, a)), rm, C(a) ? jd(D(a)) : b, Vj, b, Rj, ld], null);
   }
   function xt(a) {
     for (; ; ) {
@@ -22759,10 +22913,10 @@ var init_main = __esm({
         d = N(e, 1, null);
         e = u(e) ? ng(Gf(tn, qn(ia(N(e, 2, "")), /\s+/))) : ld;
         f = c + K(f);
-        var g = null == d ? M.h(ld, new r(null, 4, [Gj, uk, kj, "@batch requires a name (@batch <name>: op op \u2026)", T, c, Y, f], null)) : ld;
+        var g = null == d ? M.h(ld, new r(null, 4, [Jj, tk, kj, "@batch requires a name (@batch <name>: op op \u2026)", T, c, Y, f], null)) : ld;
         g = u(u(d) ? yd(e) : d) ? M.h(g, new r(null, 4, [
-          Gj,
-          uk,
+          Jj,
+          tk,
           kj,
           ["@batch '", w.g(d), "' lists no operations"].join(""),
           T,
@@ -22770,18 +22924,18 @@ var init_main = __esm({
           Y,
           f
         ], null)) : g;
-        c = new r(null, 6, [Yl, true, Ml, d, ll, e, Vj, c, um, f, Rj, g], null);
+        c = new r(null, 6, [Ul, true, Ml, d, il, e, Vj, c, um, f, Rj, g], null);
       } else e = lt.g ? lt.g(d) : lt.call(null, d), d = u(e) ? e : nt.g ? nt.g(d) : nt.call(null, d), c = u(d) ? vt(c) : wt(c);
       d = rk.g(c);
-      u(d) && (d = (d = Ba(bj.g(c))) ? b : d);
-      return u(d) ? qd.i(c, bj, b) : c;
+      u(d) && (d = (d = Ba(fj.g(c))) ? b : d);
+      return u(d) ? qd.i(c, fj, b) : c;
     }, rt(a));
   }
   function zt(a) {
     var b = Ve(a);
-    a = y(b, bj);
-    var c = y(b, yk);
-    b = y(b, wj);
+    a = y(b, fj);
+    var c = y(b, xk);
+    b = y(b, Aj);
     a = u(a) ? a : u(c) ? c : b;
     return null == a ? null : a.toLowerCase();
   }
@@ -22791,7 +22945,7 @@ var init_main = __esm({
     return [zt(a), "/", null == b ? null : b.toLowerCase()].join("");
   }
   function Bt(a, b) {
-    a = Ff(Ml, Gf(Yl, a));
+    a = Ff(Ml, Gf(Ul, a));
     var c = -1 != b.indexOf("/") ? (function() {
       var f = un(b, "/");
       return new P(null, 2, 5, R, [b.substring(0, f).toLowerCase(), b.substring(f + 1)], null);
@@ -22799,16 +22953,16 @@ var init_main = __esm({
     a = Nf(function(f) {
       return J.h(e, Ml.g(f).toLowerCase()) && (null == d || J.h(d, zt(f)));
     }, a);
-    return yd(a) ? new r(null, 1, [Hk, true], null) : null == d && 1 < K(a) ? new r(null, 1, [Wl, a], null) : new r(null, 1, [rk, D(a)], null);
+    return yd(a) ? new r(null, 1, [Gk, true], null) : null == d && 1 < K(a) ? new r(null, 1, [Sl, a], null) : new r(null, 1, [rk, D(a)], null);
   }
   function Ct(a) {
     function b(d) {
       var e = Ve(d);
       d = y(e, Ml);
       var f = R, g = Ve(e);
-      e = y(g, bj);
-      var h = y(g, yk);
-      g = y(g, wj);
+      e = y(g, fj);
+      var h = y(g, xk);
+      g = y(g, Aj);
       e = u(e) ? e : u(h) ? h : g;
       return new P(null, 2, 5, f, [null == e ? null : e.toLowerCase(), d.toLowerCase()], null);
     }
@@ -22822,12 +22976,12 @@ var init_main = __esm({
             var h = Vb(g), k = K(h), m = ze(k);
             return (function() {
               for (var B = 0; ; ) if (B < k) {
-                var I = Ua(h, B), Q = I = Ve(I), H = y(I, Ml), O = y(I, bj), S = y(I, yk), ca = y(I, wj);
+                var I = Ua(h, B), Q = I = Ve(I), H = y(I, Ml), O = y(I, fj), S = y(I, xk), ca = y(I, Aj);
                 I = y(I, Vj);
                 u((function() {
                   var ua = H;
                   return u(ua) ? 1 < xc(c, b(Q), 0) : ua;
-                })()) && Ce(m, new r(null, 4, [Gj, uk, kj, ["duplicate operation '", (function() {
+                })()) && Ce(m, new r(null, 4, [Jj, tk, kj, ["duplicate operation '", (function() {
                   var ua = O;
                   u(ua) || (ua = S, ua = u(ua) ? ua : ca);
                   return u(ua) ? [w.g(ua), "/"].join("") : null;
@@ -22836,12 +22990,12 @@ var init_main = __esm({
               } else return true;
             })() ? Be(De(m), f(Wb(g))) : Be(De(m), null);
           }
-          var p = D(g), q = p = Ve(p), t = y(p, Ml), v = y(p, bj), A = y(p, yk), E = y(p, wj);
+          var p = D(g), q = p = Ve(p), t = y(p, Ml), v = y(p, fj), A = y(p, xk), E = y(p, Aj);
           p = y(p, Vj);
           if (u((function() {
             var B = t;
             return u(B) ? 1 < xc(c, b(q), 0) : B;
-          })())) return ed(new r(null, 4, [Gj, uk, kj, [
+          })())) return ed(new r(null, 4, [Jj, tk, kj, [
             "duplicate operation '",
             (function() {
               var B = v;
@@ -22858,7 +23012,7 @@ var init_main = __esm({
   }
   function Dt(a) {
     return Ff(function(b) {
-      return J.h("sql-template", rk.g(b)) && Ba(C(bj.g(b)));
+      return J.h("sql-template", rk.g(b)) && Ba(C(fj.g(b)));
     }, a);
   }
   function Et(a) {
@@ -22874,7 +23028,7 @@ var init_main = __esm({
                 m = y(p, Ml);
                 var q = y(p, Vj);
                 p = h;
-                m = new r(null, 4, [Gj, Zl, kj, ["@sql-template '", w.g(m), "' has no root entity \u2014 add @namespace (e.g. @namespace dashboard) so generated SDKs know where it goes"].join(""), T, q, Y, q + 14 + K(m)], null);
+                m = new r(null, 4, [Jj, Vl, kj, ["@sql-template '", w.g(m), "' has no root entity \u2014 add @namespace (e.g. @namespace dashboard) so generated SDKs know where it goes"].join(""), T, q, Y, q + 14 + K(m)], null);
                 p.add(m);
                 k += 1;
               } else {
@@ -22887,7 +23041,7 @@ var init_main = __esm({
             f = Ve(h);
             h = y(f, Ml);
             f = y(f, Vj);
-            return ed(new r(null, 4, [Gj, Zl, kj, ["@sql-template '", w.g(h), "' has no root entity \u2014 add @namespace (e.g. @namespace dashboard) so generated SDKs know where it goes"].join(""), T, f, Y, f + 14 + K(h)], null), d(F(e)));
+            return ed(new r(null, 4, [Jj, Vl, kj, ["@sql-template '", w.g(h), "' has no root entity \u2014 add @namespace (e.g. @namespace dashboard) so generated SDKs know where it goes"].join(""), T, f, Y, f + 14 + K(h)], null), d(F(e)));
           }
           return null;
         }
@@ -22900,7 +23054,7 @@ var init_main = __esm({
         for (var e = c; ; ) {
           var f = C(e);
           if (f) {
-            var g = f, h = D(g), k = Ve(h), m = y(k, Yl), p = y(k, Ml), q = y(k, ll), t = y(k, Vj), v = y(k, um);
+            var g = f, h = D(g), k = Ve(h), m = y(k, Ul), p = y(k, Ml), q = y(k, il), t = y(k, Vj), v = y(k, um);
             if (u(m) && (f = C((/* @__PURE__ */ (function(A, E, B, I, Q, H, O, S, ca, ua) {
               return function da(V) {
                 return new ve(null, /* @__PURE__ */ (function(Ra, oa, Va, ra, Ab, dd, sb, sc) {
@@ -22911,21 +23065,21 @@ var init_main = __esm({
                         return (function() {
                           for (var Tc = 0; ; ) if (Tc < Lc) {
                             var Ud = Ua(tc, Tc), Vd = Bt(a, Ud), Je = Ve(Vd);
-                            Vd = y(Je, Hk);
-                            Je = y(Je, Wl);
+                            Vd = y(Je, Gk);
+                            Je = y(Je, Sl);
                             var Vg = Vd;
-                            u(u(Vg) ? Vg : Je) && (Vg = Td, Ud = new r(null, 4, [Gj, uk, kj, u(Vd) ? ["@batch '", w.g(Ab), "' references unknown operation '", w.g(Ud), "'"].join("") : ["@batch '", w.g(Ab), "' \u2014 '", w.g(Ud), "' is ambiguous: ", on(", ", vf.h(At, Je)), " \u2014 qualify the reference"].join(""), T, sb, Y, u(sc) ? sc : sb + 1], null), Vg.add(Ud));
+                            u(u(Vg) ? Vg : Je) && (Vg = Td, Ud = new r(null, 4, [Jj, tk, kj, u(Vd) ? ["@batch '", w.g(Ab), "' references unknown operation '", w.g(Ud), "'"].join("") : ["@batch '", w.g(Ab), "' \u2014 '", w.g(Ud), "' is ambiguous: ", on(", ", vf.h(At, Je)), " \u2014 qualify the reference"].join(""), T, sb, Y, u(sc) ? sc : sb + 1], null), Vg.add(Ud));
                             Tc += 1;
                           } else return true;
                         })() ? Be(De(Td), da(Wb(Mb))) : Be(De(Td), null);
                       }
                       var Dd = D(Mb), fc = Bt(a, Dd);
                       fc = Ve(fc);
-                      var pd = y(fc, Hk), hf = y(fc, Wl);
+                      var pd = y(fc, Gk), hf = y(fc, Sl);
                       if (u((function() {
                         var Tc = pd;
                         return u(Tc) ? Tc : hf;
-                      })())) return ed(new r(null, 4, [Gj, uk, kj, u(pd) ? [
+                      })())) return ed(new r(null, 4, [Jj, tk, kj, u(pd) ? [
                         "@batch '",
                         w.g(Ab),
                         "' references unknown operation '",
@@ -22969,7 +23123,7 @@ var init_main = __esm({
     var f = (function() {
       var p = C(nf(function(q) {
         var t = rk.g(q);
-        t = u(t) ? t : Yl.g(q);
+        t = u(t) ? t : Ul.g(q);
         return u(t) ? Vj.g(q) : null;
       }, b));
       return p ? Qe(ee, p) : null;
@@ -23009,27 +23163,27 @@ var init_main = __esm({
                     return function() {
                       var Lc;
                       if (Lc = J.h(dd, "namespace")) Lc = jd(Sh(/^@namespace\s+(\S+)/, Mb)), Lc = u(Lc) ? Ba(Rh(/[a-z][a-z0-9_]*/, Lc)) : null;
-                      return u(Lc) ? new r(null, 4, [Gj, Zl, kj, "@namespace should be snake_case, like entity names (e.g. movie_genre)", T, tc, Y, sb], null) : null;
+                      return u(Lc) ? new r(null, 4, [Jj, Vl, kj, "@namespace should be snake_case, like entity names (e.g. movie_genre)", T, tc, Y, sb], null) : null;
                     };
                   })(ab, v, oa, Va, V, da, Ra, B, I, Q, E, A, f, g, h, e, k, d, m, c), Va = Ba((function() {
                     var ra = st.g ? st.g(oa) : st.call(null, oa);
                     return u(ra) ? ra : tt.g ? tt.g(oa) : tt.call(null, oa);
-                  })()) ? new r(null, 4, [Gj, uk, kj, ["unknown declaration '@", w.g(oa), "'"].join(""), T, Ra, Y, Va], null) : u((function() {
+                  })()) ? new r(null, 4, [Jj, tk, kj, ["unknown declaration '@", w.g(oa), "'"].join(""), T, Ra, Y, Va], null) : u((function() {
                     var ra = tt.g ? tt.g(oa) : tt.call(null, oa);
                     return u(ra) ? u(f) ? Ra > f : f : ra;
-                  })()) ? new r(null, 4, [Gj, uk, kj, ["@", w.g(oa), " must appear before the first operation"].join(""), T, Ra, Y, Va], null) : u((function() {
+                  })()) ? new r(null, 4, [Jj, tk, kj, ["@", w.g(oa), " must appear before the first operation"].join(""), T, Ra, Y, Va], null) : u((function() {
                     var ra = st.g ? st.g(oa) : st.call(null, oa);
                     return u(ra) ? !d(Ra) : ra;
                   })()) ? null == f || Ra < f ? J.h(oa, "namespace") ? V() : new r(null, 4, [
-                    Gj,
-                    Zl,
+                    Jj,
+                    Vl,
                     kj,
                     ["@", w.g(oa), " before the first operation attaches to nothing and is ignored"].join(""),
                     T,
                     Ra,
                     Y,
                     Va
-                  ], null) : new r(null, 4, [Gj, uk, kj, ["@", w.g(oa), " must sit in an operation header, directly after its @verb line"].join(""), T, Ra, Y, Va], null) : V(), u(Va) && Q.add(Va));
+                  ], null) : new r(null, 4, [Jj, tk, kj, ["@", w.g(oa), " must sit in an operation header, directly after its @verb line"].join(""), T, Ra, Y, Va], null) : V(), u(Va) && Q.add(Va));
                   ab += 1;
                 } else return true;
               })() ? Be(De(Q), t(Wb(E))) : Be(De(Q), null);
@@ -23042,24 +23196,24 @@ var init_main = __esm({
               return function() {
                 var ra;
                 if (ra = J.h(V, "namespace")) ra = jd(Sh(/^@namespace\s+(\S+)/, oa)), ra = u(ra) ? Ba(Rh(/[a-z][a-z0-9_]*/, ra)) : null;
-                return u(ra) ? new r(null, 4, [Gj, Zl, kj, "@namespace should be snake_case, like entity names (e.g. movie_genre)", T, Va, Y, da], null) : null;
+                return u(ra) ? new r(null, 4, [Jj, Vl, kj, "@namespace should be snake_case, like entity names (e.g. movie_genre)", T, Va, Y, da], null) : null;
               };
             })(v, ca, ua, H, O, S, E, A, f, g, h, e, k, d, m, c), ua = Ba((function() {
               var ab = st.g ? st.g(ca) : st.call(null, ca);
               return u(ab) ? ab : tt.g ? tt.g(ca) : tt.call(null, ca);
-            })()) ? new r(null, 4, [Gj, uk, kj, ["unknown declaration '@", w.g(ca), "'"].join(""), T, S, Y, ua], null) : u((function() {
+            })()) ? new r(null, 4, [Jj, tk, kj, ["unknown declaration '@", w.g(ca), "'"].join(""), T, S, Y, ua], null) : u((function() {
               var ab = tt.g ? tt.g(ca) : tt.call(
                 null,
                 ca
               );
               return u(ab) ? u(f) ? S > f : f : ab;
-            })()) ? new r(null, 4, [Gj, uk, kj, ["@", w.g(ca), " must appear before the first operation"].join(""), T, S, Y, ua], null) : u((function() {
+            })()) ? new r(null, 4, [Jj, tk, kj, ["@", w.g(ca), " must appear before the first operation"].join(""), T, S, Y, ua], null) : u((function() {
               var ab = st.g ? st.g(ca) : st.call(null, ca);
               return u(ab) ? !d(S) : ab;
-            })()) ? null == f || S < f ? J.h(ca, "namespace") ? H() : new r(null, 4, [Gj, Zl, kj, ["@", w.g(ca), " before the first operation attaches to nothing and is ignored"].join(""), T, S, Y, ua], null) : new r(
+            })()) ? null == f || S < f ? J.h(ca, "namespace") ? H() : new r(null, 4, [Jj, Vl, kj, ["@", w.g(ca), " before the first operation attaches to nothing and is ignored"].join(""), T, S, Y, ua], null) : new r(
               null,
               4,
-              [Gj, uk, kj, ["@", w.g(ca), " must sit in an operation header, directly after its @verb line"].join(""), T, S, Y, ua],
+              [Jj, tk, kj, ["@", w.g(ca), " must sit in an operation header, directly after its @verb line"].join(""), T, S, Y, ua],
               null
             ) : H(), u(ua))) return ed(ua, t(F(E)));
             v = F(E);
@@ -23081,7 +23235,7 @@ var init_main = __esm({
     } else return c;
   }
   function Kt(a, b) {
-    return u(Vl.g(b)) ? (function e(d) {
+    return u(Rl.g(b)) ? (function e(d) {
       return new ve(null, function() {
         for (var f = d; ; ) {
           var g = C(f);
@@ -23097,7 +23251,7 @@ var init_main = __esm({
                   })(), Va = /* @__PURE__ */ (function() {
                     return function(ra) {
                       if (u(Rh(It, u(ra) ? ra : ""))) var Ab = null;
-                      else Ab = w.g(ra), ra = (u(ra) ? ra : "").toLowerCase(), ra = u(Pf(b, new P(null, 2, 5, R, [Vl, ra], null))) ? ['; use "', ra, '"'].join("") : null, Ab = ["'", Ab, "' \u2014 identifiers are snake_case", ra].join("");
+                      else Ab = w.g(ra), ra = (u(ra) ? ra : "").toLowerCase(), ra = u(Pf(b, new P(null, 2, 5, R, [Rl, ra], null))) ? ['; use "', ra, '"'].join("") : null, Ab = ["'", Ab, "' \u2014 identifiers are snake_case", ra].join("");
                       return Ab;
                     };
                   })(O, f, V, da, Ra, oa, S, ca, ua, ab, k, m, p, h, g);
@@ -23111,22 +23265,22 @@ var init_main = __esm({
                     if (u(ra)) return ra;
                     var Ab = D(oa);
                     for (ra = F(oa); ; ) {
-                      if (Ba(Pf(b, new P(null, 2, 5, R, [Vl, Ab], null)))) return [
+                      if (Ba(Pf(b, new P(null, 2, 5, R, [Rl, Ab], null)))) return [
                         "unknown entity '",
                         w.g(Ab),
                         "'"
                       ].join("");
                       if (C(ra)) {
-                        var dd = Pf(b, new P(null, 5, 5, R, [Vl, Ab, Zi, D(ra), cn], null));
+                        var dd = Pf(b, new P(null, 5, 5, R, [Rl, Ab, bj, D(ra), dn], null));
                         if (u(dd)) ra = F(ra), Ab = dd;
                         else return ["entity '", w.g(Ab), "' has no relation '", w.g(D(ra)), "'"].join("");
                       } else return u((function() {
                         var sb = Ra;
-                        return u(sb) ? !ha(Ra, "_") && Ba(Pf(b, new P(null, 4, 5, R, [Vl, Ab, fm, Ra], null))) : sb;
+                        return u(sb) ? !ha(Ra, "_") && Ba(Pf(b, new P(null, 4, 5, R, [Rl, Ab, em, Ra], null))) : sb;
                       })()) ? ["entity '", w.g(Ab), "' has no attribute '", Ra, "'"].join("") : null;
                     }
                   })();
-                  u(S) && Ce(p, new r(null, 4, [Gj, uk, kj, S, T, ca, Y, ua + 1], null));
+                  u(S) && Ce(p, new r(null, 4, [Jj, tk, kj, S, T, ca, Y, ua + 1], null));
                   O += 1;
                 } else return true;
               })() ? Be(De(p), e(Wb(h))) : Be(De(p), null);
@@ -23141,7 +23295,7 @@ var init_main = __esm({
             })(), H = /* @__PURE__ */ (function() {
               return function(O) {
                 if (u(Rh(It, u(O) ? O : ""))) var S = null;
-                else S = w.g(O), O = (u(O) ? O : "").toLowerCase(), O = u(Pf(b, new P(null, 2, 5, R, [Vl, O], null))) ? ['; use "', O, '"'].join("") : null, S = ["'", S, "' \u2014 identifiers are snake_case", O].join("");
+                else S = w.g(O), O = (u(O) ? O : "").toLowerCase(), O = u(Pf(b, new P(null, 2, 5, R, [Rl, O], null))) ? ['; use "', O, '"'].join("") : null, S = ["'", S, "' \u2014 identifiers are snake_case", O].join("");
                 return S;
               };
             })(f, E, B, I, Q, q, t, v, A, h, g);
@@ -23155,18 +23309,18 @@ var init_main = __esm({
               if (u(O)) return O;
               var S = D(Q);
               for (O = F(Q); ; ) {
-                if (Ba(Pf(b, new P(null, 2, 5, R, [Vl, S], null)))) return ["unknown entity '", w.g(S), "'"].join("");
+                if (Ba(Pf(b, new P(null, 2, 5, R, [Rl, S], null)))) return ["unknown entity '", w.g(S), "'"].join("");
                 if (C(O)) {
-                  var ca = Pf(b, new P(null, 5, 5, R, [Vl, S, Zi, D(O), cn], null));
+                  var ca = Pf(b, new P(null, 5, 5, R, [Rl, S, bj, D(O), dn], null));
                   if (u(ca)) O = F(O), S = ca;
                   else return ["entity '", w.g(S), "' has no relation '", w.g(D(O)), "'"].join("");
                 } else return u((function() {
                   var ua = I;
-                  return u(ua) ? !ha(I, "_") && Ba(Pf(b, new P(null, 4, 5, R, [Vl, S, fm, I], null))) : ua;
+                  return u(ua) ? !ha(I, "_") && Ba(Pf(b, new P(null, 4, 5, R, [Rl, S, em, I], null))) : ua;
                 })()) ? ["entity '", w.g(S), "' has no attribute '", I, "'"].join("") : null;
               }
             })();
-            if (u(q)) return ed(new r(null, 4, [Gj, uk, kj, q, T, t, Y, v + 1], null), e(F(h)));
+            if (u(q)) return ed(new r(null, 4, [Jj, tk, kj, q, T, t, Y, v + 1], null), e(F(h)));
             f = F(h);
           } else return null;
         }
@@ -23180,8 +23334,8 @@ var init_main = __esm({
         for (var f = d; ; ) {
           var g = C(f);
           if (g) {
-            var h = g, k = D(h), m = Ve(k), p = y(m, vj), q = y(m, Z), t = y(m, ik), v = y(m, T), A = y(m, Y);
-            if (J.h(Il, p) && J.h(Wm, q) && C(t) && (g = C((/* @__PURE__ */ (function(E, B, I, Q, H, O, S, ca, ua, ab, V) {
+            var h = g, k = D(h), m = Ve(k), p = y(m, zj), q = y(m, Z), t = y(m, ik), v = y(m, T), A = y(m, Y);
+            if (J.h(Fl, p) && J.h(Wm, q) && C(t) && (g = C((/* @__PURE__ */ (function(E, B, I, Q, H, O, S, ca, ua, ab, V) {
               return function oa(Ra) {
                 return new ve(null, /* @__PURE__ */ (function(Va, ra, Ab, dd, sb, sc, Mb, tc, Lc, Td, Dd) {
                   return function() {
@@ -23192,7 +23346,7 @@ var init_main = __esm({
                           var Vd = Ua(pd, Ud);
                           if (!Md(Dd, Vd)) {
                             var Je = Tc;
-                            Vd = new r(null, 4, [Gj, Zl, kj, ["'", w.g(Vd), "' is not one of this query's output columns (", on(", ", Qd(Dd)), ")"].join(""), T, Mb, Y, tc], null);
+                            Vd = new r(null, 4, [Jj, Vl, kj, ["'", w.g(Vd), "' is not one of this query's output columns (", on(", ", Qd(Dd)), ")"].join(""), T, Mb, Y, tc], null);
                             Je.add(Vd);
                           }
                           Ud += 1;
@@ -23204,7 +23358,7 @@ var init_main = __esm({
                       }
                       Tc = D(fc);
                       if (Md(Dd, Tc)) fc = F(fc);
-                      else return ed(new r(null, 4, [Gj, Zl, kj, ["'", w.g(Tc), "' is not one of this query's output columns (", on(", ", Qd(Dd)), ")"].join(""), T, Mb, Y, tc], null), oa(F(fc)));
+                      else return ed(new r(null, 4, [Jj, Vl, kj, ["'", w.g(Tc), "' is not one of this query's output columns (", on(", ", Qd(Dd)), ")"].join(""), T, Mb, Y, tc], null), oa(F(fc)));
                     } else return null;
                   };
                 })(E, B, I, Q, H, O, S, ca, ua, ab, V), null, null);
@@ -23233,18 +23387,18 @@ var init_main = __esm({
     b = y(c, Rj);
     c = y(c, Em);
     return Ge.u(vf.h(function(d) {
-      return qd.i(d, Gj, uk);
+      return qd.i(d, Jj, tk);
     }, b), vf.h(function(d) {
-      return qd.i(d, Gj, Zl);
+      return qd.i(d, Jj, Vl);
     }, c), fd([Lt(a)]));
   }
   function Ot(a, b) {
     var c = yt(a);
     return ng(Ge.u(Ct(c), Et(c), fd([Ft(c), Gt(a, c), Df(
       function(d) {
-        var e = Ve(d), f = y(e, rk), g = y(e, El), h = y(e, rm);
+        var e = Ve(d), f = y(e, rk), g = y(e, Al), h = y(e, rm);
         d = y(e, fk);
-        var k = y(e, Kl);
+        var k = y(e, Gl);
         e = y(e, Rj);
         return Ge.u(e, u(u(d) ? C(ia(u(g) ? g : "")) : d) ? (function() {
           return (function q(p) {
@@ -23311,44 +23465,44 @@ var init_main = __esm({
   function Pt(a, b) {
     var c = K(a);
     return Mf(function(d, e) {
-      return qd.i(e, fj, d + 1 < c ? Vj.g(Yc(a, d + 1)) : K(b));
+      return qd.i(e, ij, d + 1 < c ? Vj.g(Yc(a, d + 1)) : K(b));
     }, 0 >= c ? Cc : Ld(0) && Ld(c) && Ld(1) ? new Jh(null, 0, c, 1, Math.ceil(c - 0), null) : new Kh(null, 0, c, 1, null, null, null), a);
   }
-  var Qt = new P(null, 16, 5, R, [new r(null, 4, [Ol, "@search", Z, "keyword", Rl, "Operations", Cm, "query \u2014 matching rows"], null), new r(null, 4, [Ol, "@get", Z, "keyword", Rl, "Operations", Cm, "query \u2014 one row by identity"], null), new r(null, 4, [Ol, "@search-tree", Z, "keyword", Rl, "Operations", Cm, "query \u2014 matches + ancestors via on"], null), new r(null, 4, [Ol, "@get-tree", Z, "keyword", Rl, "Operations", Cm, "query \u2014 root + descendants via on"], null), new r(
+  var Qt = new P(null, 16, 5, R, [new r(null, 4, [Hl, "@search", Z, "keyword", Kl, "Operations", Cm, "query \u2014 matching rows"], null), new r(null, 4, [Hl, "@get", Z, "keyword", Kl, "Operations", Cm, "query \u2014 one row by identity"], null), new r(null, 4, [Hl, "@search-tree", Z, "keyword", Kl, "Operations", Cm, "query \u2014 matches + ancestors via on"], null), new r(null, 4, [Hl, "@get-tree", Z, "keyword", Kl, "Operations", Cm, "query \u2014 root + descendants via on"], null), new r(
     null,
     4,
-    [Ol, "@sql-template", Z, "keyword", Rl, "Operations", Cm, "raw SQL, {Entity.field} placeholders"],
+    [Hl, "@sql-template", Z, "keyword", Kl, "Operations", Cm, "raw SQL, {Entity.field} placeholders"],
     null
-  ), new r(null, 4, [Ol, "@slice", Z, "keyword", Rl, "Operations", Cm, "destroy \u2014 slice matched rows"], null), new r(null, 4, [Ol, "@purge", Z, "keyword", Rl, "Operations", Cm, "destroy \u2014 delete matched rows"], null), new r(null, 4, [Ol, "@sync", Z, "keyword", Rl, "Operations", Cm, "mutate \u2014 declarative records"], null), new r(null, 4, [Ol, "@stack", Z, "keyword", Rl, "Operations", Cm, "mutate \u2014 additive records"], null), new r(null, 4, [Ol, "@delete", Z, "keyword", Rl, "Operations", Cm, "mutate \u2014 by ids"], null), new r(null, 4, [
-    Ol,
+  ), new r(null, 4, [Hl, "@slice", Z, "keyword", Kl, "Operations", Cm, "destroy \u2014 slice matched rows"], null), new r(null, 4, [Hl, "@purge", Z, "keyword", Kl, "Operations", Cm, "destroy \u2014 delete matched rows"], null), new r(null, 4, [Hl, "@sync", Z, "keyword", Kl, "Operations", Cm, "mutate \u2014 declarative records"], null), new r(null, 4, [Hl, "@stack", Z, "keyword", Kl, "Operations", Cm, "mutate \u2014 additive records"], null), new r(null, 4, [Hl, "@delete", Z, "keyword", Kl, "Operations", Cm, "mutate \u2014 by ids"], null), new r(null, 4, [
+    Hl,
     "@description",
     Z,
     "keyword",
-    Rl,
+    Kl,
     "Directives",
     Cm,
     "document the op above"
-  ], null), new r(null, 4, [Ol, "@namespace", Z, "keyword", Rl, "Directives", Cm, "codegen namespace"], null), new r(null, 4, [Ol, "@returns", Z, "keyword", Rl, "Directives", Cm, "sql-template result columns \u2014 name:type, \u2026"], null), new r(null, 4, [Ol, "@watch", Z, "keyword", Rl, "Directives", Cm, "sql-template live deps \u2014 entity list"], null), new r(null, 4, [Ol, "@workspace", Z, "keyword", Rl, "Directives", Cm, 'console workspace \u2014 e.g. @workspace "My Queries"'], null), new r(null, 4, [
-    Ol,
+  ], null), new r(null, 4, [Hl, "@namespace", Z, "keyword", Kl, "Directives", Cm, "codegen namespace"], null), new r(null, 4, [Hl, "@returns", Z, "keyword", Kl, "Directives", Cm, "sql-template result columns \u2014 name:type, \u2026"], null), new r(null, 4, [Hl, "@watch", Z, "keyword", Kl, "Directives", Cm, "sql-template live deps \u2014 entity list"], null), new r(null, 4, [Hl, "@workspace", Z, "keyword", Kl, "Directives", Cm, 'console workspace \u2014 e.g. @workspace "My Queries"'], null), new r(null, 4, [
+    Hl,
     "@batch",
     Z,
     "keyword",
-    Rl,
+    Kl,
     "Directives",
     Cm,
     "named composition of ops"
   ], null)], null), Rt = new P(null, 6, 5, R, "int float string boolean timestamp uuid".split(" "), null), St = Lf(function(a) {
-    return new r(null, 3, [Ol, a, Z, "type", Cm, "@returns column type"], null);
+    return new r(null, 3, [Hl, a, Z, "type", Cm, "@returns column type"], null);
   }, Rt);
   function Tt(a, b) {
     a: for (var c = b; ; ) if (0 < c && Xe("\n", a.charAt(c - 1))) --c;
     else break a;
     a = a.substring(c, b);
-    return u(Sh(/^@returns\s/, a)) && (a = Sh(/:\s*([A-Za-z_][A-Za-z0-9_]*)?$/, a), u(a)) ? (N(a, 0, null), a = N(a, 1, null), new r(null, 3, [T, b - K(u(a) ? a : ""), Y, b, Dl, St], null)) : null;
+    return u(Sh(/^@returns\s/, a)) && (a = Sh(/:\s*([A-Za-z_][A-Za-z0-9_]*)?$/, a), u(a)) ? (N(a, 0, null), a = N(a, 1, null), new r(null, 3, [T, b - K(u(a) ? a : ""), Y, b, zl, St], null)) : null;
   }
   function Ut(a, b, c, d) {
     if (u((function() {
-      var f = Kl.g(c);
+      var f = Gl.g(c);
       return u(f) ? u(d) ? (f = rm.g(c), u(f) ? b >= rm.g(c) : f) : d : f;
     })())) {
       var e = (function() {
@@ -23356,9 +23510,9 @@ var init_main = __esm({
         else return f;
       })();
       e = Sh(/^\s*\?\w+:([A-Za-z0-9_]*)$/, a.substring(e, b));
-      if (u(e)) return N(e, 0, null), e = N(e, 1, null), new r(null, 3, [T, b - K(e), Y, b, Dl, Lf(function(f) {
-        return new r(null, 4, [Ol, f, Z, "type", Cm, "records", ak, [w.g(f), "[]"].join("")], null);
-      }, Qd(Kg(Vl.g(d))))], null);
+      if (u(e)) return N(e, 0, null), e = N(e, 1, null), new r(null, 3, [T, b - K(e), Y, b, zl, Lf(function(f) {
+        return new r(null, 4, [Hl, f, Z, "type", Cm, "records", ak, [w.g(f), "[]"].join("")], null);
+      }, Qd(Kg(Rl.g(d))))], null);
     }
     return null;
   }
@@ -23375,7 +23529,7 @@ var init_main = __esm({
           else return f;
         }
       })();
-      return b <= e ? new r(null, 3, [T, c, Y, e, Dl, Qt], null) : null;
+      return b <= e ? new r(null, 3, [T, c, Y, e, zl, Qt], null) : null;
     }
     return null;
   }
@@ -23384,32 +23538,32 @@ var init_main = __esm({
     b = D(c);
     c = G(c);
     return Ka(function(d, e) {
-      d = Pf(a, new P(null, 5, 5, R, [Vl, d, Zi, e, cn], null));
+      d = Pf(a, new P(null, 5, 5, R, [Rl, d, bj, e, dn], null));
       return u(d) ? d : new Mc(null);
-    }, u(Pf(a, new P(null, 2, 5, R, [Vl, b], null))) ? b : null, c);
+    }, u(Pf(a, new P(null, 2, 5, R, [Rl, b], null))) ? b : null, c);
   }
   function Xt(a) {
     return Lf(function(b) {
-      return new r(null, 3, [Ol, b, Z, "class", Cm, "entity"], null);
-    }, Qd(Kg(Vl.g(a))));
+      return new r(null, 3, [Hl, b, Z, "class", Cm, "entity"], null);
+    }, Qd(Kg(Rl.g(a))));
   }
   function Yt(a, b) {
     return Lf(function(c) {
       var d = N(c, 0, null);
       c = N(c, 1, null);
       var e = Ve(c);
-      c = y(e, cn);
-      e = y(e, pj);
-      return new r(null, 4, [Ol, d, Z, "property", Rl, "Relations", Cm, [w.g(c), u(e) ? [" \xB7 ", w.g(e)].join("") : null].join("")], null);
-    }, Wd(pg, Pf(a, new P(null, 3, 5, R, [Vl, b, Zi], null))));
+      c = y(e, dn);
+      e = y(e, vj);
+      return new r(null, 4, [Hl, d, Z, "property", Kl, "Relations", Cm, [w.g(c), u(e) ? [" \xB7 ", w.g(e)].join("") : null].join("")], null);
+    }, Wd(pg, Pf(a, new P(null, 3, 5, R, [Rl, b, bj], null))));
   }
   function Zt(a, b) {
     return Lf(function(c) {
       var d = N(c, 0, null);
       c = N(c, 1, null);
       c = Z.g(c);
-      return new r(null, 4, [Ol, d, Z, "property", Rl, "Attributes", Cm, u(c) ? c : "string"], null);
-    }, Wd(pg, Pf(a, new P(null, 3, 5, R, [Vl, b, fm], null))));
+      return new r(null, 4, [Hl, d, Z, "property", Kl, "Attributes", Cm, u(c) ? c : "string"], null);
+    }, Wd(pg, Pf(a, new P(null, 3, 5, R, [Rl, b, em], null))));
   }
   function $t(a, b, c) {
     a = a.substring(0, b);
@@ -23426,14 +23580,14 @@ var init_main = __esm({
         var k = Ba(f);
         return k ? h : k;
       })()) ? un(h, ".") : null;
-      if (u(f)) return d = Wt(c, d), u(d) ? new r(null, 3, [T, b, Y, b, Dl, Yt(c, d)], null) : null;
+      if (u(f)) return d = Wt(c, d), u(d) ? new r(null, 3, [T, b, Y, b, zl, Yt(c, d)], null) : null;
       if (u(e)) return a = h.substring(e + 1), d = M.h(
         xd(d),
         h.substring(0, e)
-      ), d = Wt(c, d), u(d) ? new r(null, 3, [T, b - a.length, Y, b, Dl, Zt(c, d)], null) : null;
-      if (J.h(1, K(d))) return new r(null, 3, [T, b - K(h), Y, b, Dl, Xt(c)], null);
+      ), d = Wt(c, d), u(d) ? new r(null, 3, [T, b - a.length, Y, b, zl, Zt(c, d)], null) : null;
+      if (J.h(1, K(d))) return new r(null, 3, [T, b - K(h), Y, b, zl, Xt(c)], null);
       d = Wt(c, xd(d));
-      if (u(d)) return a = d, new r(null, 3, [T, b - K(h), Y, b, Dl, Yt(c, a)], null);
+      if (u(d)) return a = d, new r(null, 3, [T, b - K(h), Y, b, zl, Yt(c, a)], null);
     }
     return null;
   }
@@ -23449,9 +23603,9 @@ var init_main = __esm({
       g = null == g ? null : g.toLowerCase();
       return null == g ? null : nn(g, /\s+/, " ");
     })();
-    return Md(new Ah(null, new r(null, 2, ["group by", null, "order by", null], null), null), f) ? (a = Mt(a), C(a) ? new r(null, 3, [T, b - K(d), Y, b, Dl, Lf(function(g) {
+    return Md(new Ah(null, new r(null, 2, ["group by", null, "order by", null], null), null), f) ? (a = Mt(a), C(a) ? new r(null, 3, [T, b - K(d), Y, b, zl, Lf(function(g) {
       return new r(null, 3, [
-        Ol,
+        Hl,
         g,
         Z,
         "property",
@@ -23469,8 +23623,8 @@ var init_main = __esm({
       c = u(c) ? c : "";
       d = a.length - K(d);
       a = u(Sh(Fq, a.substring(0, d))) ? new P(null, 1, 5, R, ["order"], null) : Rt;
-      return new r(null, 3, [T, b - K(c), Y, b, Dl, Lf(function(e) {
-        return new r(null, 2, [Ol, e, Z, "type"], null);
+      return new r(null, 3, [T, b - K(c), Y, b, zl, Lf(function(e) {
+        return new r(null, 2, [Hl, e, Z, "type"], null);
       }, a)], null);
     }
     return null;
@@ -23493,8 +23647,8 @@ var init_main = __esm({
         var e = Sh(/[A-Za-z_][A-Za-z0-9_]*$/, a.substring(0, b));
         return u(e) ? e : "";
       })();
-      return C(c) ? new r(null, 3, [T, b - K(d), Y, b, Dl, Lf(function(e) {
-        return new r(null, 3, [Ol, e, Z, "property", Cm, "output column"], null);
+      return C(c) ? new r(null, 3, [T, b - K(d), Y, b, zl, Lf(function(e) {
+        return new r(null, 3, [Hl, e, Z, "property", Cm, "output column"], null);
       }, c)], null) : null;
     }
     return null;
@@ -23503,7 +23657,7 @@ var init_main = __esm({
     if (u((function() {
       if (u(c)) {
         var f = fk.g(c);
-        return u(f) ? C(El.g(c)) : f;
+        return u(f) ? C(Al.g(c)) : f;
       }
       return c;
     })())) {
@@ -23514,9 +23668,9 @@ var init_main = __esm({
       d = a.substring(d, b);
       if (u(Sh(/^@returns(\s|$)/, d))) {
         var e = Sh(/(?:@returns\s+|,\s*)([A-Za-z_][A-Za-z0-9_]*)?$/, d);
-        if (u(e)) return N(e, 0, null), e = N(e, 1, null), e = u(e) ? e : "", d = Eh(vf.h(jd, Uh(/([A-Za-z_][A-Za-z0-9_]*)\s*:/, d))), d = Gf(d, Mt(El.g(c))), C(d) ? new r(null, 3, [T, b - K(e), Y, b, Dl, Lf(function(f) {
+        if (u(e)) return N(e, 0, null), e = N(e, 1, null), e = u(e) ? e : "", d = Eh(vf.h(jd, Uh(/([A-Za-z_][A-Za-z0-9_]*)\s*:/, d))), d = Gf(d, Mt(Al.g(c))), C(d) ? new r(null, 3, [T, b - K(e), Y, b, zl, Lf(function(f) {
           return new r(null, 3, [
-            Ol,
+            Hl,
             f,
             Z,
             "property",
@@ -23548,8 +23702,8 @@ var init_main = __esm({
   }
   function fu(a, b) {
     var c = Sh(/\?[a-z_][a-z0-9_]*\??:([a-zA-Z]*)$/, a.substring(0, b));
-    return u(c) ? (N(c, 0, null), c = N(c, 1, null), c = u(c) ? c : "", a = u(eu(a, b)) ? new P(null, 1, 5, R, ["order"], null) : Rt, new r(null, 3, [T, b - K(c), Y, b, Dl, Lf(function(d) {
-      return new r(null, 2, [Ol, d, Z, "type"], null);
+    return u(c) ? (N(c, 0, null), c = N(c, 1, null), c = u(c) ? c : "", a = u(eu(a, b)) ? new P(null, 1, 5, R, ["order"], null) : Rt, new r(null, 3, [T, b - K(c), Y, b, zl, Lf(function(d) {
+      return new r(null, 2, [Hl, d, Z, "type"], null);
     }, a)], null)) : null;
   }
   function gu(a, b, c, d) {
@@ -23564,17 +23718,23 @@ var init_main = __esm({
         } else --f;
       }
     })();
-    return u(u(e) ? u(c) ? Sh(/\?[a-z_][a-z0-9_]*\??(?::[a-zA-Z]+)?$/, a.substring(0, e)) : c : e) ? (c = Fs(new r(null, 5, [Qk, a, Tj, b, Jk, c, Wi, null, rk, d], null)), d = Nf(function(f) {
+    return u(u(e) ? u(c) ? Sh(/\?[a-z_][a-z0-9_]*\??(?::[a-zA-Z]+)?$/, a.substring(0, e)) : c : e) ? (c = Fs(new r(null, 5, [Ok, a, Tj, b, Ik, c, Zi, null, rk, d], null)), d = Kf.i(Nf(function(f) {
       return J.h("attribute", Z.g(f));
-    }, Dl.g(c)), C(d) ? qd.i(c, Dl, d) : null) : null;
+    }, zl.g(c)), vf.g(function(f) {
+      return new r(null, 4, [Hl, f, Z, "property", Kl, "Operations", Cm, "operation"], null);
+    }), Qd(fv(a, b))), C(d) ? qd.i(
+      c,
+      zl,
+      d
+    ) : null) : null;
   }
   function hu(a) {
     a = Ve(a);
-    var b = y(a, Qk), c = xc(a, Tj, 0), d = y(a, Jk);
+    var b = y(a, Ok), c = xc(a, Tj, 0), d = y(a, Ik);
     a = u(b) ? b : "";
     var e = Pt(yt(a), a), f = (function() {
       var k = df(function(m) {
-        return c >= Vj.g(m) && c < fj.g(m) ? m : null;
+        return c >= Vj.g(m) && c < ij.g(m) ? m : null;
       }, e);
       return u(k) ? k : kd(e);
     })();
@@ -23593,7 +23753,7 @@ var init_main = __esm({
       }
       return f;
     })()) ? (function() {
-      var k = El.g(f), m = (function() {
+      var k = Al.g(f), m = (function() {
         var q = c - rm.g(f), t = K(k);
         return q < t ? q : t;
       })(), p = (function() {
@@ -23609,17 +23769,17 @@ var init_main = __esm({
     if (u(a)) return a;
     if (u((function() {
       if (u(f)) {
-        var k = Ba(Yl.g(f));
-        return k ? (k = Ba(Kl.g(f))) ? (k = Ba(fk.g(f))) ? (k = rm.g(f), u(k) ? c >= rm.g(f) : k) : k : k : k;
+        var k = Ba(Ul.g(f));
+        return k ? (k = Ba(Gl.g(f))) ? (k = Ba(fk.g(f))) ? (k = rm.g(f), u(k) ? c >= rm.g(f) : k) : k : k : k;
       }
       return f;
     })())) {
-      var g = El.g(f), h = c - rm.g(f);
+      var g = Al.g(f), h = c - rm.g(f);
       a = (function() {
         var k = gu(g, h, d, rk.g(f));
         if (u(k)) return k;
         k = fu(g, h);
-        return u(k) ? k : Fs(new r(null, 5, [Qk, g, Tj, h, Jk, d, Wi, null, rk, rk.g(f)], null));
+        return u(k) ? k : Fs(new r(null, 5, [Ok, g, Tj, h, Ik, d, Zi, null, rk, rk.g(f)], null));
       })();
       return Rf.B(
         Rf.B(a, T, de, rm.g(f)),
@@ -23628,36 +23788,36 @@ var init_main = __esm({
         rm.g(f)
       );
     }
-    return new r(null, 3, [T, c, Y, c, Dl, ld], null);
+    return new r(null, 3, [T, c, Y, c, zl, ld], null);
   }
   function iu(a) {
     var b = Ve(a);
-    a = y(b, Qk);
+    a = y(b, Ok);
     var c = xc(b, Tj, 0);
-    b = y(b, Jk);
+    b = y(b, Ik);
     var d = Pt(yt(u(a) ? a : ""), u(a) ? a : ""), e = (function() {
       var f = df(function(g) {
-        return c >= Vj.g(g) && c < fj.g(g) ? g : null;
+        return c >= Vj.g(g) && c < ij.g(g) ? g : null;
       }, d);
       return u(f) ? f : kd(d);
     })();
     return u((function() {
       if (u(e)) {
-        var f = Ba(Yl.g(e));
-        return f ? (f = Ba(Kl.g(e))) ? (f = Ba(fk.g(e))) ? (f = rm.g(e), u(f) ? c >= rm.g(e) : f) : f : f : f;
+        var f = Ba(Ul.g(e));
+        return f ? (f = Ba(Gl.g(e))) ? (f = Ba(fk.g(e))) ? (f = rm.g(e), u(f) ? c >= rm.g(e) : f) : f : f : f;
       }
       return e;
-    })()) ? qd.u(Js(new r(null, 4, [Qk, El.g(e), Tj, c - rm.g(e), Jk, b, Wi, null], null)), rk, rk.g(e), fd([rm, rm.g(e), il, fj.g(e)])) : new r(null, 1, [Fl, an], null);
+    })()) ? qd.u(Js(new r(null, 4, [Ok, Al.g(e), Tj, c - rm.g(e), Ik, b, Zi, null], null)), rk, rk.g(e), fd([rm, rm.g(e), fl, ij.g(e)])) : new r(null, 1, [Bl, bn], null);
   }
   ;
   function ju(a) {
-    return new r(null, 1, [Vl, Kf.i(We, vf.g(function(b) {
+    return new r(null, 1, [Rl, Kf.i(We, vf.g(function(b) {
       var c = N(b, 0, null);
       b = N(b, 1, null);
       var d = Kf.i(Ch, gf.h(Ef(function(e) {
         return J.h(1, K(e));
       }), vf.g(D)), Pf(b, new P(null, 2, 5, R, ["constraints", "unique"], null)));
-      return new P(null, 2, 5, R, [c, new r(null, 2, [fm, Kf.i(We, vf.g(function(e) {
+      return new P(null, 2, 5, R, [c, new r(null, 2, [em, Kf.i(We, vf.g(function(e) {
         var f = N(e, 0, null), g = N(e, 1, null);
         e = R;
         var h = y(g, "type");
@@ -23667,12 +23827,12 @@ var init_main = __esm({
           h
         )) ? "timestamp" : u(Sh(/enum/, h)) ? "enum" : u(Sh(/(string|text|varchar|char)/, h)) ? "string" : h;
         h = new r(null, 2, [Z, h, Fm, Md(d, f)], null);
-        g = u(y(g, "enum")) ? qd.i(h, tk, y(g, "enum")) : h;
+        g = u(y(g, "enum")) ? qd.i(h, sk, y(g, "enum")) : h;
         return new P(null, 2, 5, e, [f, g], null);
-      }), y(b, "attributes")), Zi, Kf.i(We, vf.g(function(e) {
+      }), y(b, "attributes")), bj, Kf.i(We, vf.g(function(e) {
         var f = N(e, 0, null);
         e = N(e, 1, null);
-        return new P(null, 2, 5, R, [f, new r(null, 2, [cn, y(e, "to"), pj, y(e, "cardinality")], null)], null);
+        return new P(null, 2, 5, R, [f, new r(null, 2, [dn, y(e, "to"), vj, y(e, "cardinality")], null)], null);
       }), y(b, "relations"))], null)], null);
     }), y(a, "entities"))], null);
   }
@@ -23703,7 +23863,7 @@ var init_main = __esm({
   function pu(a, b) {
     try {
       jn.watch(a, function() {
-        rf.u(mu, Rf, b, qd, fd([Jk, ou(a)]));
+        rf.u(mu, Rf, b, qd, fd([Ik, ou(a)]));
         for (var c = C(lu.all()), d = null, e = 0, f = 0; ; ) if (f < e) {
           var g = d.H(null, f);
           qu.g ? qu.g(g) : qu.call(null, g);
@@ -23717,11 +23877,11 @@ var init_main = __esm({
   function ru(a) {
     a = kn.dirname(a);
     var b = y(x(mu), a);
-    if (u(b)) return Jk.g(b);
+    if (u(b)) return Ik.g(b);
     b = nu(a);
-    rf.B(mu, qd, a, new r(null, 2, [kk, b, Jk, u(b) ? ou(b) : null], null));
+    rf.B(mu, qd, a, new r(null, 2, [kk, b, Ik, u(b) ? ou(b) : null], null));
     u(b) && pu(b, a);
-    return Jk.g(y(x(mu), a));
+    return Ik.g(y(x(mu), a));
   }
   function su(a) {
     try {
@@ -23732,7 +23892,7 @@ var init_main = __esm({
   }
   function tu(a, b) {
     var c = Ve(b);
-    b = y(c, Gj);
+    b = y(c, Jj);
     var d = y(c, T), e = y(c, Y);
     c = y(c, kj);
     var f = Ks(a, d);
@@ -23747,7 +23907,7 @@ var init_main = __esm({
       default:
         b = gn.DiagnosticSeverity.Information;
     }
-    return { severity: b, range: { start: { line: Qi.g(f) - 1, character: Oj.g(f) - 1 }, end: { line: Qi.g(a) - 1, character: Oj.g(a) - 1 } }, message: c, source: "xsql" };
+    return { severity: b, range: { start: { line: Ti.g(f) - 1, character: Pj.g(f) - 1 }, end: { line: Ti.g(a) - 1, character: Pj.g(a) - 1 } }, message: c, source: "xsql" };
   }
   var uu = pf(We);
   function qu(a) {
@@ -23773,15 +23933,15 @@ var init_main = __esm({
   function xu(a, b) {
     a = Ks(a, b);
     b = Ve(a);
-    a = y(b, Qi);
-    b = y(b, Oj);
+    a = y(b, Ti);
+    b = y(b, Pj);
     return { line: a - 1, character: b - 1 };
   }
   function lf(a, b, c, d) {
     var e = Ve(d);
-    d = y(e, Ol);
+    d = y(e, Hl);
     var f = y(e, Z), g = y(e, Cm);
-    e = y(e, Rl);
+    e = y(e, Kl);
     return { label: d, kind: xc(wu, f, gn.CompletionItemKind.Text), detail: u(u(g) ? e : g) ? [w.g(g), " \u2014 ", w.g(e)].join("") : u(g) ? g : u(e) ? e : null, textEdit: { range: { start: xu(a, b), end: xu(a, c) }, newText: d } };
   }
   function yu(a) {
@@ -23792,14 +23952,14 @@ var init_main = __esm({
     c = vu(a, c.line, c.character);
     var d = ru(su(b));
     try {
-      var e = hu(new r(null, 3, [Qk, a, Tj, c, Jk, d], null));
+      var e = hu(new r(null, 3, [Ok, a, Tj, c, Ik, d], null));
     } catch (f) {
       e = f, console.warn(["[xsql-lsp] complete threw on ", w.g(b), ": ", w.g(e.message)].join("")), e = null;
     }
     c = Ve(e);
     b = y(c, T);
     e = y(c, Y);
-    c = y(c, Dl);
+    c = y(c, zl);
     return pi(Lf(kf(a, b, e), c));
   }
   function zu(a) {
@@ -23830,11 +23990,11 @@ var init_main = __esm({
     else return null;
   }
   function Bu(a, b) {
-    return Pf(a, new P(null, 2, 5, R, [Vl, b], null));
+    return Pf(a, new P(null, 2, 5, R, [Rl, b], null));
   }
   function Cu(a, b) {
     return Ka(function(c, d) {
-      return u(c) ? Bu(a, Pf(c, new P(null, 3, 5, R, [Zi, d, cn], null))) : null;
+      return u(c) ? Bu(a, Pf(c, new P(null, 3, 5, R, [bj, d, dn], null))) : null;
     }, Bu(a, D(b)), F(b));
   }
   function Du(a) {
@@ -23850,35 +24010,23 @@ var init_main = __esm({
       d = y(d, Y);
       var f = ru(su(b));
       try {
-        var g = iu(new r(null, 3, [Qk, a, Tj, d, Jk, f], null));
-      } catch (p) {
+        var g = iu(new r(null, 3, [Ok, a, Tj, d, Ik, f], null));
+      } catch (m) {
         g = null;
       }
       b = kk.g(g);
       e = nn(e, /^->/, "");
       var h = J.h(e, kd(b)) && 1 < K(b);
-      if (h) {
-        a: {
-          var k = ld;
-          for (var m = b; ; ) if (G(m)) k = M.h(k, D(m)), m = G(m);
-          else {
-            k = C(k);
-            break a;
-          }
-        }
-        f = Cu(f, k);
-      } else f = null;
-      f = h ? f : Oi.g(g);
-      h = y(fm.g(f), e);
-      u(h) ? (k = Ve(h), h = y(k, Z), k = y(k, Fm), h = [
-        "**",
-        w.g(e),
-        "** : `",
-        w.g(h),
-        "`",
-        u(k) ? " \xB7 unique" : null
-      ].join("")) : h = null;
-      u(h) ? g = h : (f = y(Zi.g(f), e), u(f) ? (h = Ve(f), f = y(h, cn), h = y(h, pj), f = ["**", w.g(e), "** \u2192 `", w.g(f), "` (", w.g(h), ")"].join("")) : f = null, g = u(f) ? f : J.h(e, kd(b)) ? ["**", e, "** \u2014 entity (", w.g(K(fm.g(Oi.g(g)))), " attrs, ", w.g(K(Zi.g(Oi.g(g)))), " relations)"].join("") : null);
+      f = h ? Cu(f, Ii(b)) : null;
+      f = h ? f : Ri.g(g);
+      h = y(em.g(f), e);
+      if (u(h)) {
+        var k = Ve(h);
+        h = y(k, Z);
+        k = y(k, Fm);
+        h = ["**", w.g(e), "** : `", w.g(h), "`", u(k) ? " \xB7 unique" : null].join("");
+      } else h = null;
+      u(h) ? g = h : (f = y(bj.g(f), e), u(f) ? (h = Ve(f), f = y(h, dn), h = y(h, vj), f = ["**", w.g(e), "** \u2192 `", w.g(f), "` (", w.g(h), ")"].join("")) : f = null, g = u(f) ? f : J.h(e, kd(b)) ? ["**", e, "** \u2014 entity (", w.g(K(em.g(Ri.g(g)))), " attrs, ", w.g(K(bj.g(Ri.g(g)))), " relations)"].join("") : null);
       return u(g) ? { contents: { kind: "markdown", value: g }, range: { start: xu(a, c), end: xu(a, d) } } : null;
     }
     return null;
@@ -23888,7 +24036,7 @@ var init_main = __esm({
     var c = Ve(b);
     b = y(c, rk);
     var d = y(c, Ml), e = y(c, Vj), f = y(c, rm);
-    c = y(c, El);
+    c = y(c, Al);
     return u(u(b) ? d : b) ? (f += K(u(c) ? c : ""), { name: ["@", w.g(b), " ", w.g(d)].join(""), kind: xc(Eu, b, 12), range: { start: xu(a, e), end: xu(a, f) }, selectionRange: { start: xu(a, e), end: xu(a, f) } }) : null;
   }
   function Gu(a) {
@@ -23903,7 +24051,7 @@ var init_main = __esm({
     return pi(ng(nf(jf(Fu, a), b)));
   }
   function Hu() {
-    return { capabilities: { textDocumentSync: gn.TextDocumentSyncKind.Incremental, completionProvider: { triggerCharacters: ["@", ".", "-", " "] }, hoverProvider: true, documentSymbolProvider: true } };
+    return { capabilities: { textDocumentSync: gn.TextDocumentSyncKind.Incremental, completionProvider: { triggerCharacters: ["@", ".", "-", "!", " "] }, hoverProvider: true, documentSymbolProvider: true } };
   }
   ;
   Qe(function() {
